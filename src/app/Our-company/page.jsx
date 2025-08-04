@@ -56,7 +56,7 @@ const OurCompany = () => {
                   <p className="text-gray-600 mb-4">Find out more about</p>
                   <Link
                     href="/What-we-do"
-                    className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200 group"
+                    className="text-1xl md:text-1xl font-extrabold  bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent mb-6 text-center md:text-left"
                   >
                     What We Do
                     <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
@@ -67,7 +67,7 @@ const OurCompany = () => {
                     We are part of{" "}
                     <Link
                       href="https://www.nashsquared.com/"
-                      className="text-indigo-600 hover:text-indigo-800 font-semibold underline decoration-2 underline-offset-2 transition-colors duration-200"
+                      className="text-1xl md:text-1xl font-extrabold  bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent mb-6 text-center md:text-left"
                     >
                       Nash Squared
                     </Link>
@@ -1253,7 +1253,7 @@ const OurCompany = () => {
           <div className="w-full lg:w-80 bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl lg:border-r py-6 border-gray-200/50 h-full mb-6 lg:mb-0">
             <div className="p-4 sm:p-8">
               <div className="mb-6 sm:mb-8">
-                <h2 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                <h2 className="text-lg text-[#00d9a6] font-medium">
                   Quore IT
                 </h2>
                 <p className="text-sm text-gray-500 mt-1">Company Portal</p>
@@ -1271,7 +1271,7 @@ const OurCompany = () => {
                       onClick={() => setActiveSection(item.id)}
                       className={`w-full flex items-center px-3 sm:px-4 py-2 sm:py-3 text-left rounded-xl transition-all duration-200 group ${
                         isActive
-                          ? "bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-lg"
+                          ? "bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] text-white shadow-lg"
                           : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                       }`}
                     >
