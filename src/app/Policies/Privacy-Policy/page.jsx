@@ -1,11 +1,11 @@
  import Link from "next/link";
-import Navbar from "@/components/newNavbar";
-import Footer from "@/components/newFooter";
+// import Navbar from "@/components/newNavbar";
+// import Footer from "@/components/newFooter";
 
 export default function PrivacyNotice() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-gradient-to-r from-[#c5f82a] to-[#00d9a6]">
@@ -2018,7 +2018,7 @@ export default function PrivacyNotice() {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

@@ -2,8 +2,8 @@
 
 import React, { useState, useCallback } from 'react';
 import Link from 'next/link';
-import Navbar from "@/components/newNavbar";
-import Footer from "@/components/newFooter";
+// import Navbar from "@/components/newNavbar";
+// import Footer from "@/components/newFooter";
 
 const ModernSlaveryStatement = () => {
   const [showContactForm, setShowContactForm] = useState(false);
@@ -141,7 +141,7 @@ const ModernSlaveryStatement = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="min-h-screen bg-gray-50">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-8">
           <div className="space-y-8">
@@ -314,7 +314,7 @@ const ModernSlaveryStatement = () => {
           </div>
         )}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

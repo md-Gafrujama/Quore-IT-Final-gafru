@@ -10,9 +10,9 @@ export default function RootLayout({ children }) {
   const pathname = usePathname();
 
   const hiddenPaths = [
-    "/Policies/Privacy-Policy",
-    "/Policies/Cookies-Legal",
-    "/Policies/Modern-Slavery-Statement",
+    // "/Policies/Privacy-Policy",
+    // "/Policies/Cookies-Legal",
+    // "/Policies/Modern-Slavery-Statement",
     "/Policies/Accessibility-statement",
     "/Quick-Links/What-we-do",
     "/Quick-Links/About-us",

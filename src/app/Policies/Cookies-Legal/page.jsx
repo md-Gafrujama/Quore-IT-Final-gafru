@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import Navbar from "@/components/newNavbar";
-import Footer from "@/components/newFooter";
+// import Navbar from "@/components/newNavbar";
+// import Footer from "@/components/newFooter";
 export default function CookiesPage() {
   return (
     <> 
-    <Navbar/>
+    {/* <Navbar/> */}
     <div className="min-h-screen bg-white dark:bg-black text-gray-800 dark:text-gray-200 px-6 py-12">
       <section className="max-w-4xl mx-auto text-justify">
         <h1 className="text-3xl font-bold mb-6">Cookies & Legal</h1>
@@ -84,7 +84,7 @@ export default function CookiesPage() {
 
      
     </div>
-    <Footer/>
+    {/* <Footer/> */}
     </>
   );
 }
