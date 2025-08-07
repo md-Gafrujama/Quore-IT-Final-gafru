@@ -2,8 +2,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Navbar from "@/components/newNavbar";
-import Footer from "@/components/newFooter";
+// import Navbar from "@/components/newNavbar";
+// import Footer from "@/components/newFooter";
 
 const DigitalLeadershipBanner = () => {
   const scrollToForm = () => {
@@ -144,7 +144,7 @@ const additionalNewsItems = [
   ];
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center mt-14 justify-center bg-cover bg-center" 
            style={{ backgroundImage: "url(/images/brain.jpg)" }}>
