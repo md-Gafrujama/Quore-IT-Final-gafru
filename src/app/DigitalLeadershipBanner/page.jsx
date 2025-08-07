@@ -504,8 +504,8 @@ const additionalNewsItems = [
     </div>
   </div>
 </div>
-{/*  
-    <Footer /> */}
+ 
+    <Footer />
     </>
   );
 };
