@@ -144,7 +144,7 @@ const additionalNewsItems = [
   ];
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       {/* Hero Section */}
       <div className="relative min-h-screen flex items-center mt-14 justify-center bg-cover bg-center" 
            style={{ backgroundImage: "url(/images/brain.jpg)" }}>
@@ -505,7 +505,7 @@ const additionalNewsItems = [
   </div>
 </div>
  
-    {/* <Footer /> */}
+    <Footer />
     </>
   );
 };
