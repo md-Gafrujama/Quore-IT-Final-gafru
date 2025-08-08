@@ -247,7 +247,7 @@ const ITSolutionsHero = () => {
 
       {/* Mobile-Optimized Stats Section */}
       <motion.section 
-        className="py-12 sm:py-16 bg-white border-b"
+        className="py-12 sm:py-16 bg-white "
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"

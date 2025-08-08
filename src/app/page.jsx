@@ -747,7 +747,7 @@ const Firstpage = () => {
 
       {/* Stats Section */}
       <motion.section 
-        className="relative py-16 bg-white border-b"
+        className="relative py-16 bg-white "
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
