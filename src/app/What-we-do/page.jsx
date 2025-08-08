@@ -142,7 +142,7 @@ const WhatWeDo = () => {
 
       {/* Section Navigation Dots */}
       <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 space-y-4">
-        {[0, 1, 2, 3].map((section) => (
+        {[0, 1, 2].map((section) => (
           <button
             key={section}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
@@ -151,7 +151,7 @@ const WhatWeDo = () => {
                 : 'bg-white/40 hover:bg-white/60 hover:scale-125'
             }`}
             onClick={() => {
-              const targets = ['hero', 'content', 'locations-section', 'contact'];
+              const targets = ['hero', 'content', 'locations-section'];
               document.getElementById(targets[section])?.scrollIntoView({ behavior: 'smooth' });
             }}
           />
@@ -483,7 +483,8 @@ const WhatWeDo = () => {
                 <a href="#" className="group flex items-center p-4 rounded-2xl transition-all duration-300 hover:bg-white/20 hover:shadow-lg transform hover:scale-105 hover:-translate-y-1">
                   <div className="mr-4 w-12 h-12 bg-gradient-to-r from-white/20 to-white/30 rounded-full flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300">
                     <svg className="w-6 h-6 text-black/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10                    </svg>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
                   </div>
                   <div>
                     <span className="font-bold text-lg text-black/90 group-hover:text-black transition-colors duration-300 relative">
