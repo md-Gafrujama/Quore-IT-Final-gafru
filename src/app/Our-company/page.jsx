@@ -1,9 +1,11 @@
-"use client";
-import Head from 'next/head';
-import { useState, useEffect } from "react";
+ "use client";
+  import Head from 'next/head';
+import { useState } from "react";
+// import Navbar from "@/components/Navbar";
+// import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+
 import {
   ChevronRight,
   Building2,
@@ -18,15 +20,6 @@ import {
 
 const OurCompany = () => {
   const [activeSection, setActiveSection] = useState("overview");
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navigationItems = [
     { id: "overview", label: "Overview", icon: Building2 },
@@ -34,42 +27,17 @@ const OurCompany = () => {
     { id: "financial", label: "Financial Results", icon: TrendingUp },
     { id: "csr", label: "Corporate Social Responsibility", icon: Heart },
     { id: "equality", label: "Equality & Diversity", icon: Users },
-    { id: "diversity-journey", label: "Our Diversity Journey", icon: Diamond },
+    { id: "diversity-journey", label: " Our Diversity Journey", icon: Diamond },
     { id: "environment", label: "Environment", icon: Leaf },
     { id: "modern-slavery", label: "Modern Slavery", icon: Scale },
   ];
-
-  const sectionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    },
-    exit: { opacity: 0, y: -20 }
-  };
-
-  const cardHover = {
-    scale: 1.02,
-    transition: { duration: 0.3, ease: "easeOut" }
-  };
-
   const renderContent = () => {
     switch (activeSection) {
       case "overview":
         return (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={sectionVariants}
-            className="space-y-8"
-          >
-            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-8 border border-blue-100 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h1 className="text-4xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          <div className="space-y-8">
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-100">
+              <h1 className="text-4xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text ">
                 Our Company - An Overview
               </h1>
               <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
@@ -84,37 +52,30 @@ const OurCompany = () => {
                   portfolio of services: technology recruitment, IT outsourcing
                   and leadership services.
                 </p>
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-6"
-                >
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-6">
                   <p className="text-gray-600 mb-4">Find out more about</p>
                   <Link
                     href="/What-we-do"
-                    className="inline-flex items-center text-xl font-extrabold bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent group"
+                    className="text-1xl md:text-1xl font-extrabold  bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent mb-6 text-center md:text-left"
                   >
                     What We Do
-                    <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
+                    <ChevronRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                   </Link>
-                </motion.div>
+                </div>
                 <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6 border border-indigo-100">
                   <p className="mb-4">
                     We are part of{" "}
                     <Link
                       href="https://www.nashsquared.com/"
-                      className="inline-flex items-center text-xl font-extrabold bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent group"
+                      className="text-1xl md:text-1xl font-extrabold  bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent mb-6 text-center md:text-left"
                     >
                       Nash Squared
-                      <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
                     </Link>
                     , the leading global provider of talent and technology
                     solutions.
                   </p>
                 </div>
-                <motion.div 
-                  whileHover={cardHover}
-                  className="mt-8 bg-white rounded-xl p-6 shadow-sm border border-gray-100"
-                >
+                <div className="mt-8 bg-white rounded-xl p-6 shadow-sm border border-gray-100">
                   <p className="text-gray-700 leading-relaxed">
                     With over 3,000 employees in 36 locations across the USA,
                     Europe and Asia-Pacific the Company has the reach and
@@ -122,97 +83,100 @@ const OurCompany = () => {
                     culture of innovation and agility that empowers its people
                     to respond to constantly changing client needs.
                   </p>
-                </motion.div>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         );
 
       case "vision":
         return (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={sectionVariants}
-            className="space-y-8"
-          >
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-3xl p-8 border border-purple-100 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h1 className="text-4xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+          <div className="space-y-8">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8 border border-purple-100">
+              <h1 className="text-4xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text ">
                 Vision & Values
               </h1>
 
-              <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {[
-                  {
-                    title: "Entrepreneurial",
-                    description: "We are courageous, we challenge ideas, we pursue excellence in all we do. We are ambitious, we are innovators and we are change agents.",
-                    icon: Target,
-                    gradient: "from-orange-400 to-red-500"
-                  },
-                  {
-                    title: "Open",
-                    description: "We are consistently honest, open and straight forward. By doing so we remove barriers and focus on the right outcomes.",
-                    icon: Building2,
-                    gradient: "from-blue-400 to-indigo-500"
-                  },
-                  {
-                    title: "Human",
-                    description: "We trust, respect and care for one another and those around us. It is our ability to connect and to understand the value each person brings that makes us special.",
-                    icon: Heart,
-                    gradient: "from-green-400 to-emerald-500"
-                  },
-                  {
-                    title: "Hungry",
-                    description: "We constantly strive to identify opportunities, deliver outstanding results and inspire others.",
-                    icon: TrendingUp,
-                    gradient: "from-yellow-400 to-orange-500"
-                  },
-                  {
-                    title: "Collaborative",
-                    description: "We believe in the power of working together. We listen and evolve together by utilising our expertise to produce exceptional outcomes.",
-                    icon: Users,
-                    gradient: "from-purple-400 to-pink-500"
-                  }
-                ].map((item, index) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      whileHover={cardHover}
-                      className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
-                    >
-                      <div className={`w-12 h-12 bg-gradient-to-br ${item.gradient} rounded-lg mb-4 flex items-center justify-center`}>
-                        <Icon className="w-6 h-6 text-white" />
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                      <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                    </motion.div>
-                  );
-                })}
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg mb-4 flex items-center justify-center">
+                    <Target className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    Entrepreneurial
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    We are courageous, we challenge ideas, we pursue excellence
+                    in all we do. We are ambitious, we are innovators and we are
+                    change agents.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-lg mb-4 flex items-center justify-center">
+                    <Building2 className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Open</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    We are consistently honest, open and straight forward. By
+                    doing so we remove barriers and focus on the right outcomes.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg mb-4 flex items-center justify-center">
+                    <Heart className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    Human
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    We trust, respect and care for one another and those around
+                    us. It is our ability to connect and to understand the value
+                    each person brings that makes us special.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg mb-4 flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    Hungry
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    We constantly strive to identify opportunities, deliver
+                    outstanding results and inspire others.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300 md:col-span-2 lg:col-span-1">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-lg mb-4 flex items-center justify-center">
+                    <Users className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    Collaborative
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    We believe in the power of working together. We listen and
+                    evolve together by utilising our expertise to produce
+                    exceptional outcomes.
+                  </p>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         );
 
       case "financial":
         return (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={sectionVariants}
-            className="space-y-8"
-          >
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl p-8 border border-green-100 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h1 className="text-4xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+          <div className="space-y-8">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
+              <h1 className="text-4xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text ">
                 Financial Results
               </h1>
 
-              <motion.div 
-                whileHover={cardHover}
-                className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-              >
+              <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
                 <div className="flex items-center justify-center mb-8">
                   <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
                     <TrendingUp className="w-8 h-8 text-white" />
@@ -235,35 +199,26 @@ const OurCompany = () => {
                     </Link>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         );
 
       case "csr":
         return (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={sectionVariants}
-            className="space-y-8"
-          >
-            <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-3xl p-8 border border-rose-100 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h1 className="text-4xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent">
+          <div className="space-y-8">
+            <div className="bg-gradient-to-br from-rose-50 to-pink-50 rounded-2xl p-8 border border-rose-100">
+              <h1 className="text-4xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text ">
                 Corporate Social Responsibility
               </h1>
 
               <div className="space-y-8">
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-                >
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
                     The Board believes that we have a responsibility to play a
                     constructive part within the community at large, and that
                     social, environmental and ethical matters are part of the
-                    investment mix in order to create a long-term sustainable
+                    investment mix in order to create along-term sustainable
                     business.
                   </p>
 
@@ -275,12 +230,9 @@ const OurCompany = () => {
                     enthusiastic about people and are always ready to support
                     programmes that benefit the community.
                   </p>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-                >
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">
                     Environmental Policy
                   </h3>
@@ -291,7 +243,7 @@ const OurCompany = () => {
                     However, the Board recognises that the business must
                     minimise its impact on the environment and utilises
                     recommendations from the Carbon Trust to reduce the carbon
-                    footprint of the organisation. The Group's environmental
+                    foot print of the organisation. The Group's environmental
                     policy statement commits our company to:
                   </p>
 
@@ -322,24 +274,20 @@ const OurCompany = () => {
                         desc: "promoting the use of public transport and increased use of video teleconferencing and online webinars",
                       },
                     ].map((item, index) => (
-                      <motion.div
+                      <div
                         key={index}
-                        whileHover={{ y: -2 }}
                         className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg p-4 border border-green-100"
                       >
                         <h4 className="font-semibold text-green-800 mb-2">
                           {item.title}
                         </h4>
                         <p className="text-sm text-gray-600">{item.desc}</p>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-                >
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">
                     Charitable, Political and Community Work
                   </h3>
@@ -374,71 +322,98 @@ const OurCompany = () => {
                         Global Charitable Activities:
                       </h4>
 
-                      {[
-                        {
-                          title: "United States",
-                          desc: "In the US our Chicago office supported i.c.stars, a charity supporting low-income young adults, and Hire for Heroes, an initiative that creates job opportunities for US military, through providing event support and career advice workshops. Our San Francisco office supported Food Bank's Fight Against Hunger campaign by distributing fruit and vegetables to low- income families.",
-                          gradient: "from-blue-50 to-indigo-50",
-                          border: "border-blue-100",
-                          text: "text-blue-800"
-                        },
-                        {
-                          title: "Germany",
-                          desc: "In Germany, employees participated in a company run of Nuremberg as well as a 24-hour shared cycle ride on a static bike, both activities contributing to several charitable organisations. There were also activities to support the Olga Hospital which helps sick children and their parents.",
-                          gradient: "from-purple-50 to-pink-50",
-                          border: "border-purple-100",
-                          text: "text-purple-800"
-                        },
-                        {
-                          title: "Sweden",
-                          desc: "In Sweden, support was given to the Swedish Childhood Cancer Foundation through a number of activities – including sponsored bike rides. In addition, there was support for Hand in Hand, a charity which aims to eliminate poverty through helping individuals to help themselves. Employees helped a number of charities recruit senior executives on a cost neutral basis.",
-                          gradient: "from-yellow-50 to-orange-50",
-                          border: "border-yellow-100",
-                          text: "text-orange-800"
-                        },
-                        {
-                          title: "Vietnam",
-                          desc: "In Vietnam, there was a wide range of activities targeted at supporting children in need and the poor including the Ha Noi Run for children which raised funds and awareness for healthcare issues in Vietnam.",
-                          gradient: "from-teal-50 to-cyan-50",
-                          border: "border-teal-100",
-                          text: "text-teal-800"
-                        },
-                        {
-                          title: "Netherlands",
-                          desc: "In the Netherlands, employees participated for the third year in the annual Unicef run of Breukelen, a sponsored run for charity.",
-                          gradient: "from-emerald-50 to-green-50",
-                          border: "border-emerald-100",
-                          text: "text-emerald-800"
-                        },
-                        {
-                          title: "United Kingdom",
-                          desc: "In the UK, throughout the country our offices have been actively involved in working with local schools to provide career advice and guidance. In London, various activities including bucket collections, Byte Night and static cycling outside our Heron Tower head office, generated over £15,000 for a variety of charities. Our Mortimer Spinks business made a major contribution to Red Nose Day, involving most staff from all three offices and raising over £1,300. Impact Executives raised £1,000 for The Wopila Foundation helping build schools for children in Africa. In Scotland, we raised £3,000 as part of Byte Night.",
-                          gradient: "from-red-50 to-rose-50",
-                          border: "border-red-100",
-                          text: "text-red-800"
-                        }
-                      ].map((item, index) => (
-                        <motion.div
-                          key={index}
-                          whileHover={{ y: -2 }}
-                          className={`bg-gradient-to-r ${item.gradient} rounded-lg p-6 border ${item.border}`}
-                        >
-                          <h5 className={`font-semibold ${item.text} mb-3`}>
-                            {item.title}
-                          </h5>
-                          <p className="text-gray-700 text-sm leading-relaxed">
-                            {item.desc}
-                          </p>
-                        </motion.div>
-                      ))}
+                      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-100">
+                        <h5 className="font-semibold text-blue-800 mb-3">
+                          United States
+                        </h5>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          In the US our Chicago office supported i.c.stars, a
+                          charity supporting low-income young adults, and Hire
+                          for Heroes, an initiative that creates job
+                          opportunities for US military, through providing event
+                          support and career advice workshops. Our San Francisco
+                          office supported Food Bank's Fight Against Hunger
+                          campaign by distributing fruit and vegetables to low-
+                          income families.
+                        </p>
+                      </div>
+
+                      <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-100">
+                        <h5 className="font-semibold text-purple-800 mb-3">
+                          Germany
+                        </h5>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          In Germany, employees participated in a company run of
+                          Nuremberg as well as a 24-hour shared cycle ride on a
+                          static bike, both activities contributing to several
+                          charitable organisations. There were also activities
+                          to support the Olga Hospital which helps sick children
+                          and their parents.
+                        </p>
+                      </div>
+
+                      <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-lg p-6 border border-yellow-100">
+                        <h5 className="font-semibold text-orange-800 mb-3">
+                          Sweden
+                        </h5>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          In Sweden, support was given to the Swedish Childhood
+                          Cancer Foundation through a number of activities –
+                          including sponsored bike rides. In addition, there was
+                          support for Hand in Hand, a charity which aims to
+                          eliminate poverty through helping individuals to help
+                          themselves. Employees helped a number of charities
+                          recruit senior executives on a cost neutral basis.
+                        </p>
+                      </div>
+
+                      <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg p-6 border border-teal-100">
+                        <h5 className="font-semibold text-teal-800 mb-3">
+                          Vietnam
+                        </h5>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          In Vietnam, there was a wide range of activities
+                          targeted at supporting children in need and the poor
+                          including the Ha Noi Run for children which raised
+                          funds and awareness for healthcare issues in Vietnam.
+                        </p>
+                      </div>
+
+                      <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-lg p-6 border border-emerald-100">
+                        <h5 className="font-semibold text-emerald-800 mb-3">
+                          Netherlands
+                        </h5>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          In the Netherlands, employees participated for the
+                          third year in the annual Unicef run of Breukelen, a
+                          sponsored run for charity.
+                        </p>
+                      </div>
+
+                      <div className="bg-gradient-to-r from-red-50 to-rose-50 rounded-lg p-6 border border-red-100">
+                        <h5 className="font-semibold text-red-800 mb-3">
+                          United Kingdom
+                        </h5>
+                        <p className="text-gray-700 text-sm leading-relaxed">
+                          In the UK, throughout the country our offices have
+                          been actively involved in working with local schools
+                          to provide career advice and guidance. In London,
+                          various activities including bucket collections, Byte
+                          Night and static cycling outside our Heron Tower head
+                          office, generated over £15,000 for a variety of
+                          charities. Our Mortimer Spinks business made a major
+                          contribution to Red Nose Day, involving most staff
+                          from all three offices and raising over £1,300. Impact
+                          Executives raised £1,000 for The Wopila Foundation
+                          helping build schools for children in Africa. In
+                          Scotland, we raised £3,000 as part of Byte Night.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-                >
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">
                     Employee Engagement
                   </h3>
@@ -492,12 +467,9 @@ const OurCompany = () => {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-                >
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">
                     Equal Opportunity and Diversity
                   </h3>
@@ -510,10 +482,7 @@ const OurCompany = () => {
                     </p>
 
                     <div className="grid gap-4 md:grid-cols-3">
-                      <motion.div 
-                        whileHover={{ y: -2 }}
-                        className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-100"
-                      >
+                      <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-100">
                         <h4 className="font-semibold text-purple-800 mb-3">
                           Individuals
                         </h4>
@@ -521,12 +490,9 @@ const OurCompany = () => {
                           Everyone has the right to be treated fairly and the
                           opportunity to fulfil their potential
                         </p>
-                      </motion.div>
+                      </div>
 
-                      <motion.div 
-                        whileHover={{ y: -2 }}
-                        className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-100"
-                      >
+                      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-100">
                         <h4 className="font-semibold text-blue-800 mb-3">
                           The Economy
                         </h4>
@@ -534,12 +500,9 @@ const OurCompany = () => {
                           A competitive economy and successful organisations
                           draw on all available talent
                         </p>
-                      </motion.div>
+                      </div>
 
-                      <motion.div 
-                        whileHover={{ y: -2 }}
-                        className="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg p-6 border border-green-100"
-                      >
+                      <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg p-6 border border-green-100">
                         <h4 className="font-semibold text-teal-800 mb-3">
                           Society
                         </h4>
@@ -547,14 +510,11 @@ const OurCompany = () => {
                           A more equal society offers more stability in the long
                           term which is attractive to business
                         </p>
-                      </motion.div>
+                      </div>
                     </div>
 
                     <div className="space-y-6">
-                      <motion.div 
-                        whileHover={{ y: -2 }}
-                        className="bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg p-6 border border-pink-100"
-                      >
+                      <div className="bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg p-6 border border-pink-100">
                         <h4 className="font-semibold text-pink-800 mb-3">
                           Network 4 Net-Worth (USA)
                         </h4>
@@ -567,12 +527,9 @@ const OurCompany = () => {
                           with an emphasis on the promotion of diverse talent
                           pools.
                         </p>
-                      </motion.div>
+                      </div>
 
-                      <motion.div 
-                        whileHover={{ y: -2 }}
-                        className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6 border border-indigo-100"
-                      >
+                      <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-6 border border-indigo-100">
                         <h4 className="font-semibold text-indigo-800 mb-3">
                           Inspire Network
                         </h4>
@@ -593,12 +550,9 @@ const OurCompany = () => {
                           through an active extension of the pool of talent in
                           which shortlists are put together.
                         </p>
-                      </motion.div>
+                      </div>
 
-                      <motion.div 
-                        whileHover={{ y: -2 }}
-                        className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg p-6 border border-teal-100"
-                      >
+                      <div className="bg-gradient-to-r from-teal-50 to-cyan-50 rounded-lg p-6 border border-teal-100">
                         <h4 className="font-semibold text-teal-800 mb-3">
                           Aspire Network
                         </h4>
@@ -608,12 +562,9 @@ const OurCompany = () => {
                           Through the network our aim is to improve the supply
                           of talent at board level.
                         </p>
-                      </motion.div>
+                      </div>
 
-                      <motion.div 
-                        whileHover={{ y: -2 }}
-                        className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6 border border-orange-100"
-                      >
+                      <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-6 border border-orange-100">
                         <h4 className="font-semibold text-orange-800 mb-3">
                           Girl Geek Network
                         </h4>
@@ -623,12 +574,9 @@ const OurCompany = () => {
                           community of business women in the technology and
                           creative sectors.
                         </p>
-                      </motion.div>
+                      </div>
 
-                      <motion.div 
-                        whileHover={{ y: -2 }}
-                        className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-lg p-6 border border-emerald-100"
-                      >
+                      <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-lg p-6 border border-emerald-100">
                         <h4 className="font-semibold text-emerald-800 mb-3">
                           International Engagement
                         </h4>
@@ -643,7 +591,7 @@ const OurCompany = () => {
                           strategic challenges and opportunities facing South
                           East Asia.
                         </p>
-                      </motion.div>
+                      </div>
                     </div>
 
                     <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
@@ -667,12 +615,9 @@ const OurCompany = () => {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-                >
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">
                     Health & Safety
                   </h3>
@@ -706,12 +651,9 @@ const OurCompany = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-                >
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">
                     Supplier Payment Policy
                   </h3>
@@ -727,10 +669,7 @@ const OurCompany = () => {
                     </p>
 
                     <div className="grid gap-6 md:grid-cols-2">
-                      <motion.div 
-                        whileHover={{ y: -2 }}
-                        className="bg-green-50 rounded-lg p-6 border border-green-100"
-                      >
+                      <div className="bg-green-50 rounded-lg p-6 border border-green-100">
                         <h4 className="font-semibold text-green-800 mb-3">
                           Sub-contractors (Technology Services)
                         </h4>
@@ -739,12 +678,9 @@ const OurCompany = () => {
                           technology services within 26 days (2012: 25 days) of
                           receipt of their invoice.
                         </p>
-                      </motion.div>
+                      </div>
 
-                      <motion.div 
-                        whileHover={{ y: -2 }}
-                        className="bg-orange-50 rounded-lg p-6 border border-orange-100"
-                      >
+                      <div className="bg-orange-50 rounded-lg p-6 border border-orange-100">
                         <h4 className="font-semibold text-orange-800 mb-3">
                           Trade Debtors
                         </h4>
@@ -753,7 +689,7 @@ const OurCompany = () => {
                           settled their invoices within 42.5 days (2012: 45
                           days).
                         </p>
-                      </motion.div>
+                      </div>
                     </div>
 
                     <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
@@ -766,31 +702,22 @@ const OurCompany = () => {
                       </p>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         );
 
       case "equality":
         return (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={sectionVariants}
-            className="space-y-8"
-          >
-            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-3xl p-8 border border-purple-100 shadow-sm hover:shadow-md transition-shadow duration-300">
-              <h1 className="text-4xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+          <div className="space-y-8">
+            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 border border-purple-100">
+              <h1 className="text-4xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text ">
                 Equality & Diversity
               </h1>
 
               <div className="space-y-8">
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-                >
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
                     The Quore IT Group fully supports the aims of the UK
                     Equalities Act 2010. We believe equality and diversity is
@@ -798,10 +725,7 @@ const OurCompany = () => {
                   </p>
 
                   <div className="grid gap-6 md:grid-cols-3">
-                    <motion.div 
-                      whileHover={{ y: -2 }}
-                      className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-100"
-                    >
+                    <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-100">
                       <h3 className="font-bold text-purple-800 mb-3 text-lg">
                         INDIVIDUALS:
                       </h3>
@@ -809,12 +733,9 @@ const OurCompany = () => {
                         everyone has the right to be treated fairly and the
                         opportunity to fulfill their potential.
                       </p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div 
-                      whileHover={{ y: -2 }}
-                      className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-100"
-                    >
+                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-6 border border-blue-100">
                       <h3 className="font-bold text-blue-800 mb-3 text-lg">
                         THE ECONOMY:
                       </h3>
@@ -822,12 +743,9 @@ const OurCompany = () => {
                         a competitive economy and successful organisations draw
                         on all the available talents and ability
                       </p>
-                    </motion.div>
+                    </div>
 
-                    <motion.div 
-                      whileHover={{ y: -2 }}
-                      className="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg p-6 border border-green-100"
-                    >
+                    <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-lg p-6 border border-green-100">
                       <h3 className="font-bold text-teal-800 mb-3 text-lg">
                         SOCIETY:
                       </h3>
@@ -835,375 +753,575 @@ const OurCompany = () => {
                         a more equal society offers more stability in the long
                         term which is attractive to business.
                       </p>
-                    </motion.div>
+                    </div>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-                >
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
                   <p className="text-gray-700 leading-relaxed mb-6">
                     Quore IT Group have become the first recruitment firm to be
                     certified with EY's{" "}
                     <Link
                       href="#"
-                                            className="text-blue-600 hover:underline font-medium"
+                      className="text-blue-600 hover:text-blue-800 font-semibold underline decoration-2 underline-offset-2"
                     >
-                      National Equality Standard (NES)
+                      National Equality Standard
                     </Link>
-                    , the UK's leading assessment for equality, diversity and inclusion in the workplace.
+                    , one of the UK's most rigorous and prestigious
+                    accreditations for diversity and inclusion.
                   </p>
 
-                  <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-100 mb-6">
-                    <p className="text-gray-700 leading-relaxed">
-                      The NES is a framework designed to help organisations 
-                      measure their progress on diversity and inclusion against 
-                      a set of agreed standards. It covers leadership, employee 
-                      policies, recruitment, customer service and community 
-                      engagement.
-                    </p>
-                  </div>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    To be awarded the National Equality Standard (NES) Harvey
+                    Nash UK have undertaken a robust assessment against more
+                    than forty criteria, over an 18 month period. The assessment
+                    was carried out by trained NES assessors who conducted
+                    comprehensive interviews and in- depth surveys with over 100
+                    staff, as well as reviewed procedures and documentation and
+                    legal compliance.
+                  </p>
 
-                  <div className="grid gap-6 md:grid-cols-2">
-                    <motion.div 
-                      whileHover={{ y: -2 }}
-                      className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
+                  <p className="text-gray-700 leading-relaxed">
+                    In the USA we were a founding organization of ARA, which
+                    aspires to Attract, Retain, and Advance women in technology
+                    by cultivating and nurturing relationships via mentorship
+                    and events/programs, thereby building strong female leaders
+                    to support and influence the IT community.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    ARA now has chapters in Chicago, New York, Seattle and
+                    Houston, and numbers hundreds of mentors and mentees amongst
+                    its members. In 2008 Quore IT launched Inspire, a global
+                    business forum where senior board-level women, CEOs,
+                    non-executive directors and chairs, share and exchange ideas
+                    and experiences with their peers.
+                  </p>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Founded by Carol Rosati a Director of the Board Practice at
+                    Quore IT Executive Search, the network now connects over
+                    5000 board-level, like-minded and inspirational individuals,
+                    from all areas of industry both in the private and public
+                    sector worldwide.
+                  </p>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    With its connection to Quore IT the network offers advice
+                    and connectivity to the women, helping them advance their
+                    business careers.
+                  </p>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Following the lead of Inspire, Quore IT launched Aspire in
+                    2012, a unique executive business network for C-suite,
+                    Director and VP level women aimed at helping them progress
+                    to Board level positions both Executive and Non-Executive.
+                  </p>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Launched in 2015, Engage is a network connecting senior
+                    business leaders from all cultural backgrounds. Its purpose
+                    is to act as a platform for discussion, networking and
+                    peer-to-peer support for a section of the business community
+                    traditionally underrepresented at executive and board level.
+                  </p>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Quore IT Scotland's participation in the "Girl Geek" dinner
+                    network is also aimed at supporting the community of
+                    business women in the technology and creative sectors. Quore
+                    IT regularly chairs and hosts trade delegations to Vietnam.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    The Group also recognises the valuable contribution made by
+                    the government of Vietnam in enabling increased investment
+                    and trade between Europe and Asia and is actively involved
+                    at ministerial level, not only lobbying on behalf of
+                    business but also engaging with the Vietnamese leadership on
+                    the strategic challenges and opportunities facing South East
+                    Asia.
+                  </p>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Quore IT not only ensures that employment decisions are made
+                    consistent with equal opportunities legislation in each
+                    country, but, the Group actively encourages a diversity
+                    consciousness among its management, staff and clients.
+                  </p>
+
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    One of our key principles is that the Group's senior
+                    management is made up of nationals in the country in which
+                    they operate, who understand the market and are naturally
+                    integrated in the local business culture.
+                  </p>
+
+                  <p className="text-gray-700 leading-relaxed">
+                    Due consideration is also given to the recruitment,
+                    promotion, training and working environment of all staff
+                    including those with disabilities.
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100">
+                  <p className="text-gray-700 leading-relaxed">
+                    Find out more about Quore IT's{" "}
+                    <Link
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setActiveSection("diversity-journey"); // This matches your state variable
+                      }}
+                      className="text-blue-600 hover:text-blue-800 font-semibold underline decoration-2 underline-offset-2 cursor-pointer"
                     >
-                      <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                        Our Commitment
-                      </h3>
-                      <ul className="space-y-3 text-gray-700">
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          We actively promote equality and diversity in all our business activities
-                        </li>
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          We monitor and report on our diversity statistics annually
-                        </li>
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          We provide unconscious bias training for all hiring managers
-                        </li>
-                        <li className="flex items-start">
-                          <span className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                          We have established employee resource groups for underrepresented communities
-                        </li>
-                      </ul>
-                    </motion.div>
-
-                    <motion.div 
-                      whileHover={{ y: -2 }}
-                      className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-lg p-6 border border-purple-100"
-                    >
-                      <h3 className="font-bold text-purple-800 mb-4 text-xl">
-                        Key Achievements
-                      </h3>
-                      <div className="space-y-4">
-                        <div>
-                          <h4 className="font-semibold text-purple-700 mb-1">
-                            Gender Balance
-                          </h4>
-                          <p className="text-sm text-gray-700">
-                            45% of our leadership team are women, exceeding the industry average
-                          </p>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-purple-700 mb-1">
-                            Ethnic Diversity
-                          </h4>
-                          <p className="text-sm text-gray-700">
-                            28% of our workforce come from ethnic minority backgrounds
-                          </p>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-purple-700 mb-1">
-                            Disability Inclusion
-                          </h4>
-                          <p className="text-sm text-gray-700">
-                            Recognized as a Disability Confident Employer
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-                >
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                    Employee Networks
-                  </h2>
-
-                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {[
-                      {
-                        title: "Women in Tech",
-                        description: "Supporting and advancing women in technology through mentorship, networking and professional development.",
-                        icon: Users,
-                        color: "bg-pink-100 text-pink-600"
-                      },
-                      {
-                        title: "Pride Network",
-                        description: "Creating an inclusive environment for LGBTQ+ employees and allies through education and advocacy.",
-                        icon: Heart,
-                        color: "bg-rainbow-100 text-rainbow-600"
-                      },
-                      {
-                        title: "Cultural Diversity Network",
-                        description: "Celebrating cultural diversity and promoting cross-cultural understanding in the workplace.",
-                        icon: Globe,
-                        color: "bg-blue-100 text-blue-600"
-                      },
-                      {
-                        title: "Ability Network",
-                        description: "Supporting employees with disabilities and promoting accessibility throughout the organization.",
-                        icon: Accessibility,
-                        color: "bg-green-100 text-green-600"
-                      },
-                      {
-                        title: "Veterans Network",
-                        description: "Supporting military veterans in their transition to civilian careers.",
-                        icon: Shield,
-                        color: "bg-red-100 text-red-600"
-                      },
-                      {
-                        title: "Young Professionals",
-                        description: "Providing development opportunities and networking for early-career professionals.",
-                        icon: TrendingUp,
-                        color: "bg-purple-100 text-purple-600"
-                      }
-                    ].map((item, index) => {
-                      const Icon = item.icon;
-                      return (
-                        <motion.div
-                          key={index}
-                          whileHover={{ scale: 1.03 }}
-                          className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm"
-                        >
-                          <div className={`w-12 h-12 ${item.color} rounded-full mb-4 flex items-center justify-center`}>
-                            <Icon className="w-6 h-6" />
-                          </div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                          <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                        </motion.div>
-                      );
-                    })}
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  whileHover={cardHover}
-                  className="bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-                >
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                    Our Diversity Data
-                  </h2>
-
-                  <div className="grid gap-6 md:grid-cols-2">
-                    <div className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">
-                        Gender Representation
-                      </h3>
-                      <div className="h-64">
-                        {/* Chart would go here */}
-                        <div className="flex items-center justify-center h-full bg-gray-50 rounded-lg">
-                          <p className="text-gray-500">Gender diversity chart</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="bg-white rounded-lg p-6 border border-gray-100 shadow-sm">
-                      <h3 className="text-xl font-bold text-gray-900 mb-4">
-                        Ethnic Diversity
-                      </h3>
-                      <div className="h-64">
-                        {/* Chart would go here */}
-                        <div className="flex items-center justify-center h-full bg-gray-50 rounded-lg">
-                          <p className="text-gray-500">Ethnic diversity chart</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 bg-blue-50 rounded-lg p-6 border border-blue-100">
-                    <p className="text-gray-700 leading-relaxed">
-                      We publish our diversity data annually as part of our 
-                      commitment to transparency and continuous improvement. 
-                      Our most recent report shows progress in all key areas, 
-                      but we recognize there is still work to be done.
-                    </p>
-                  </div>
-                </motion.div>
+                      diversity initiatives and networks.
+                    </Link>
+                  </p>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         );
 
-      default:
+      case "diversity-journey":
         return (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={sectionVariants}
-            className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm"
-          >
-            <h1 className="text-4xl font-bold text-gray-900 mb-6">
-              {navigationItems.find(item => item.id === activeSection)?.label}
-            </h1>
-            <p className="text-gray-600">
-              Content for this section is coming soon.
-            </p>
-          </motion.div>
+          <div className="space-y-8">
+            <div className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 border border-orange-100">
+              <h1 className="text-4xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text ">
+                Our Diversity Journey
+              </h1>
+
+              <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                <p className="text-xl text-gray-700 leading-relaxed mb-8 text-center font-medium">
+                  For over 10 years now we have championed diversity in
+                  leadership and workplace inclusion
+                </p>
+
+                <div className="space-y-8">
+                  <div className="border-l-4 border-blue-500 pl-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      2008
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Inspire network in launched in the UK to connect Board
+                      level woman and promote female leadership
+                    </p>
+                  </div>
+
+                  <div className="border-l-4 border-green-500 pl-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      2010
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      By popular demand Inspire establishes chapters in New York
+                      and Silicon Valley
+                    </p>
+                  </div>
+
+                  <div className="border-l-4 border-purple-500 pl-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      2011
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      The aspire network is launched for the female leaders of
+                      tomorrow
+                    </p>
+                  </div>
+
+                  <div className="border-l-4 border-orange-500 pl-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      2012
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      We create ARA mentors in the US to Attract, Retain and
+                      Advance women in technology
+                    </p>
+                  </div>
+
+                  <div className="border-l-4 border-pink-500 pl-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      2012
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Inspire holds its first event in Asia in HK where just 9%
+                      of board members are women
+                    </p>
+                  </div>
+
+                  <div className="border-l-4 border-indigo-500 pl-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      2013
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700 leading-relaxed">
+                        HN and the University of Hong Kong launch the Womens
+                        directorship programme to help women achieve board
+                        positions
+                      </p>
+                      <p className="text-gray-700 leading-relaxed">
+                        Representatives from Inspire address 70 MEP's at a major
+                        EU conference on female leadership
+                      </p>
+                      <p className="text-gray-700 leading-relaxed">
+                        Inspire published the balancing act, a survey of over
+                        600 business leaders on workplace barriers for women
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="border-l-4 border-teal-500 pl-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      2014
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700 leading-relaxed">
+                        Inspire launches chapters in Sweden, Finland, Australia
+                        and Tokyo
+                      </p>
+                      <p className="text-gray-700 leading-relaxed">
+                        HN recognized for Gender Balanced Shortlists, awarded by
+                        Lord Davies' committee recognizing efforts to improve
+                        female leadership in companies beyond the FTSE 350
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="border-l-4 border-red-500 pl-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      2015
+                    </h3>
+                    <div className="space-y-3">
+                      <p className="text-gray-700 leading-relaxed">
+                        <Link
+                          href="#"
+                          className="text-blue-600 hover:text-blue-800 font-semibold underline decoration-2 underline-offset-2"
+                        >
+                          Best Practice Podcasts
+                        </Link>
+                        , Interview series with business leaders on creating
+                        inclusive workplace culture
+                      </p>
+                      <p className="text-gray-700 leading-relaxed">
+                        Engage network in launched to connect business leaders
+                        from all ethnic and cultural backgrounds
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="border-l-4 border-yellow-500 pl-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      2016
+                    </h3>
+                    <div className="space-y-4">
+                      <h4 className="text-lg font-semibold text-gray-800">
+                        Changing the HN Culture
+                      </h4>
+                      <ul className="space-y-2 text-gray-700">
+                        <li>
+                          - All UK staff complete unconscious bias training
+                        </li>
+                        <li>- Managers measured on inclusive behaviours</li>
+                        <li>- on-going diversity and inclusion workshops</li>
+                      </ul>
+                      <p className="text-gray-700 leading-relaxed">
+                        Engage publishes the Ethnicity Gap, a survey of 130
+                        minority ethic leaders on experiences of cultural bias
+                        and exclusion
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="border-l-4 border-emerald-500 pl-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      2017
+                    </h3>
+                    <div className="space-y-3">
+                      <h4 className="text-lg font-semibold text-gray-800">
+                        Quore IT achieves National Equality Standard
+                      </h4>
+                      <p className="text-gray-700 leading-relaxed">
+                        First recruitment firm awarded accreditation against 40+
+                        diversity and inclusion criteria conducted by EY
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="border-l-4 border-cyan-500 pl-6">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      The Future
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      <Link
+                        href="#"
+                        className="text-blue-600 hover:text-blue-800 font-semibold underline decoration-2 underline-offset-2"
+                      >
+                        Inclusion 360
+                      </Link>
+                      – an on going 360 initiative to embed inclusivity into
+                      everything we do for our people, clients, candidates and
+                      industry.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         );
+
+      case "environment":
+        return (
+          <div className="space-y-8">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100">
+              <h1 className="text-4xl font-bold text-gray-900 mb-8 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text ">
+                Environment
+              </h1>
+
+              <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+                <div className="space-y-6">
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    The Group's operations, being services, are inherently less
+                    damaging to the environment than other business sectors.
+                  </p>
+
+                  <p className="text-lg text-gray-700 leading-relaxed">
+                    However, the Board recognises that the business must
+                    minimise its impact on the environment and utilises
+                    recommendations from the Carbon Trust to reduce the carbon
+                    footprint of the organisation.
+                  </p>
+
+                  <div className="bg-green-50 rounded-lg p-6 border border-green-200">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">
+                      Environmental Policy Commitments
+                    </h3>
+                    <p className="text-gray-700 mb-4">
+                      The Group's environmental policy statement commits our
+                      company to:
+                    </p>
+
+                    <div className="space-y-6">
+                      <div className="border-l-4 border-blue-500 pl-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">
+                          Re-cycling
+                        </h4>
+                        <p className="text-gray-700">
+                          reducing the overall amount of waste being sent to
+                          landfill by separating out materials for recycling,
+                        </p>
+                      </div>
+
+                      <div className="border-l-4 border-cyan-500 pl-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">
+                          Water
+                        </h4>
+                        <p className="text-gray-700">
+                          making use of mains water supply for personal
+                          consumption through on site water filtration and
+                          purification
+                        </p>
+                      </div>
+
+                      <div className="border-l-4 border-orange-500 pl-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">
+                          Efficiency
+                        </h4>
+                        <p className="text-gray-700">
+                          optimising the operation of building cooling and
+                          heating systems,
+                        </p>
+                      </div>
+
+                      <div className="border-l-4 border-yellow-500 pl-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">
+                          Energy
+                        </h4>
+                        <p className="text-gray-700">
+                          introducing low energy lighting wherever appropriate
+                          and feasible,
+                        </p>
+                      </div>
+
+                      <div className="border-l-4 border-purple-500 pl-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">
+                          Technology hardware and software
+                        </h4>
+                        <p className="text-gray-700">
+                          software which automatically shuts down computers to
+                          reduce power consumption and heat output,
+                        </p>
+                      </div>
+
+                      <div className="border-l-4 border-green-500 pl-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">
+                          The introduction of 'eco-fonts'
+                        </h4>
+                        <p className="text-gray-700">
+                          these use less ink on printed matter, with only a
+                          marginal impact upon quality,
+                        </p>
+                      </div>
+
+                      <div className="border-l-4 border-indigo-500 pl-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">
+                          Travelling
+                        </h4>
+                        <p className="text-gray-700">
+                          promoting the use of public transport and increased
+                          use of video teleconferencing and online webinars to
+                          reduce the impact of business travel upon the
+                          environment.
+                        </p>
+                      </div>
+
+                      <div className="border-l-4 border-red-500 pl-4">
+                        <h4 className="font-semibold text-gray-800 mb-2">
+                          Procurement
+                        </h4>
+                        <p className="text-gray-700">
+                          processes are in place to ensure that the procurement
+                          of goods, services and material capital items such as
+                          property include a review and rating of the carbon
+                          impact of these acquisitions seeking wherever possible
+                          to reduce the Group's footprint.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      case "modern-slavery":
+      
+        // Redirect to external modern slavery page
+       window.location.href = "/Policies/Modern-Slavery-Statement";
+        return null;
     }
   };
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Head>
-        <title>Our Company | Quore IT</title>
-        <meta
-          name="description"
-          content="Learn about Quore IT - our vision, values, financial results, and corporate social responsibility initiatives."
-        />
-      </Head>
+    <>
+    {/* <Navbar/> */}
+    <Head>
+  <title>About Our Company | Quore IT - Global Talent & Tech Solutions</title>
+  <meta name="description" content="Discover Quore IT – a global leader in technology recruitment, outsourcing, and leadership services. Learn about our mission, values, and social responsibility." />
 
-      <header className={`sticky top-0 z-10 bg-white transition-all duration-300 ${isScrolled ? 'shadow-md py-2' : 'py-4'}`}>
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/quore-logo.svg"
-                alt="Quore IT Logo"
-                width={120}
-                height={40}
-                className="h-10 w-auto"
-              />
-            </Link>
-            <nav className="hidden md:flex space-x-8">
-              <Link href="/what-we-do" className="text-gray-700 hover:text-blue-600 font-medium">
-                What We Do
-              </Link>
-              <Link href="/our-company" className="text-blue-600 font-medium">
-                Our Company
-              </Link>
-              <Link href="/careers" className="text-gray-700 hover:text-blue-600 font-medium">
-                Careers
-              </Link>
-              <Link href="/insights" className="text-gray-700 hover:text-blue-600 font-medium">
-                Insights
-              </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-blue-600 font-medium">
-                Contact
-              </Link>
-            </nav>
-            <button className="md:hidden">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-          </div>
+  {/* Open Graph / Facebook */}
+  <meta property="og:title" content="About Our Company | Quore IT - Global Talent & Tech Solutions" />
+  <meta property="og:description" content="Explore our company overview, values, financials, CSR, diversity efforts, and environmental initiatives as part of Nash Squared." />
+  <meta property="og:image" content="/images/overview.jpg" />  {/* Replace with a representative hero image if available */}
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/Our-company" />
+
+  {/* Twitter */}
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Our Company | Quore IT - Global Talent & Tech Solutions" />
+  <meta name="twitter:description" content="Get to know Quore IT’s vision, values, and global reach. Learn about our commitment to diversity, sustainability, and ethical practices." />
+  <meta name="twitter:image" content="/images/overview.jpg" />  {/* Match the og:image */}
+</Head>
+      <section className="relative h-96 flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/jobs_hero.jpg" // Replace with your actual hero background image
+            alt="Candidates Hero Background"
+            fill
+            className="object-cover object-center"
+            priority
+            quality={90}
+          />
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
-      </header>
 
-      <main className="container mx-auto px-4 py-12">
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar Navigation */}
-          <div className="lg:w-64 flex-shrink-0">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 sticky top-24"
-            >
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Our Company</h2>
+        {/* Content */}
+        <div className="relative z-10 text-center">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold text-white tracking-wide">
+            Our Company
+          </h1>
+        </div>
+      </section>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 px-8 sm:px-8  via-blue-50 to-indigo-50">
+        <div className="flex flex-col lg:flex-row">
+          {/* Sidebar - moves to top on mobile */}
+          <div className="w-full lg:w-80 bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl lg:border-r py-6 border-gray-200/50 h-full mb-6 lg:mb-0">
+            <div className="p-4 sm:p-8">
+              <div className="mb-6 sm:mb-8">
+                <h2 className="text-lg text-[#00d9a6] font-medium">
+                  Quore IT
+                </h2>
+                <p className="text-sm text-gray-500 mt-1">Company Portal</p>
+              </div>
               <nav className="space-y-2">
+                <h3 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">
+                  Contents
+                </h3>
                 {navigationItems.map((item) => {
-                  const Icon = item.icon;
+                  const IconComponent = item.icon;
+                  const isActive = activeSection === item.id;
                   return (
                     <button
                       key={item.id}
                       onClick={() => setActiveSection(item.id)}
-                      className={`w-full flex items-center px-4 py-3 rounded-lg text-left transition-colors duration-200 ${activeSection === item.id ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                      className={`w-full flex items-center px-3 sm:px-4 py-2 sm:py-3 text-left rounded-xl transition-all duration-200 group ${
+                        isActive
+                          ? "bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] text-white shadow-lg"
+                          : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                      }`}
                     >
-                      <Icon className="w-5 h-5 mr-3 flex-shrink-0" />
-                      <span className="font-medium">{item.label}</span>
+                      <IconComponent
+                        className={`w-5 h-5 mr-3 ${
+                          isActive
+                            ? "text-white"
+                            : "text-gray-400 group-hover:text-gray-600"
+                        }`}
+                      />
+                      <span className="font-medium text-sm sm:text-base">
+                        {item.label}
+                      </span>
+                      {isActive && (
+                        <ChevronRight className="w-4 h-4 ml-auto text-white" />
+                      )}
                     </button>
                   );
                 })}
               </nav>
-            </motion.div>
+            </div>
           </div>
 
           {/* Main Content */}
-          <div className="flex-1">
-            <AnimatePresence mode="wait">
-              {renderContent()}
-            </AnimatePresence>
+          <div className="flex-1 p-4 sm:p-8">
+            <div className="max-w-5xl mx-auto">{renderContent()}</div>
           </div>
         </div>
-      </main>
+      </div>
 
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4">About Us</h3>
-              <ul className="space-y-2">
-                <li><Link href="/our-company" className="hover:text-blue-300">Our Company</Link></li>
-                <li><Link href="/what-we-do" className="hover:text-blue-300">What We Do</Link></li>
-                <li><Link href="/careers" className="hover:text-blue-300">Careers</Link></li>
-                <li><Link href="/contact" className="hover:text-blue-300">Contact Us</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Services</h3>
-              <ul className="space-y-2">
-                <li><Link href="/services/technology-recruitment" className="hover:text-blue-300">Technology Recruitment</Link></li>
-                <li><Link href="/services/it-outsourcing" className="hover:text-blue-300">IT Outsourcing</Link></li>
-                <li><Link href="/services/leadership-services" className="hover:text-blue-300">Leadership Services</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Resources</h3>
-              <ul className="space-y-2">
-                <li><Link href="/insights" className="hover:text-blue-300">Insights</Link></li>
-                <li><Link href="/case-studies" className="hover:text-blue-300">Case Studies</Link></li>
-                <li><Link href="/blog" className="hover:text-blue-300">Blog</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Connect</h3>
-              <div className="flex space-x-4 mb-4">
-                <Link href="#" className="hover:text-blue-300">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                  </svg>
-                </Link>
-                <Link href="#" className="hover:text-blue-300">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                  </svg>
-                </Link>
-                <Link href="#" className="hover:text-blue-300">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
-                </Link>
-              </div>
-              <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} Quore IT. All rights reserved.
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+      <div
+        className="bg-cover bg-center w-full min-h-[50vh] sm:min-h-[60vh] flex flex-col justify-center items-center  text-white text-center px-4"
+        style={{ backgroundImage: "url('/images/keyboard.jpg')" }}
+      >
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">
+          How can we help?
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl mb-6 max-w-4xl drop-shadow-md">
+          If you would like us to contact you with more information on what we
+          do and what we can offer, please let us know.
+        </p>
+
+        <Link href="/Contact-us">
+          <button className="bg-green-300 hover:bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] font-semibold py-2 px-4 sm:py-3 sm:px-6 rounded transition-all duration-300 shadow-md text-sm sm:text-base">
+            CONTACT US
+          </button>
+        </Link>
+      </div>
+      {/* <Footer /> */}
+    </>
   );
 };
 
