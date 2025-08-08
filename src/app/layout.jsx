@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Script from "next/script";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ArrowNavigation from '@/components/ArrowNavigation';
 import "./globals.css";
 
 export default function RootLayout({ children }) {
@@ -50,6 +51,7 @@ export default function RootLayout({ children }) {
         ></script>
       </head>
       <body className="bg-white text-black dark:bg-black dark:text-white">
+        <ArrowNavigation />
         {!hideLayout && <Navbar />}
         <main className="min-h-screen flex flex-col justify-between">
           <div className="flex-grow">{children}</div>

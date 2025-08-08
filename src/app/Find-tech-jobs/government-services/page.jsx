@@ -1,9 +1,12 @@
-  import React from 'react';
+"use client";
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
-
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 const SenecaServicesPage = () => {
+      const [hoveredSide, setHoveredSide] = useState(null);
       const services = [
    
     {
@@ -60,86 +63,269 @@ const SenecaServicesPage = () => {
 
       <main className="min-h-screen bg-gray-50 ">
         {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] mt-18 to-cyan-500 overflow-hidden">           
-  {/* Background Pattern */}           
-  <div className="absolute inset-0 opacity-10">             
-    <div className="absolute inset-0" style={{               
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,             
-    }} />           
-  </div>                      
+    <section className="relative bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] mt-18 overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }} />
+      </div>
 
-  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">             
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">               
-      {/* Left Content */}               
-      <div className="text-white space-y-6 lg:space-y-8">                 
-        <div className="space-y-4">                   
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">                     
-            People who know,{' '}                     
-            <span className="text-[#00d9a6] block">know Seneca.</span>                   
-          </h1>                 
-        </div>                                  
-
-        <div className="space-y-4 lg:space-y-6 text-lg sm:text-xl lg:text-2xl">                   
-          <p className="font-medium">From small business to Fortune 100.</p>                   
-          <p className="font-medium">Public sector to private enterprise.</p>                   
-          <p className="leading-relaxed">                     
-            When it comes to highly skilled services and best-in-class                      
-            solutions, winning teams know they can count on Seneca                      
-            Resources.                   
-          </p>                   
-          <p className="leading-relaxed">                     
-            Our clients see results because we seek out exactly the right fit                      
-            for every situation. It's precision resourcing, and it can                      
-            transform your business.                   
-          </p>                 
-        </div>               
-      </div>                
-
-      {/* Right Image - Enhanced */}               
-      <div className="relative group">
-        {/* Floating background decorations */}
-        <div className="absolute -top-4 -right-4 w-72 h-72 bg-gradient-to-br from-green-400 to-pink-500 rounded-full opacity-20 blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-8 -left-8 w-96 h-96 bg-gradient-to-tr from-cyan-400 to-blue-500 rounded-full opacity-15 blur-3xl"></div>
-        
-        {/* Main image container */}
-        <div className="relative transform transition-all duration-500 group-hover:scale-105 group-hover:-rotate-1">
-          {/* Glassmorphism backdrop */}
-          <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20 shadow-2xl"></div>
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           
-          {/* Image wrapper with enhanced styling */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-white via-gray-50 to-gray-100 p-6 transform transition-all duration-300">
-            {/* Inner glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-green-500/20 rounded-3xl"></div>
-            
-            {/* Actual image */}
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
-              <Image                     
-                src="/images/it1.png"                     
-                alt="Professional business team handshake in modern office setting"                     
-                width={600}                     
-                height={400}                     
-                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"                     
-                priority                     
-                loading="eager"                   
+          {/* Left Content with Enhanced Hover Effects */}
+          <motion.div
+            onHoverStart={() => setHoveredSide('left')}
+            onHoverEnd={() => setHoveredSide(null)}
+            className="text-white space-y-6 lg:space-y-8 cursor-pointer relative"
+            initial={{ x: 0, opacity: 1 }}
+            animate={{
+              x: hoveredSide === 'left' ? 20 : hoveredSide === 'right' ? -30 : 0,
+              scale: hoveredSide === 'left' ? 1.02 : hoveredSide === 'right' ? 0.95 : 1,
+              opacity: hoveredSide === 'right' ? 0.7 : 1
+            }}
+            transition={{ 
+              type: 'spring', 
+              stiffness: 300, 
+              damping: 30,
+              duration: 0.6
+            }}
+          >
+            {/* Content sliding in from left */}
+            <motion.div 
+              className="space-y-4"
+              animate={{
+                x: hoveredSide === 'right' ? -50 : 0,
+                opacity: hoveredSide === 'right' ? 0.5 : 1
+              }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              <motion.h1 
+                className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                People who know,{' '}
+                <span className="text-[#00d9a6] block">Quore IT.</span>
+              </motion.h1>
+            </motion.div>
+
+            <motion.div 
+              className="space-y-4 lg:space-y-6 text-lg sm:text-xl lg:text-2xl"
+              animate={{
+                x: hoveredSide === 'right' ? -30 : 0,
+                opacity: hoveredSide === 'right' ? 0.6 : 1
+              }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+            >
+              <motion.p 
+                className="font-medium"
+                whileHover={{ x: 10 }}
+                transition={{ duration: 0.2 }}
+              >
+                From small business to Fortune 100.
+              </motion.p>
+              <motion.p 
+                className="font-medium"
+                whileHover={{ x: 10 }}
+                transition={{ duration: 0.2 }}
+              >
+                Public sector to private enterprise.
+              </motion.p>
+              <motion.p 
+                className="leading-relaxed"
+                whileHover={{ x: 10 }}
+                transition={{ duration: 0.2 }}
+              >
+                When it comes to highly skilled services and best-in-class
+                solutions, winning teams know they can count on Seneca
+                Resources.
+              </motion.p>
+              <motion.p 
+                className="leading-relaxed"
+                whileHover={{ x: 10 }}
+                transition={{ duration: 0.2 }}
+              >
+                Our clients see results because we seek out exactly the right fit
+                for every situation. It's precision resourcing, and it can
+                transform your business.
+              </motion.p>
+            </motion.div>
+
+            {/* Hover indicator for left side */}
+            <motion.div
+              className="absolute -left-4 top-1/2 transform -translate-y-1/2 w-2 h-16 bg-white/30 rounded-full"
+              animate={{
+                scaleY: hoveredSide === 'left' ? 2 : 1,
+                opacity: hoveredSide === 'left' ? 1 : 0.3
+              }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.div>
+
+          {/* Right Image with Enhanced Hover Effects */}
+          <motion.div
+            onHoverStart={() => setHoveredSide('right')}
+            onHoverEnd={() => setHoveredSide(null)}
+            className="relative group cursor-pointer"
+            initial={{ x: 0, opacity: 1 }}
+            animate={{
+              x: hoveredSide === 'right' ? -20 : hoveredSide === 'left' ? 30 : 0,
+              scale: hoveredSide === 'right' ? 1.05 : hoveredSide === 'left' ? 0.95 : 1,
+              opacity: hoveredSide === 'left' ? 0.7 : 1
+            }}
+            transition={{ 
+              type: 'spring', 
+              stiffness: 300, 
+              damping: 30,
+              duration: 0.6
+            }}
+          >
+            {/* Content sliding in from right */}
+            <motion.div
+              animate={{
+                x: hoveredSide === 'left' ? 50 : 0,
+                opacity: hoveredSide === 'left' ? 0.5 : 1
+              }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              {/* Floating background decorations with enhanced animations */}
+              <motion.div 
+                className="absolute -top-4 -right-4 w-72 h-72 bg-gradient-to-br from-green-400 to-pink-500 rounded-full opacity-20 blur-3xl"
+                animate={{ 
+                  scale: hoveredSide === 'right' ? 1.2 : 1,
+                  rotate: hoveredSide === 'right' ? 180 : 0
+                }}
+                transition={{ duration: 0.8 }}
               />
-              
-              {/* Overlay gradient for depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
-            </div>
-            
-            {/* Decorative corner elements */}
-            <div className="absolute top-2 right-2 w-4 h-4 bg-green-400 rounded-full opacity-70"></div>
-            <div className="absolute bottom-2 left-2 w-3 h-3 bg-cyan-400 rounded-full opacity-70"></div>
-          </div>
-          
-          {/* Additional floating elements */}
-          <div className="absolute -top-2 left-1/4 w-6 h-6 bg-gradient-to-r from-green-400 to-pink-500 rounded-full opacity-60 animate-bounce" style={{ animationDelay: '0.5s' }}></div>
-          <div className="absolute -bottom-3 right-1/3 w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-60 animate-bounce" style={{ animationDelay: '1s' }}></div>
+              <motion.div 
+                className="absolute -bottom-8 -left-8 w-96 h-96 bg-gradient-to-tr from-cyan-400 to-blue-500 rounded-full opacity-15 blur-3xl"
+                animate={{ 
+                  scale: hoveredSide === 'right' ? 1.1 : 1,
+                  rotate: hoveredSide === 'right' ? -90 : 0
+                }}
+                transition={{ duration: 0.6 }}
+              />
+
+              {/* Main image container with slide-in effect */}
+              <motion.div 
+                className="relative transform transition-all duration-500"
+                animate={{
+                  scale: hoveredSide === 'right' ? 1.08 : 1.02,
+                  rotate: hoveredSide === 'right' ? -2 : hoveredSide === 'left' ? 1 : 0,
+                  y: hoveredSide === 'right' ? -10 : 0
+                }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+              >
+                {/* Glassmorphism backdrop */}
+                <motion.div 
+                  className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20 shadow-2xl"
+                  animate={{
+                    borderColor: hoveredSide === 'right' ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.2)'
+                  }}
+                  transition={{ duration: 0.3 }}
+                />
+
+                {/* Image wrapper with enhanced styling */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-white via-gray-50 to-gray-100 p-6 transform transition-all duration-300">
+                  {/* Inner glow effect */}
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-green-500/20 rounded-3xl"
+                    animate={{
+                      opacity: hoveredSide === 'right' ? 0.6 : 0.3
+                    }}
+                    transition={{ duration: 0.3 }}
+                  />
+
+                  {/* Actual image */}
+                  <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Image
+                        src="/images/it1.png"
+                        alt="Professional business team handshake in modern office setting"
+                        width={600}
+                        height={400}
+                        className="w-full h-auto object-cover transition-transform duration-700"
+                        priority
+                        loading="eager"
+                      />
+                    </motion.div>
+
+                    {/* Overlay gradient for depth */}
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"
+                      animate={{
+                        opacity: hoveredSide === 'right' ? 0.8 : 0.4
+                      }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  </div>
+
+                  {/* Decorative corner elements with animations */}
+                  <motion.div 
+                    className="absolute top-2 right-2 w-4 h-4 bg-green-400 rounded-full opacity-70"
+                    animate={{
+                      scale: hoveredSide === 'right' ? 1.5 : 1,
+                      rotate: hoveredSide === 'right' ? 180 : 0
+                    }}
+                    transition={{ duration: 0.4 }}
+                  />
+                  <motion.div 
+                    className="absolute bottom-2 left-2 w-3 h-3 bg-cyan-400 rounded-full opacity-70"
+                    animate={{
+                      scale: hoveredSide === 'right' ? 1.3 : 1,
+                      rotate: hoveredSide === 'right' ? -180 : 0
+                    }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                  />
+                </div>
+
+                {/* Additional floating elements with enhanced animations */}
+                <motion.div 
+                  className="absolute -top-2 left-1/4 w-6 h-6 bg-gradient-to-r from-green-400 to-pink-500 rounded-full opacity-60"
+                  animate={{
+                    y: hoveredSide === 'right' ? [-5, 5, -5] : [0],
+                    scale: hoveredSide === 'right' ? 1.2 : 1
+                  }}
+                  transition={{ 
+                    duration: hoveredSide === 'right' ? 2 : 0.5, 
+                    repeat: hoveredSide === 'right' ? Infinity : 0,
+                    repeatType: "reverse"
+                  }}
+                />
+                <motion.div 
+                  className="absolute -bottom-3 right-1/3 w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-60"
+                  animate={{
+                    y: hoveredSide === 'right' ? [5, -5, 5] : [0],
+                    scale: hoveredSide === 'right' ? 1.3 : 1
+                  }}
+                  transition={{ 
+                    duration: hoveredSide === 'right' ? 1.5 : 0.5, 
+                    repeat: hoveredSide === 'right' ? Infinity : 0,
+                    repeatType: "reverse",
+                    delay: 0.3
+                  }}
+                />
+              </motion.div>
+            </motion.div>
+
+            {/* Hover indicator for right side */}
+            <motion.div
+              className="absolute -right-4 top-1/2 transform -translate-y-1/2 w-2 h-16 bg-white/30 rounded-full"
+              animate={{
+                scaleY: hoveredSide === 'right' ? 2 : 1,
+                opacity: hoveredSide === 'right' ? 1 : 0.3
+              }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.div>
         </div>
-      </div>             
-    </div>           
-  </div>         
-</section>
+      </div>
+    </section>
 
       {/* Services Grid Section */}
 <section className="py-12 lg:py-20 bg-gray-100">
