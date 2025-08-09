@@ -458,247 +458,82 @@
 "use client";
 
 import Link from 'next/link';
-import React, { useEffect, useRef } from 'react';
-import { motion, useMotionValue, useTransform, useScroll, useSpring } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Home, ChevronRight, ArrowRight, Star, Users, Award, Globe, Sparkles } from 'lucide-react';
+import { Home, ChevronRight, ArrowRight, Star, Users, Award, Globe } from 'lucide-react';
 
-// Enhanced Animation Variants
-const EASE = [0.22, 1, 0.36, 1];
-
-const fadeInUp = {
-  hidden: { 
-    opacity: 0, 
-    y: 60, 
-    filter: 'blur(8px)',
-    scale: 0.95 
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    filter: 'blur(0px)',
-    scale: 1,
-    transition: { 
-      duration: 0.8, 
-      ease: EASE,
-      staggerChildren: 0.1
-    } 
-  },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const slideInLeft = {
-  hidden: { opacity: 0, x: -80, filter: 'blur(4px)' },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    filter: 'blur(0px)',
-    transition: { duration: 0.8, ease: EASE } 
-  },
-};
-
-const slideInRight = {
-  hidden: { opacity: 0, x: 80, filter: 'blur(4px)' },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    filter: 'blur(0px)',
-    transition: { duration: 0.8, ease: EASE } 
-  },
-};
-
-const scaleUp = {
-  hidden: { opacity: 0, scale: 0.8, y: 20 },
-  visible: { 
-    opacity: 1, 
-    scale: 1, 
-    y: 0,
-    transition: { 
-      duration: 0.6, 
-      ease: EASE,
-      type: "spring",
-      stiffness: 100
-    } 
-  },
-};
-
-const bounceIn = {
-  hidden: { opacity: 0, y: -30, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    scale: 1,
-    transition: { 
-      type: "spring", 
-      stiffness: 200, 
-      damping: 15,
-      duration: 0.8
-    } 
-  },
-};
-
-// Enhanced Reusable Components
-const Magnetic = ({ children, className }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const handleMouseMove = (e) => {
-    const target = e.currentTarget.getBoundingClientRect();
-    const relX = e.clientX - target.left - target.width / 2;
-    const relY = e.clientY - target.top - target.height / 2;
-    x.set(relX / 8);
-    y.set(relY / 8);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{ x, y }}
-      className={className}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-const TiltCard = ({ children, className }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const handleMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width;
-    const py = (e.clientY - rect.top) / rect.height;
-    x.set((0.5 - px) * 15);
-    y.set((py - 0.5) * 15);
-  };
-
-  return (
-    <motion.div
-      onMouseMove={handleMove}
-      onMouseLeave={() => { x.set(0); y.set(0); }}
-      style={{ 
-        rotateX: y, 
-        rotateY: x, 
-        transformPerspective: 1000,
-        transformStyle: "preserve-3d"
-      }}
-      className={className}
-      transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-    >
-      {children}
-    </motion.div>
-  );
-};
-
-// Floating Particles Component
-const FloatingParticles = () => {
-  return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
-      {[...Array(12)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [-20, -40, -20],
-            x: [-10, 10, -10],
-            opacity: [0.3, 0.8, 0.3],
-            scale: [0.5, 1, 0.5],
-          }}
-          transition={{
-            duration: 3 + Math.random() * 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-          }}
-        />
-      ))}
-    </div>
-  );
-};
-
-// Parallax Section Component
-const ParallaxSection = ({ children, offset = 50 }) => {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 1000], [0, offset]);
-
-  return (
-    <motion.div style={{ y }}>
-      {children}
-    </motion.div>
-  );
-};
-
-// Enhanced Gradient Text Component
-const GradientText = ({ children, className = "" }) => (
-  <span className={`bg-gradient-to-r from-[#c5f82a] via-[#00d9a6] to-[#c5f82a] bg-clip-text text-transparent bg-size-200 animate-gradient ${className}`}>
-    {children}
-  </span>
-);
-
-// Data arrays (unchanged for brevity)
 const services = [
   {
     title: 'Government Services',
-    description: 'Understanding how to efficiently navigate regulated and compliance-driven environments allows us to move as quickly and precisely as the project demands.',
+    description:
+      'Understanding how to efficiently navigate regulated and compliance-driven environments allows us to move as quickly and precisely as the project demands.',
     image: '/images/pics1.png',
     link: '/services/government',
     icon: <Award className="w-6 h-6" />,
   },
   {
     title: 'Information Technology',
-    description: 'There is no room for error in a world of constantly changing technology. Our experts stay on top of the latest developments in their specialties so they know where to focus, and why.',
+    description:
+      'There is no room for error in a world of constantly changing technology. Our experts stay on top of the latest developments in their specialties so they know where to focus, and why.',
     image: '/images/pics2.png',
-    link: '/Find-tech-jobs/Information-technology',
+    link: ' Find-tech-jobs/Information-technology',
     icon: <Globe className="w-6 h-6" />,
   },
   {
     title: 'Engineering',
-    description: 'Deep expertise doesn not mean blinders are on. We onboard team members who have a sense of where they fit in within the larger mission.',
+    description:
+      'Deep expertise doesn not mean blinders are on. We onboard team members who have a sense of where they fit in within the larger mission.',
     image: '/images/pics3.png',
     link: '/services/engineering',
     icon: <Star className="w-6 h-6" />,
   },
   {
     title: 'Consulting Services',
-    description: 'Understanding how a skill fits in to a larger mechanism is the mark of a true expert. Our specialists understand the bigger picture, and help our clients do the same.',
+    description:
+      'Understanding how a skill fits in to a larger mechanism is the mark of a true expert. Our specialists understand the bigger picture, and help our clients do the same.',
     image: '/images/pics4.png',
     link: '/services/consulting',
     icon: <Users className="w-6 h-6" />,
   },
 ];
 
-const topLogos = ['carmax.png', 'dominion.png', 'geico.png', 'honda.png', 'kemper.png', 'mercedes.png', 'motion.png', 'southern.png', 'truist.png', 'sca.png', 'accenture.png'];
-const bottomLogos = ['sca.png', 'accenture.png', 'southern.png', 'truist.png', 'carmax.png', 'dominion.png', 'geico.png', 'honda.png', 'kemper.png', 'mercedes.png', 'motion.png'];
+const topLogos = [
+  'carmax.png',
+  'dominion.png',
+  'geico.png',
+  'honda.png',
+  'kemper.png',
+  'mercedes.png',
+  'motion.png',
+  'southern.png',
+  'truist.png',
+  'sca.png',
+  'accenture.png',
+];
+
+const bottomLogos = [
+  'sca.png',
+  'accenture.png',
+  'southern.png',
+  'truist.png',
+  'carmax.png',
+  'dominion.png',
+  'geico.png',
+  'honda.png',
+  'kemper.png',
+  'mercedes.png',
+  'motion.png',
+];
 
 const industries = [
-  { name: 'AUTOMOTIVE', image: 'automotive.png', color: 'from-blue-500 via-blue-600 to-blue-700' },
-  { name: 'FINANCIAL', image: 'FinancialServices.png', color: 'from-green-500 via-green-600 to-green-700' },
-  { name: 'GOVERNMENT', image: 'Government.png', color: 'from-red-500 via-red-600 to-red-700' },
-  { name: 'HEALTHCARE', image: 'Healthcare.png', color: 'from-purple-500 via-purple-600 to-purple-700' },
-  { name: 'RETAIL', image: 'Retail.png', color: 'from-orange-500 via-orange-600 to-orange-700' },
-  { name: 'UTILITIES', image: 'Utilities.png', color: 'from-yellow-500 via-yellow-600 to-yellow-700' },
-  { name: 'MANUFACTURING', image: 'Manufacturing.png', color: 'from-indigo-500 via-indigo-600 to-indigo-700' },
+  { name: 'AUTOMOTIVE', image: 'automotive.png', color: 'from-blue-500 to-blue-600' },
+  { name: 'FINANCIAL', image: 'FinancialServices.png', color: 'from-green-500 to-green-600' },
+  { name: 'GOVERNMENT', image: 'Government.png', color: 'from-red-500 to-red-600' },
+  { name: 'HEALTHCARE', image: 'Healthcare.png', color: 'from-purple-500 to-purple-600' },
+  { name: 'RETAIL', image: 'Retail.png', color: 'from-orange-500 to-orange-600' },
+  { name: 'UTILITIES', image: 'Utilities.png', color: 'from-yellow-500 to-yellow-600' },
+  { name: 'MANUFACTURING', image: 'Manufacturing.png', color: 'from-indigo-500 to-indigo-600' },
 ];
 
 const cards = [
@@ -776,6 +611,54 @@ const cards = [
   },
 ];
 
+// Enhanced animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const slideInLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const slideInRight = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const scaleUp = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const bounceIn = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      type: "spring", 
+      stiffness: 300, 
+      damping: 20 
+    } 
+  },
+};
+
+const isExternal = (url) => url.startsWith('http');
+
+// Stats data
 const stats = [
   { number: "25+", label: "Years Experience", icon: <Award className="w-8 h-8" /> },
   { number: "1000+", label: "Successful Projects", icon: <Star className="w-8 h-8" /> },
@@ -783,693 +666,418 @@ const stats = [
   { number: "10k+", label: "Happy Clients", icon: <Users className="w-8 h-8" /> },
 ];
 
-const isExternal = (url) => url.startsWith('http');
-
 const Firstpage = () => {
-  const { scrollY } = useScroll();
-  const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
-  const y1 = useSpring(useTransform(scrollY, [0, 300], [0, -50]), springConfig);
-  const y2 = useSpring(useTransform(scrollY, [0, 300], [0, -30]), springConfig);
-
   return (
-    <>
-      {/* Enhanced Hero Section */}
+    <> 
+      {/* Hero Section with enhanced design */}
       <motion.section 
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden mt-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
+        transition={{ duration: 1 }}
       >
-        {/* Dynamic Background with Parallax */}
+        {/* Background Image with Parallax Effect */}
         <motion.div 
-          className="absolute inset-0 z-0 will-change-transform"
-          style={{ y: y1 }}
+          className="absolute inset-0 z-0"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 1.5 }}
         >
           <Image
             src="/images/jobs1_hero.jpg"
-            alt="Hero Background"
+            alt="Candidates Hero Background"
             fill
-            className="object-cover object-center scale-110"
+            className="object-cover object-center"
             priority
-            quality={95}
+            quality={90}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/50"></div>
         </motion.div>
-
-        {/* Floating Particles */}
-        <FloatingParticles />
-
-        {/* Ambient Glows */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-[#00d9a6]/15 to-[#c5f82a]/15 rounded-full blur-3xl animate-pulse delay-1000" />
         
         {/* Enhanced Content */}
-        <div className="relative z-10 text-center max-w-7xl mx-auto px-4">
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
           <motion.div
-            initial={{ opacity: 0, y: 80, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 0.3, ease: EASE }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <Magnetic>
-              <motion.div 
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-md rounded-full text-white text-sm font-medium mb-8 border border-white/20 shadow-xl"
-                whileHover={{ 
-                  scale: 1.05,
-                  background: "rgba(255,255,255,0.15)",
-                  y: -2
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <Sparkles className="w-4 h-4 text-[#c5f82a]" />
-                Leading Technology Solutions Provider
-              </motion.div>
-            </Magnetic>
-            
-            <motion.h1 
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight mb-8 leading-tight"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
+            <motion.span 
+              className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6 border border-white/20"
+              whileHover={{ scale: 1.05 }}
             >
+              ✨ Leading Technology Solutions Provider
+            </motion.span>
+            
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-wide mb-6 leading-tight">
               Technology Recruitment,
-              <br />
-              <GradientText className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black">
+              <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
                 IT Outsourcing
-              </GradientText>
-              <br />
+              </span>
               and Leadership Services
-            </motion.h1>
+            </h1>
             
-            <motion.p 
-              className="text-lg md:text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto mb-12 leading-relaxed font-light"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-            >
+            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 leading-relaxed">
               Transforming businesses through innovative technology solutions and expert talent acquisition
-            </motion.p>
+            </p>
             
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-6 justify-center"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-            >
-              <Magnetic>
-                <motion.button
-                  className="group px-10 py-4 bg-gradient-to-r from-[#c5f82a] via-[#00d9a6] to-[#c5f82a] text-black font-bold rounded-2xl shadow-2xl hover:shadow-[0_20px_50px_rgba(0,217,166,0.4)] transition-all duration-500 bg-size-200 hover:bg-pos-100 overflow-hidden relative"
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -3,
-                    rotate: [0, -1, 1, 0]
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="relative z-10 flex items-center gap-3">
-                    Get Started Today
-                    <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </motion.button>
-              </Magnetic>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.button
+                className="px-8 py-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-semibold rounded-lg hover:shadow-xl transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Get Started Today
+              </motion.button>
               
-              <Magnetic>
-                <motion.button
-                  className="group px-10 py-4 border-2 border-white/30 backdrop-blur-md text-white font-bold rounded-2xl hover:bg-white/10 hover:border-white/50 transition-all duration-300 shadow-xl"
-                  whileHover={{ 
-                    scale: 1.05, 
-                    y: -3,
-                    borderColor: "rgba(255,255,255,0.6)"
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <span className="flex items-center gap-3">
-                    Learn More
-                    <ChevronRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
-                </motion.button>
-              </Magnetic>
-            </motion.div>
+              <motion.button
+                className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Learn More
+              </motion.button>
+            </div>
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse" />
-          </div>
-        </motion.div>
+        {/* Floating Elements */}
+        <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-[#c5f82a]/10 to-[#00d9a6]/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
       </motion.section>
 
-      {/* Enhanced Stats Section */}
+      {/* Stats Section */}
       <motion.section 
-        className="relative py-24 bg-gradient-to-b from-white to-gray-50 overflow-hidden"
+        className="relative py-16 bg-white "
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true }}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(197,248,42,0.1),transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(0,217,166,0.1),transparent_50%)]" />
-        
-        <div className="relative max-w-7xl mx-auto px-4">
-          <motion.div className="text-center mb-16" variants={bounceIn}>
-            <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 backdrop-blur-sm rounded-full text-gray-600 text-sm font-semibold mb-6 border border-gray-200">
-              Our Impact in Numbers
-            </span>
-            <h2 className="text-3xl md:text-5xl font-black bg-gradient-to-r from-gray-800 via-gray-600 to-gray-800 bg-clip-text text-transparent mb-4">
-              Trusted Globally
-            </h2>
-          </motion.div>
-
+        <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="group text-center"
+                className="text-center group"
                 variants={scaleUp}
-                whileHover={{ y: -10, scale: 1.05 }}
-                transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.2 }}
               >
-                <TiltCard className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-gray-200">
-                  <div className="flex justify-center mb-6">
-                    <motion.div 
-                      className="p-4 bg-gradient-to-br from-[#c5f82a] via-[#00d9a6] to-[#c5f82a] rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300"
-                      whileHover={{ rotate: 360, scale: 1.1 }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      {React.cloneElement(stat.icon, { className: "w-8 h-8 text-white" })}
-                    </motion.div>
+                <div className="flex justify-center mb-4">
+                  <div className="p-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-2xl group-hover:shadow-lg transition-shadow duration-300">
+                    {React.cloneElement(stat.icon, { className: "w-8 h-8 text-white" })}
                   </div>
-                  <motion.h3 
-                    className="text-4xl md:text-5xl font-black text-gray-800 mb-3"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {stat.number}
-                  </motion.h3>
-                  <p className="text-gray-600 font-semibold text-lg">{stat.label}</p>
-                </TiltCard>
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">{stat.number}</h3>
+                <p className="text-gray-600 font-medium">{stat.label}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </motion.section>
 
-      {/* Enhanced About Us Section */}
+      {/* About Us Section with enhanced design */}
       <motion.section 
-        className="relative py-32 px-4 bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden"
+        className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true }}
       >
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.3) 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
-          }} />
+        <div className="max-w-6xl mx-auto text-center">
+          <motion.div variants={bounceIn} className="mb-16">
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full text-gray-600 text-sm font-medium mb-4">
+              About Our Company
+            </span>
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+              About us
+            </h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-700 leading-relaxed">
+              A pioneer in professional recruitment and IT outsourcing, delivering excellence for over 25 years
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+            variants={staggerContainer}
+          >
+            {[
+              { 
+                icon: "💼", 
+                text: "Jobs & Careers", 
+                description: "Discover exciting opportunities in technology",
+                gradient: "from-blue-500 to-blue-600"
+              },
+              { 
+                icon: "🚀", 
+                text: "What we do", 
+                description: "Comprehensive IT solutions and consulting",
+                gradient: "from-green-500 to-green-600"
+              },
+              { 
+                icon: "🌍", 
+                text: "Our Locations", 
+                description: "Global presence, local expertise",
+                gradient: "from-purple-500 to-purple-600"
+              }
+            ].map((item, index) => (
+              <motion.div 
+                key={index}
+                className="group cursor-pointer"
+                variants={scaleUp}
+                whileHover={{ y: -10 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-gray-200">
+                  <div className={`w-16 h-16 mx-auto mb-6 bg-gradient-to-r ${item.gradient} rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300`}>
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors duration-300">
+                    {item.text}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-
-        <ParallaxSection offset={30}>
-          <div className="relative max-w-7xl mx-auto text-center">
-            <motion.div variants={bounceIn} className="mb-20">
-              <motion.span 
-                className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 backdrop-blur-sm rounded-full text-gray-600 text-sm font-semibold mb-8 border border-gray-200"
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
-                About Our Company
-              </motion.span>
-              <motion.h1 
-                className="text-5xl md:text-7xl font-black mb-8 leading-tight"
-                style={{ y: y2 }}
-              >
-                <GradientText>About us</GradientText>
-              </motion.h1>
-              <p className="text-xl md:text-2xl max-w-4xl mx-auto text-gray-700 leading-relaxed font-light">
-                A pioneer in professional recruitment and IT outsourcing, delivering excellence for over 25 years
-              </p>
-            </motion.div>
-
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto"
-              variants={staggerContainer}
-            >
-              {[
-                { 
-                  icon: "💼", 
-                  text: "Jobs & Careers", 
-                  description: "Discover exciting opportunities in technology with career growth potential",
-                  gradient: "from-blue-500 via-blue-600 to-blue-700",
-                  glow: "shadow-blue-500/25"
-                },
-                { 
-                  icon: "🚀", 
-                  text: "What we do", 
-                  description: "Comprehensive IT solutions and consulting services for modern businesses",
-                  gradient: "from-green-500 via-green-600 to-green-700",
-                  glow: "shadow-green-500/25"
-                },
-                { 
-                  icon: "🌍", 
-                  text: "Our Locations", 
-                  description: "Global presence with local expertise across multiple continents",
-                  gradient: "from-purple-500 via-purple-600 to-purple-700",
-                  glow: "shadow-purple-500/25"
-                }
-              ].map((item, index) => (
-                <motion.div 
-                  key={index}
-                  className="group cursor-pointer"
-                  variants={scaleUp}
-                  whileHover={{ y: -15, scale: 1.02 }}
-                  transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
-                >
-                  <TiltCard className="h-full">
-                    <div className={`relative bg-white rounded-3xl p-10 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:border-gray-200 h-full ${item.glow} hover:shadow-2xl`}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      
-                      <motion.div 
-                        className={`w-20 h-20 mx-auto mb-8 bg-gradient-to-br ${item.gradient} rounded-3xl flex items-center justify-center text-3xl shadow-lg`}
-                        whileHover={{ 
-                          scale: 1.2, 
-                          rotate: 360,
-                          boxShadow: "0 20px 40px rgba(0,0,0,0.15)"
-                        }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        {item.icon}
-                      </motion.div>
-                      
-                      <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-green-600 transition-colors duration-300">
-                        {item.text}
-                      </h3>
-                      <p className="text-gray-600 leading-relaxed text-lg">
-                        {item.description}
-                      </p>
-
-                      {/* Hover Effect Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#c5f82a]/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 rounded-3xl" />
-                    </div>
-                  </TiltCard>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </ParallaxSection>
       </motion.section>
 
-      {/* Enhanced Business Solutions Section */}
-      <section className="relative py-32 px-4 md:px-12 lg:px-24 bg-gray-50 overflow-hidden">
-        {/* Animated Background Elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-          <motion.div
-            className="absolute top-1/4 -left-20 w-96 h-96 bg-gradient-to-r from-[#c5f82a]/10 to-[#00d9a6]/10 rounded-full blur-3xl"
-            animate={{ 
-              x: [0, 50, 0],
-              y: [0, 30, 0],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{ duration: 8, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute bottom-1/4 -right-20 w-80 h-80 bg-gradient-to-r from-[#00d9a6]/10 to-[#c5f82a]/10 rounded-full blur-3xl"
-            animate={{ 
-              x: [0, -40, 0],
-              y: [0, -25, 0],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{ duration: 6, repeat: Infinity, delay: 2 }}
-          />
-        </div>
-
-        <div className="relative max-w-8xl mx-auto">
-          {/* First Enhanced Row */}
-          <div className="grid md:grid-cols-2 gap-20 items-center mb-32">
+      {/* Business Solutions Section with improved layout */}
+      <section className="py-20 px-4 md:px-12 lg:px-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          {/* First Row */}
+          <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
             <motion.div
               variants={slideInLeft}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true }}
               className="order-2 md:order-1"
             >
-              <motion.span 
-                className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 backdrop-blur-sm rounded-full text-gray-600 text-sm font-semibold mb-8 border border-gray-200"
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
+              <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full text-gray-600 text-sm font-medium mb-6">
                 Our Approach
-              </motion.span>
+              </span>
               
-              <motion.h2 
-                className="text-4xl md:text-6xl font-black text-gray-800 mb-8 leading-tight"
-                whileInView={{ opacity: [0, 1], y: [40, 0] }}
-                transition={{ duration: 0.8 }}
-              >
+              <h2 className="text-3xl md:text-5xl font-extrabold text-gray-800 mb-6 leading-tight">
                 When you're solving a business need,
                 <br />
                 you don't need one right answer.
-              </motion.h2>
+              </h2>
               
-              <motion.p 
-                className="text-5xl md:text-7xl font-black mb-10 leading-tight"
-                whileInView={{ opacity: [0, 1], scale: [0.9, 1] }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <GradientText>You need three.</GradientText>
-              </motion.p>
+              <p className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent mb-8 leading-tight">
+                You need three.
+              </p>
               
-              <motion.p 
-                className="text-xl text-gray-700 mb-10 leading-relaxed font-light"
-                whileInView={{ opacity: [0, 1], y: [20, 0] }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                 Seneca Resources looks beyond the reqs you need to fill, to grasp exactly what you're
                 trying to achieve. Because understanding your business needs helps us better meet your
                 resourcing ones.
-              </motion.p>
+              </p>
 
-              <motion.div 
-                className="flex flex-wrap gap-4"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                {[
-                  { icon: Star, text: "Expert Solutions", color: "yellow" },
-                  { icon: Users, text: "Dedicated Team", color: "blue" },
-                  { icon: Award, text: "Proven Results", color: "green" }
-                ].map((tag, index) => (
-                  <motion.div 
-                    key={index}
-                    className={`flex items-center bg-white/70 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-${tag.color}-300`}
-                    variants={scaleUp}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                  >
-                    <tag.icon className={`w-5 h-5 text-${tag.color}-500 mr-3`} />
-                    <span className="text-sm font-semibold text-gray-700">{tag.text}</span>
-                  </motion.div>
-                ))}
-              </motion.div>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                  <Star className="w-5 h-5 text-yellow-500 mr-2" />
+                  <span className="text-sm font-medium text-gray-700">Expert Solutions</span>
+                </div>
+                <div className="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                  <Users className="w-5 h-5 text-blue-500 mr-2" />
+                  <span className="text-sm font-medium text-gray-700">Dedicated Team</span>
+                </div>
+                <div className="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                  <Award className="w-5 h-5 text-green-500 mr-2" />
+                  <span className="text-sm font-medium text-gray-700">Proven Results</span>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
               variants={slideInRight}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true }}
               className="order-1 md:order-2"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
             >
-              <TiltCard>
-                <div className="relative group">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-[#c5f82a]/30 to-[#00d9a6]/30 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
-                  <motion.div
-                    className="relative"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <Image
-                      src="/images/laptop_globe.webp"
-                      alt="Laptop with globe overlay"
-                      width={700}
-                      height={500}
-                      className="relative rounded-3xl shadow-2xl hover:shadow-3xl transition-shadow duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </motion.div>
-                </div>
-              </TiltCard>
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-3xl blur-xl"></div>
+                <Image
+                  src="/images/laptop_globe.webp"
+                  alt="Laptop with globe overlay"
+                  width={600}
+                  height={400}
+                  className="relative rounded-3xl shadow-2xl"
+                />
+              </div>
             </motion.div>
           </div>
 
-          {/* Second Enhanced Row */}
-          <div className="grid md:grid-cols-2 gap-20 items-center">
+          {/* Second Row */}
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div
               variants={slideInLeft}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
             >
-              <TiltCard>
-                <div className="relative group">
-                  <div className="absolute -inset-4 bg-gradient-to-r from-[#00d9a6]/30 to-[#c5f82a]/30 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
-                  <motion.div
-                    className="relative"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <Image
-                      src="/images/business-contract.webp"
-                      alt="Business handshake over contract"
-                      width={700}
-                      height={500}
-                      className="relative rounded-3xl shadow-2xl hover:shadow-3xl transition-shadow duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  </motion.div>
-                </div>
-              </TiltCard>
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-3xl blur-xl"></div>
+                <Image
+                  src="/images/business-contract.webp"
+                  alt="Business handshake over contract"
+                  width={600}
+                  height={400}
+                  className="relative rounded-3xl shadow-2xl"
+                />
+              </div>
             </motion.div>
 
             <motion.div
               variants={slideInRight}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true }}
             >
-              <motion.span 
-                className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 backdrop-blur-sm rounded-full text-gray-600 text-sm font-semibold mb-8 border border-gray-200"
-                whileHover={{ scale: 1.05, y: -2 }}
-              >
+              <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full text-gray-600 text-sm font-medium mb-6">
                 Our Promise
-              </motion.span>
+              </span>
               
-              <motion.h2 
-                className="text-4xl md:text-5xl font-black text-gray-800 mb-8 leading-tight"
-                whileInView={{ opacity: [0, 1], y: [40, 0] }}
-                transition={{ duration: 0.8 }}
-              >
+              <h2 className="text-3xl md:text-4xl font-extrabold text-gray-800 mb-6 leading-tight">
                 We call it deploying with purpose.
-              </motion.h2>
+              </h2>
               
-              <motion.p 
-                className="text-4xl md:text-6xl font-black mb-10 leading-tight"
-                whileInView={{ opacity: [0, 1], scale: [0.9, 1] }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <GradientText>
-                  You'll call it just what
-                  <br className="hidden md:block" /> your business needs.
-                </GradientText>
-              </motion.p>
+              <p className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent mb-8 leading-tight">
+                You'll call it just what
+                <br className="hidden md:block" /> your business needs.
+              </p>
 
-              <motion.div 
-                className="space-y-6"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
+              <div className="space-y-4">
                 {[
                   "Strategic workforce planning",
                   "Scalable technology solutions", 
                   "Expert consultation services"
                 ].map((item, index) => (
-                  <motion.div 
-                    key={index} 
-                    className="flex items-center group"
-                    variants={slideInLeft}
-                    whileHover={{ x: 10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <motion.div 
-                      className="w-3 h-3 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full mr-6 shadow-lg"
-                      whileHover={{ scale: 1.5 }}
-                      transition={{ duration: 0.2 }}
-                    />
-                    <span className="text-gray-700 font-semibold text-lg group-hover:text-gray-900 transition-colors duration-200">{item}</span>
-                  </motion.div>
+                  <div key={index} className="flex items-center">
+                    <div className="w-2 h-2 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full mr-4"></div>
+                    <span className="text-gray-700 font-medium">{item}</span>
+                  </div>
                 ))}
-              </motion.div>
+              </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Continue with enhanced sections... */}
-      {/* The rest of the component follows the same pattern with enhanced animations */}
-      
-      {/* Enhanced Logo Slider Section */}
+      {/* Logo Slider Section with enhanced design */}
       <motion.section 
-        className="relative bg-gradient-to-br from-[#c5f82a] via-[#00d9a6] to-[#c5f82a] text-white py-32 overflow-hidden"
+        className="relative bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] text-white py-24 overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.8 }}
       >
-        {/* Dynamic Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            className="absolute top-20 left-20 w-40 h-40 bg-white/10 rounded-full blur-3xl"
-            animate={{ 
-              scale: [1, 1.2, 1],
-              opacity: [0.1, 0.3, 0.1]
-            }}
-            transition={{ duration: 4, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute bottom-20 right-20 w-60 h-60 bg-white/5 rounded-full blur-3xl"
-            animate={{ 
-              scale: [1.2, 1, 1.2],
-              opacity: [0.05, 0.2, 0.05]
-            }}
-            transition={{ duration: 6, repeat: Infinity, delay: 2 }}
-          />
-        </div>
+        {/* Decorative Elements */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
 
-        {/* Enhanced TOP SLIDER */}
-        <div className="overflow-hidden mb-20">
+        {/* TOP SLIDER */}
+        <div className="overflow-hidden mb-16">
           <motion.div 
-            className="flex gap-16 whitespace-nowrap"
-            animate={{ x: [0, -1200] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="flex gap-12 whitespace-nowrap"
+            animate={{ x: [0, -1000] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           >
             {[...topLogos, ...topLogos, ...topLogos].map((logo, idx) => (
-              <Magnetic key={`top-${idx}`}>
-                <motion.div
-                  className="flex-shrink-0 bg-white/10 backdrop-blur-md rounded-3xl p-8 hover:bg-white/20 transition-all duration-300 border border-white/10"
-                  whileHover={{ 
-                    scale: 1.15, 
-                    y: -5,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
-                  }}
-                >
-                  <Image
-                    src={`/images/${logo}`}
-                    alt={`Top Logo ${idx}`}
-                    width={140}
-                    height={90}
-                    className="h-14 w-auto object-contain filter brightness-0 invert transition-transform duration-300"
-                  />
-                </motion.div>
-              </Magnetic>
+              <motion.div
+                key={`top-${idx}`}
+                className="flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-colors duration-300"
+                whileHover={{ scale: 1.1 }}
+              >
+                <Image
+                  src={`/images/${logo}`}
+                  alt={`Top Logo ${idx}`}
+                  width={120}
+                  height={80}
+                  className="h-12 w-auto object-contain filter brightness-0 invert"
+                />
+              </motion.div>
             ))}
           </motion.div>
         </div>
 
-        {/* Enhanced CENTER TEXT */}
-        <ParallaxSection offset={-20}>
-          <motion.div 
-            className="relative z-10 max-w-7xl mx-auto text-center px-4 mb-20"
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <motion.h2 
-              className="text-5xl md:text-7xl font-black text-white mb-8 leading-tight"
-              whileInView={{ 
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              Resourcing and staffing that's trusted
-              <br />
-              <motion.span 
-                className="text-orange-300"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.2 }}
-              >
-                from Main Street to Wall Street
-              </motion.span>
-            </motion.h2>
-            <motion.p 
-              className="text-xl md:text-2xl text-black/80 max-w-5xl mx-auto leading-relaxed font-light"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              From small businesses to the Fortune 100, organizations across the country leverage
-              Seneca Resources' workforce solutions expertise to fulfill their critical IT and Engineering projects.
-            </motion.p>
-          </motion.div>
-        </ParallaxSection>
+        {/* CENTER TEXT */}
+        <motion.div 
+          className="relative z-10 max-w-6xl mx-auto text-center px-4 mb-16"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            Resourcing and staffing that's trusted
+            <br />
+            <span className="text-orange-300">from Main Street to Wall Street</span>
+          </h2>
+          <p className="text-lg md:text-xl text-black/80 max-w-4xl mx-auto leading-relaxed">
+            From small businesses to the Fortune 100, organizations across the country leverage
+            Seneca Resources' workforce solutions expertise to fulfill their critical IT and Engineering projects.
+          </p>
+        </motion.div>
 
-        {/* Enhanced BOTTOM SLIDER */}
+        {/* BOTTOM SLIDER */}
         <div className="overflow-hidden">
           <motion.div 
-            className="flex gap-16 whitespace-nowrap"
-            animate={{ x: [-1200, 0] }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            className="flex gap-12 whitespace-nowrap"
+            animate={{ x: [-1000, 0] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
           >
             {[...bottomLogos, ...bottomLogos, ...bottomLogos].map((logo, idx) => (
-              <Magnetic key={`bottom-${idx}`}>
-                <motion.div
-                  className="flex-shrink-0 bg-white/10 backdrop-blur-md rounded-3xl p-8 hover:bg-white/20 transition-all duration-300 border border-white/10"
-                  whileHover={{ 
-                    scale: 1.15, 
-                    y: -5,
-                    boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
-                  }}
-                >
-                  <Image
-                    src={`/images/${logo}`}
-                    alt={`Bottom Logo ${idx}`}
-                    width={140}
-                    height={90}
-                    className="h-14 w-auto object-contain filter brightness-0 invert transition-transform duration-300"
-                  />
-                </motion.div>
-              </Magnetic>
+              <motion.div
+                key={`bottom-${idx}`}
+                className="flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-colors duration-300"
+                whileHover={{ scale: 1.1 }}
+              >
+                <Image
+                  src={`/images/${logo}`}
+                  alt={`Bottom Logo ${idx}`}
+                  width={120}
+                  height={80}
+                  className="h-12 w-auto object-contain filter brightness-0 invert"
+                />
+              </motion.div>
             ))}
           </motion.div>
         </div>
       </motion.section>
 
-      {/* Enhanced Industries Section */}
+      {/* Industries Section with enhanced cards */}
       <motion.section 
-        className="relative bg-gray-50 py-32 px-4 overflow-hidden"
+        className="bg-gray-50 py-24 px-4"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true }}
       >
-        {/* Background Pattern */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(197,248,42,0.05),transparent_50%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(0,217,166,0.05),transparent_50%)]" />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto">
-          <motion.div className="text-center mb-20" variants={bounceIn}>
-            <motion.span 
-              className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 backdrop-blur-sm rounded-full text-gray-600 text-sm font-semibold mb-8 border border-gray-200"
-              whileHover={{ scale: 1.05, y: -2 }}
-            >
+        <div className="max-w-6xl mx-auto">
+          <motion.div className="text-center mb-16" variants={bounceIn}>
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full text-gray-600 text-sm font-medium mb-4">
               Our Expertise
-            </motion.span>
-            <motion.h2 
-              className="text-5xl md:text-7xl font-black mb-8 leading-tight"
-              whileInView={{ 
-                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
-              <GradientText>Industries Served</GradientText>
-            </motion.h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-transparent bg-clip-text mb-6">
+              Industries Served
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We provide specialized solutions across diverse industries with deep domain expertise
             </p>
           </motion.div>
           
           <motion.div 
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6"
             variants={staggerContainer}
           >
             {industries.map((industry, index) => (
@@ -1477,187 +1085,365 @@ const Firstpage = () => {
                 key={industry.name} 
                 className="group cursor-pointer"
                 variants={scaleUp}
-                whileHover={{ y: -15, scale: 1.05 }}
-                transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
+                whileHover={{ y: -10 }}
+                transition={{ duration: 0.3 }}
               >
-                <TiltCard>
-                  <div className="bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 group-hover:border-gray-200 text-center h-full relative overflow-hidden">
-                    {/* Hover Effect Background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-transparent via-gray-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
-                    <motion.div 
-                      className={`relative w-20 h-20 mx-auto mb-6 bg-gradient-to-br ${industry.color} rounded-3xl flex items-center justify-center shadow-lg`}
-                      whileHover={{ 
-                        scale: 1.2, 
-                        rotate: [0, -10, 10, 0],
-                        boxShadow: "0 20px 40px rgba(0,0,0,0.15)"
-                      }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <Image
-                        src={`/images/${industry.image}`}
-                        alt={industry.name}
-                        width={40}
-                        height={40}
-                        className="filter brightness-0 invert transition-transform duration-300"
-                      />
-                    </motion.div>
-                    
-                    <p className="relative text-sm font-bold text-gray-700 uppercase tracking-wide group-hover:text-green-600 transition-colors duration-300">
-                      {industry.name}
-                    </p>
+                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-gray-200 text-center">
+                  <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${industry.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <Image
+                      src={`/images/${industry.image}`}
+                      alt={industry.name}
+                      width={32}
+                      height={32}
+                      className="filter brightness-0 invert"
+                    />
                   </div>
-                </TiltCard>
+                  <p className="text-sm font-bold text-gray-700 uppercase tracking-wide group-hover:text-green-600 transition-colors duration-300">
+                    {industry.name}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </motion.section>
 
-      {/* Enhanced Services Section */}
+      {/* Services Section with enhanced design */}
       <motion.section 
-        className="relative bg-white py-32 px-4 md:px-12 lg:px-24 overflow-hidden"
+        className="bg-white py-24 px-4 md:px-12 lg:px-24"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true }}
       >
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0">
-          <motion.div
-            className="absolute top-20 right-20 w-72 h-72 bg-gradient-to-r from-[#c5f82a]/5 to-[#00d9a6]/5 rounded-full blur-3xl"
-            animate={{ 
-              scale: [1, 1.3, 1],
-              rotate: [0, 180, 360]
-            }}
-            transition={{ duration: 20, repeat: Infinity }}
-          />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto">
-          <motion.div className="text-center mb-20" variants={bounceIn}>
-            <motion.span 
-              className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 backdrop-blur-sm rounded-full text-gray-600 text-sm font-semibold mb-8 border border-gray-200"
-              whileHover={{ scale: 1.05, y: -2 }}
-            >
+        <div className="max-w-6xl mx-auto">
+          <motion.div className="text-center mb-16" variants={bounceIn}>
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full text-gray-600 text-sm font-medium mb-4">
               What We Offer
-            </motion.span>
-            <motion.h2 
-              className="text-5xl md:text-7xl font-black text-gray-800 mb-8 leading-tight"
-              whileInView={{ opacity: [0, 1], y: [40, 0] }}
-              transition={{ duration: 0.8 }}
-            >
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
               Our Services
-            </motion.h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive solutions tailored to meet your unique business challenges
             </p>
           </motion.div>
 
-          <div className="grid gap-12 md:grid-cols-2">
+          <div className="grid gap-8 md:grid-cols-2">
             {services.map((service, idx) => (
               <motion.div 
                 key={idx} 
-                className="group"
+                className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100"
                 variants={scaleUp}
-                whileHover={{ y: -12 }}
-                transition={{ duration: 0.4, type: "spring", stiffness: 200 }}
+                whileHover={{ y: -8 }}
               >
-                <TiltCard>
-                  <div className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 h-full relative">
-                    {/* Image Container with Enhanced Hover Effects */}
-                    <div className="relative overflow-hidden">
-                      <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        transition={{ duration: 0.6 }}
-                        className="relative"
-                      >
-                        <Image
-                          src={service.image}
-                          alt={service.title}
-                          width={800}
-                          height={450}
-                          className="w-full h-72 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      </motion.div>
-                      
-                      {/* Floating Icon */}
-                      <motion.div
-                        className="absolute top-6 right-6 p-3 bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg opacity-0 group-hover:opacity-100"
-                        initial={{ scale: 0, rotate: -180 }}
-                        whileHover={{ scale: 1, rotate: 0 }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        {React.cloneElement(service.icon, { className: "w-6 h-6 text-green-600" })}
-                      </motion.div>
+                <div className="relative overflow-hidden">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      width={700}
+                      height={400}
+                      className="w-full h-64 object-cover"
+                    />
+                  </motion.div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-xl">
+                      {React.cloneElement(service.icon, { className: "w-6 h-6 text-white" })}
                     </div>
-                    
-                    <div className="p-10">
-                      <div className="flex items-center gap-4 mb-6">
-                        <motion.div 
-                          className="p-3 bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] rounded-2xl shadow-lg"
-                          whileHover={{ 
-                            scale: 1.1, 
-                            rotate: 360,
-                            boxShadow: "0 10px 30px rgba(0,217,166,0.3)"
-                          }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          {React.cloneElement(service.icon, { className: "w-6 h-6 text-white" })}
-                        </motion.div>
-                        <motion.h3 
-                          className="text-2xl md:text-3xl font-bold text-gray-800 group-hover:text-green-600 transition-colors duration-300"
-                          whileHover={{ x: 5 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          {service.title}
-                        </motion.h3>
-                      </div>
-                      
-                      <p className="text-gray-600 mb-8 leading-relaxed text-lg font-light">
-                        {service.description}
-                      </p>
-                      
-                      <Link href={service.link}>
-                        <Magnetic>
-                          <motion.div 
-                            className="inline-flex items-center gap-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-8 py-4 rounded-2xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl group-hover:gap-6"
-                            whileHover={{ 
-                              scale: 1.05,
-                              boxShadow: "0 20px 40px rgba(249,115,22,0.3)"
-                            }}
-                            whileTap={{ scale: 0.95 }}
-                          >
-                            LEARN MORE 
-                            <motion.div
-                              whileHover={{ x: 5 }}
-                              transition={{ duration: 0.2 }}
-                            >
-                              <ArrowRight className="w-5 h-5" />
-                            </motion.div>
-                          </motion.div>
-                        </Magnetic>
-                      </Link>
-                    </div>
-
-                    {/* Animated Border */}
-                    <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 blur-sm" />
-                    </div>
+                    <h3 className="text-2xl font-bold text-gray-800 group-hover:text-green-600 transition-colors duration-300">
+                      {service.title}
+                    </h3>
                   </div>
-                </TiltCard>
+                  
+                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                  
+                  <Link href={service.link}>
+                    <motion.div 
+                      className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold px-6 py-3 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 group-hover:gap-4"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      LEARN MORE 
+                      <ArrowRight className="w-5 h-5 transition-transform duration-300" />
+                    </motion.div>
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </motion.section>
 
-      {/* Continue with remaining sections following the same enhanced pattern... */}
-      {/* Location Section, News Section, and Contact Section would follow similar enhancements */}
-      
+      {/* Location Section with enhanced design */}
+      <motion.section 
+        className="bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] py-24 px-6"
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Global Presence, Local Expertise
+            </h2>
+            <p className="text-xl text-black/80 max-w-3xl mx-auto">
+              Find us in major cities worldwide, ready to serve your business needs
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <motion.div
+              variants={slideInLeft}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-sm rounded-3xl p-8"
+            >
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <Globe className="w-8 h-8" />
+                Choose your location
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                {['Belgium', 'Canada', 'Germany', 'Ireland', 'Netherlands', 'Poland', 'USA', 'United Kingdom'].map((location, index) => (
+                  <motion.div 
+                    key={location}
+                    className="bg-white/20 backdrop-blur-sm rounded-xl p-4 hover:bg-white/30 cursor-pointer transition-all duration-300"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    variants={fadeInUp}
+                  >
+                    <span className="text-white font-semibold">{location}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={slideInRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-sm rounded-3xl p-8"
+            >
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                <Award className="w-8 h-8" />
+                Our Brands
+              </h3>
+              <div className="space-y-4">
+                {['Nash Squared', 'Workforce Solutions'].map((site, index) => (
+                  <motion.div 
+                    key={site}
+                    className="bg-white/20 backdrop-blur-sm rounded-xl p-4 hover:bg-white/30 cursor-pointer transition-all duration-300"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    variants={fadeInUp}
+                  >
+                    <span className="text-white font-semibold text-lg">{site}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* News Section with enhanced design */}
+      <motion.section className="py-24 px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            className="text-center mb-16"
+            variants={slideInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full text-gray-600 text-sm font-medium mb-4">
+              Stay Updated
+            </span>
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
+              Latest Harvey Nash News
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Stay informed with our latest updates, insights, and industry news
+            </p>
+          </motion.div>
+          
+          <motion.div 
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {cards.map((card, index) => {
+              const external = isExternal(card.link);
+              return (
+                <motion.article
+                  key={card.id}
+                  className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group"
+                  variants={scaleUp}
+                  whileHover={{ y: -8 }}
+                >
+                  <div className="relative overflow-hidden">
+                    <motion.div
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <Image
+                        src={card.image}
+                        alt={card.title}
+                        width={500}
+                        height={300}
+                        className="w-full h-56 object-cover"
+                        quality={100}
+                      />
+                    </motion.div>
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-gray-700">
+                        {card.category}
+                      </span>
+                    </div>
+                    <div className="absolute bottom-4 right-4">
+                      <span className="bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium text-white">
+                        {card.date}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  <div className="p-8">
+                    <h3 className="text-lg font-bold text-gray-800 mb-4 leading-tight group-hover:text-green-600 transition-colors duration-300 line-clamp-3">
+                      {external ? (
+                        <a href={card.link} target="_blank" rel="noopener noreferrer">
+                          {card.title}
+                        </a>
+                      ) : (
+                        <Link href={card.link}>{card.title}</Link>
+                      )}
+                    </h3>
+
+                    {external ? (
+                      <motion.a
+                        href={card.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-3 bg-gradient-to-r from-green-400 to-green-500 hover:from-[#c5f82a] hover:to-[#00d9a6] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 group-hover:gap-4"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        READ MORE
+                        <ChevronRight className="w-5 h-5 transition-transform duration-300" />
+                      </motion.a>
+                    ) : (
+                      <Link href={card.link}>
+                        <motion.button 
+                          className="inline-flex items-center gap-3 bg-gradient-to-r from-green-400 to-green-500 hover:from-[#c5f82a] hover:to-[#00d9a6] text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 group-hover:gap-4"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          READ MORE
+                          <ChevronRight className="w-5 h-5 transition-transform duration-300" />
+                        </motion.button>
+                      </Link>
+                    )}
+                  </div>
+                </motion.article>
+              );
+            })}
+          </motion.div>
+        </div>
+      </motion.section>
+
+      {/* Contact Section with enhanced CTA */}
+      <motion.section
+        className="relative min-h-[70vh] flex items-center justify-center text-white overflow-hidden"
+        style={{ backgroundImage: "url('/images/keyboard.jpg')" }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+        
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
+          <motion.div
+            variants={bounceIn}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6 border border-white/20">
+              Get In Touch
+            </span>
+            
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              How can we help
+              <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
+                transform your business?
+              </span>
+            </h1>
+          </motion.div>
+          
+          <motion.p 
+            className="text-xl md:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-200"
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            Ready to take your technology initiatives to the next level? Let's discuss how our expertise can drive your success.
+          </motion.p>
+          
+          <motion.div
+            className="flex flex-col sm:flex-row gap-6 justify-center"
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <Link href="/Contact-us">
+              <motion.button 
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold py-4 px-8 rounded-xl hover:shadow-2xl transition-all duration-300 group"
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -2
+                }}
+                whileTap={{ scale: 0.95 }}
+                variants={scaleUp}
+              >
+                GET STARTED TODAY
+                <ArrowRight className="w-6 h-6 transition-transform duration-300 group-hover:translate-x-1" />
+              </motion.button>
+            </Link>
+            
+            <motion.button 
+              className="inline-flex items-center gap-3 border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-black transition-all duration-300"
+              whileHover={{ 
+                scale: 1.05,
+                y: -2
+              }}
+              whileTap={{ scale: 0.95 }}
+              variants={scaleUp}
+            >
+              SCHEDULE A CALL
+              <ChevronRight className="w-6 h-6" />
+            </motion.button>
+          </motion.div>
+        </div>
+
+        {/* Floating elements for visual appeal */}
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full blur-2xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-[#c5f82a]/10 to-[#00d9a6]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      </motion.section>
     </>
   );
 };
 
 export default Firstpage;
+
