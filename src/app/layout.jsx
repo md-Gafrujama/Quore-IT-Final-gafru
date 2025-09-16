@@ -10,6 +10,8 @@ import "./globals.css";
 export default function RootLayout({ children }) {
   const pathname = usePathname();
 
+  
+
   const hiddenPaths = [
     // "/Policies/Privacy-Policy",
     // "/Policies/Cookies-Legal",
