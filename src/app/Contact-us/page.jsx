@@ -1139,7 +1139,7 @@ const ContactUs = () => {
               transition={{ duration: 1, delay: 0.5 }}
               className="mt-8 text-xl sm:text-2xl md:text-3xl text-gray-200 max-w-3xl mx-auto leading-relaxed"
             >
-              Connect with our global team of recruitment specialists
+              Connect with our global team of recruitment specialists here
             </motion.p>
 
             {/* Scroll Indicator with Enhanced Animation */}
