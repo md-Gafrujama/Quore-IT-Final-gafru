@@ -36,7 +36,7 @@ export default function Footer() {
                   { label: "Find a job", path: "/Find-tech-jobs" },
                   { label: "Submit a vacancy", path: "/Find-tech-talent" },
                   { label: "What we do", path: "/What-we-do" },
-                  { label: "News & Events", path: "/News-and-events" },
+                  { label: "News & Events", path: "https://quore-it-ai-blogs.vercel.app/" },
                   { label: "Contact us", path: "/Contact-us" },
                 ].map(({ label, path }, idx) => (
                   <li key={idx} className="transform hover:translate-x-2 transition-all duration-200">
