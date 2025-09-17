@@ -903,14 +903,9 @@
 // }
 
 // export default ContactUs;
-
 'use client';
-
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-import Image from 'next/image';
-import Head from 'next/head';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -939,8 +934,8 @@ const ContactUs = () => {
     offset: ["start start", "end start"]
   });
 
-  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.3]);
+  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0.5]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -970,41 +965,19 @@ const ContactUs = () => {
     setIsSubmitting(true);
     setSubmitStatus('');
 
+    // Simulate form submission (replace with actual API call)
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: '86898b60-2f23-47a2-995e-0fa8a8df83ba',
-          name: `${formData.firstName} ${formData.lastName}`,
-          email: formData.email,
-          phone: formData.phone,
-          location: formData.location,
-          message: formData.message,
-          subject: 'New Contact Form Submission from Harvey Nash Website',
-          from_name: 'Harvey Nash Website',
-          first_name: formData.firstName,
-          last_name: formData.lastName,
-          botcheck: '',
-        }),
+      await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate API delay
+      setSubmitStatus('successfully_submitted');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        location: '',
+        message: '',
+        accept: false
       });
-
-      if (response.ok) {
-        setSubmitStatus('successfully_submitted');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          phone: '',
-          location: '',
-          message: '',
-          accept: false
-        });
-      } else {
-        throw new Error('Form submission failed');
-      }
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
@@ -1074,47 +1047,35 @@ const ContactUs = () => {
 
   return (
     <>
-      <Head>
-        <title>Contact Harvey Nash | Global Recruitment Specialists</title>
-        <meta name="description" content="Get in touch with Harvey Nash, global leaders in technology recruitment and workforce solutions. Contact our offices worldwide for career opportunities and client services." />
-        <meta name="keywords" content="Harvey Nash, contact, recruitment, technology jobs, career opportunities, workforce solutions" />
-        <meta property="og:title" content="Contact Harvey Nash | Global Recruitment Specialists" />
-        <meta property="og:description" content="Get in touch with Harvey Nash, global leaders in technology recruitment and workforce solutions." />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.harveynash.com/contact" />
-      </Head>
-
-      {/* Enhanced Hero Section with Advanced Parallax */}
+      {/* Enhanced Hero Section with Fixed Background */}
       <motion.section 
         ref={heroRef}
         className="relative h-screen flex items-center justify-center overflow-hidden"
         style={{ y: heroY, opacity: heroOpacity }}
       >
-        {/* Dynamic Background with Multiple Layers */}
+        {/* Fixed Background Image */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/jobs_hero.jpg"
-            alt="Harvey Nash Contact Page"
-            fill
-            className="object-cover object-center scale-110"
-            priority
-            quality={95}
-            sizes="100vw"
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1200&auto=format&fit=crop')`,
+              backgroundAttachment: 'fixed'
+            }}
           />
           
           {/* Multi-layered Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/60"></div>
-          <div 
-            className="absolute inset-0 bg-gradient-to-r from-[#c5f82a]/20 via-transparent to-[#00d9a6]/20"
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
+          <motion.div 
+            className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-transparent to-blue-500/20"
             style={{
-              transform: `translateX(${mousePosition.x * 0.02}px) translateY(${mousePosition.y * 0.02}px)`
+              transform: `translateX(${mousePosition.x * 0.01}px) translateY(${mousePosition.y * 0.01}px)`
             }}
-          ></div>
+          />
           
           {/* Floating Elements */}
           <div className="absolute inset-0">
             <motion.div 
-              className="absolute top-1/4 left-1/4 w-3 h-3 bg-[#c5f82a] rounded-full"
+              className="absolute top-1/4 left-1/4 w-3 h-3 bg-green-400 rounded-full"
               animate={{ 
                 y: [0, -20, 0],
                 opacity: [0.6, 1, 0.6]
@@ -1122,7 +1083,7 @@ const ContactUs = () => {
               transition={{ duration: 3, repeat: Infinity }}
             />
             <motion.div 
-              className="absolute top-3/4 right-1/3 w-4 h-4 bg-[#00d9a6] rounded-full"
+              className="absolute top-3/4 right-1/3 w-4 h-4 bg-blue-500 rounded-full"
               animate={{ 
                 y: [0, -30, 0],
                 x: [0, 20, 0],
@@ -1151,9 +1112,9 @@ const ContactUs = () => {
                 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white tracking-tight leading-none"
                 animate={{
                   textShadow: [
-                    "0 0 20px rgba(197, 248, 42, 0.3)",
-                    "0 0 40px rgba(0, 217, 166, 0.4)",
-                    "0 0 20px rgba(197, 248, 42, 0.3)"
+                    "0 0 20px rgba(34, 197, 94, 0.3)",
+                    "0 0 40px rgba(59, 130, 246, 0.4)",
+                    "0 0 20px rgba(34, 197, 94, 0.3)"
                   ]
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
@@ -1163,7 +1124,7 @@ const ContactUs = () => {
               
               {/* Dynamic Glow Effect */}
               <motion.div 
-                className="absolute -inset-8 bg-gradient-to-r from-[#c5f82a]/20 via-[#00d9a6]/20 to-[#c5f82a]/20 rounded-full blur-3xl"
+                className="absolute -inset-8 bg-gradient-to-r from-green-400/20 via-blue-500/20 to-green-400/20 rounded-full blur-3xl"
                 animate={{
                   scale: [1, 1.2, 1],
                   opacity: [0.3, 0.6, 0.3]
@@ -1189,8 +1150,8 @@ const ContactUs = () => {
               transition={{ delay: 1, duration: 0.8 }}
             >
               <motion.div 
-                className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center cursor-pointer"
-                whileHover={{ scale: 1.1, borderColor: "#c5f82a" }}
+                className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center cursor-pointer hover:border-green-400"
+                whileHover={{ scale: 1.1 }}
                 onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
               >
                 <motion.div 
@@ -1209,7 +1170,7 @@ const ContactUs = () => {
         {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 30% 30%, #c5f82a 2px, transparent 2px), radial-gradient(circle at 70% 70%, #00d9a6 2px, transparent 2px)',
+            backgroundImage: 'radial-gradient(circle at 30% 30%, #22c55e 2px, transparent 2px), radial-gradient(circle at 70% 70%, #3b82f6 2px, transparent 2px)',
             backgroundSize: '80px 80px, 120px 120px'
           }}></div>
         </div>
@@ -1222,16 +1183,7 @@ const ContactUs = () => {
           viewport={{ once: true }}
         >
           <motion.h2 
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight"
-            whileInView={{
-              backgroundImage: [
-                "linear-gradient(45deg, #333, #333)",
-                "linear-gradient(45deg, #c5f82a, #00d9a6)",
-                "linear-gradient(45deg, #333, #333)"
-              ]
-            }}
-            transition={{ duration: 2, repeat: Infinity }}
-            style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+            className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text"
           >
             Global Reach, Local Expertise
           </motion.h2>
@@ -1257,7 +1209,7 @@ const ContactUs = () => {
             { 
               title: "Jobs & Careers", 
               icon: "🔍", 
-              content: <Link href="/Find-tech-jobs" className="text-blue-600 hover:text-blue-800 font-semibold">Find Tech Jobs</Link>,
+              content: <span className="text-blue-600 hover:text-blue-800 font-semibold cursor-pointer">Find Tech Jobs</span>,
               description: "Explore thousands of opportunities",
               color: "from-blue-500 to-purple-600"
             },
@@ -1285,11 +1237,11 @@ const ContactUs = () => {
                 transition: { duration: 0.3 } 
               }}
               whileTap={{ scale: 0.98 }}
-              className="group perspective-1000"
+              className="group"
             >
               <div 
                 onClick={item.action ? item.action : undefined}
-                className="bg-white p-8 sm:p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-100 h-full flex flex-col items-center relative overflow-hidden transform-gpu"
+                className="bg-white p-8 sm:p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer border border-gray-100 h-full flex flex-col items-center relative overflow-hidden"
               >
                 {/* Animated Background Gradient */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
@@ -1309,20 +1261,11 @@ const ContactUs = () => {
                 </div>
                 
                 <motion.div 
-                  className="w-16 h-1 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full relative z-10"
+                  className="w-16 h-1 bg-gradient-to-r from-green-400 to-blue-500 rounded-full relative z-10"
                   initial={{ width: 0 }}
                   whileInView={{ width: 64 }}
                   transition={{ delay: 0.5 + index * 0.1, duration: 0.8 }}
                 ></motion.div>
-                
-                {/* Ripple Effect */}
-                <motion.div
-                  className="absolute inset-0 rounded-2xl"
-                  initial={{ scale: 0, opacity: 0.5 }}
-                  whileHover={{ scale: 1.1, opacity: 0 }}
-                  transition={{ duration: 0.6 }}
-                  style={{ background: `radial-gradient(circle, ${item.color.includes('blue') ? '#3b82f6' : item.color.includes('green') ? '#10b981' : '#f59e0b'}20, transparent 70%)` }}
-                />
               </div>
             </motion.div>
           ))}
@@ -1344,17 +1287,14 @@ const ContactUs = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <Image
-                src="/images/london_office.jpg"
-                alt="Harvey Nash London Office"
-                fill
-                className="object-cover transition-transform duration-700 hover:scale-110"
-                loading="lazy"
-                quality={95}
-                sizes="(max-width: 1024px) 100vw, 50vw"
+              <div
+                className="w-full h-full bg-cover bg-center transition-transform duration-700 hover:scale-110"
+                style={{
+                  backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop')`
+                }}
               />
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-br from-[#c5f82a]/20 via-transparent to-[#00d9a6]/20"
+                className="absolute inset-0 bg-gradient-to-br from-green-400/20 via-transparent to-blue-500/20"
                 initial={{ opacity: 0 }}
                 whileHover={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
@@ -1373,7 +1313,7 @@ const ContactUs = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] rounded-full flex items-center justify-center mr-6 shadow-lg">
+                <div className="w-14 h-14 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mr-6 shadow-lg">
                   <span className="text-white text-2xl">🏢</span>
                 </div>
                 <h3 className="text-3xl sm:text-4xl font-bold text-gray-900">Our Head Office</h3>
@@ -1385,7 +1325,7 @@ const ContactUs = () => {
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span className="text-[#00d9a6] mr-4 mt-1 text-xl">📍</span>
+                  <span className="text-blue-500 mr-4 mt-1 text-xl">📍</span>
                   <span className="leading-relaxed">LDN:W, 3 Noble Street<br/>London, EC2V 7EE</span>
                 </motion.p>
                 
@@ -1394,10 +1334,10 @@ const ContactUs = () => {
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span className="text-[#00d9a6] mr-4 text-xl">📞</span>
-                  <a href="tel:+442073330033" className="text-blue-600 hover:text-blue-800 transition-all duration-300 font-semibold">
+                  <span className="text-blue-500 mr-4 text-xl">📞</span>
+                  <span className="text-blue-600 hover:text-blue-800 transition-all duration-300 font-semibold cursor-pointer">
                     +44 (0)20 7333 0033
-                  </a>
+                  </span>
                 </motion.p>
                 
                 <motion.p 
@@ -1405,21 +1345,17 @@ const ContactUs = () => {
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <span className="text-[#00d9a6] mr-4 text-xl">✉️</span>
-                  <a href="mailto:info@harveynash.com" className="text-blue-600 hover:text-blue-800 transition-all duration-300 font-semibold">
+                  <span className="text-blue-500 mr-4 text-xl">✉️</span>
+                  <span className="text-blue-600 hover:text-blue-800 transition-all duration-300 font-semibold cursor-pointer">
                     info@harveynash.com
-                  </a>
+                  </span>
                 </motion.p>
               </address>
               
-              <motion.a 
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold rounded-full hover:shadow-xl transition-all duration-500 transform hover:scale-105"
-                aria-label="View Harvey Nash London office on Google Maps"
+              <motion.button
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold rounded-full hover:shadow-xl transition-all duration-500 transform hover:scale-105"
                 whileHover={{ 
-                  boxShadow: "0 20px 40px rgba(197, 248, 42, 0.3)",
+                  boxShadow: "0 20px 40px rgba(34, 197, 94, 0.3)",
                   y: -2
                 }}
                 whileTap={{ scale: 0.98 }}
@@ -1436,7 +1372,7 @@ const ContactUs = () => {
                 >
                   →
                 </motion.span>
-              </motion.a>
+              </motion.button>
             </motion.div>
           </div>
         </motion.div>
@@ -1446,7 +1382,7 @@ const ContactUs = () => {
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           <motion.div 
-            className="absolute top-20 left-10 w-32 h-32 bg-[#c5f82a]/10 rounded-full blur-xl"
+            className="absolute top-20 left-10 w-32 h-32 bg-green-400/10 rounded-full blur-xl"
             animate={{ 
               x: [0, 100, 0],
               y: [0, 50, 0]
@@ -1454,7 +1390,7 @@ const ContactUs = () => {
             transition={{ duration: 20, repeat: Infinity }}
           />
           <motion.div 
-            className="absolute bottom-20 right-10 w-48 h-48 bg-[#00d9a6]/10 rounded-full blur-xl"
+            className="absolute bottom-20 right-10 w-48 h-48 bg-blue-500/10 rounded-full blur-xl"
             animate={{ 
               x: [0, -80, 0],
               y: [0, -60, 0]
@@ -1470,7 +1406,7 @@ const ContactUs = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
-          className="bg-gradient-to-br from-[#c5f82a] via-[#00d9a6] to-[#c5f82a] py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+          className="bg-gradient-to-br from-green-400 via-blue-500 to-green-400 py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
         >
           {/* Enhanced Background Pattern */}
           <div className="absolute inset-0">
@@ -1537,19 +1473,19 @@ const ContactUs = () => {
                 {
                   title: "Countries",
                   items: [
-                    { name: 'Belgium', link: 'https://www.harveynash.be/' },
-                    { name: 'Germany', link: 'https://www.harveynash.de/' },
-                    { name: 'Netherlands', link: 'https://www.harveynash.nl/' },
-                    { name: 'USA', link: 'https://www.harveynashusa.com/' }
+                    { name: 'Belgium' },
+                    { name: 'Germany' },
+                    { name: 'Netherlands' },
+                    { name: 'USA' }
                   ]
                 },
                 {
                   title: "More Locations",
                   items: [
-                    { name: 'Canada', link: 'https://www.harveynashusa.com/' },
-                    { name: 'Ireland', link: 'https://www.harveynash.ie/' },
-                    { name: 'Poland', link: 'https://www.harveynash.pl/' },
-                    { name: 'United Kingdom', link: 'https://www.harveynash.co.uk/' }
+                    { name: 'Canada' },
+                    { name: 'Ireland' },
+                    { name: 'Poland' },
+                    { name: 'United Kingdom' }
                   ]
                 },
                 {
@@ -1557,12 +1493,10 @@ const ContactUs = () => {
                   items: [
                     { 
                       name: 'Nash Squared', 
-                      link: 'https://www.nashsquared.com/', 
                       desc: 'Technology recruitment specialists' 
                     },
                     { 
                       name: 'Workforce Solutions', 
-                      link: 'https://www.flexhuisglobal.com/uk/', 
                       desc: 'Flexible talent solutions' 
                     }
                   ]
@@ -1600,23 +1534,19 @@ const ContactUs = () => {
                           x: 12,
                           transition: { duration: 0.2 }
                         }}
-                        className="group/item"
+                        className="group/item cursor-pointer"
                       >
-                        <Link
-                          href={item.link}
-                          className="block transition-all duration-300"
-                          aria-label={`Visit ${item.name}`}
-                        >
+                        <div className="block transition-all duration-300">
                           <div className="flex items-center mb-2">
                             <motion.span 
-                              className="w-3 h-3 bg-white rounded-full mr-4 group-hover/item:bg-[#c5f82a] transition-all duration-300"
+                              className="w-3 h-3 bg-white rounded-full mr-4 group-hover/item:bg-green-400 transition-all duration-300"
                               whileHover={{ scale: 1.5 }}
                             />
                             <span className="text-lg sm:text-xl font-medium text-white hover:text-gray-200 transition-colors duration-300">
                               {item.name}
                             </span>
                             <motion.span 
-                              className="ml-3 opacity-0 group-hover/item:opacity-100 transition-all duration-300 text-[#c5f82a]"
+                              className="ml-3 opacity-0 group-hover/item:opacity-100 transition-all duration-300 text-green-400"
                               initial={{ x: -10 }}
                               whileHover={{ x: 0 }}
                             >
@@ -1628,7 +1558,7 @@ const ContactUs = () => {
                               {item.desc}
                             </p>
                           )}
-                        </Link>
+                        </div>
                       </motion.div>
                     ))}
                   </motion.div>
@@ -1651,11 +1581,11 @@ const ContactUs = () => {
               variants={itemVariants}
               whileHover={{ scale: 1.01, rotateX: 1 }}
               transition={{ duration: 0.5 }}
-              className="bg-gradient-to-br from-[#c5f82a]/10 via-white to-[#00d9a6]/10 p-10 sm:p-12 lg:p-16 rounded-3xl shadow-xl border border-gray-200 max-w-6xl mx-auto relative overflow-hidden"
+              className="bg-gradient-to-br from-yellow-50 via-white to-red-50 p-10 sm:p-12 lg:p-16 rounded-3xl shadow-xl border border-gray-200 max-w-6xl mx-auto relative overflow-hidden"
             >
               {/* Background Animation */}
               <motion.div 
-                className="absolute inset-0 bg-gradient-to-r from-[#c5f82a]/5 to-[#00d9a6]/5 rounded-3xl"
+                className="absolute inset-0 bg-gradient-to-r from-yellow-100/50 to-red-100/50 rounded-3xl"
                 animate={{ 
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                 }}
@@ -1668,10 +1598,10 @@ const ContactUs = () => {
               >
                 <motion.div variants={itemVariants} className="lg:w-1/3">
                   <motion.div 
-                    className="bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] text-gray-900 font-bold rounded-2xl p-6 sm:p-8 text-center shadow-lg"
+                    className="bg-gradient-to-br from-yellow-500 to-red-500 text-white font-bold rounded-2xl p-6 sm:p-8 text-center shadow-lg"
                     whileHover={{ 
                       scale: 1.05,
-                      boxShadow: "0 20px 40px rgba(197, 248, 42, 0.3)"
+                      boxShadow: "0 20px 40px rgba(245, 158, 11, 0.3)"
                     }}
                   >
                     <motion.h3 
@@ -1697,30 +1627,12 @@ const ContactUs = () => {
                     <motion.p variants={itemVariants}>
                       We are aware that individuals impersonating Harvey Nash consultants have been 
                       contacting individuals via WhatsApp, SMS and Telegram about job opportunities. This is a phishing scam
-                      and we have reported this to{' '}
-                      <motion.span whileHover={{ scale: 1.02 }}>
-                        <Link
-                          href="https://www.actionfraud.police.uk/"
-                          className="text-[#00d9a6] font-semibold underline decoration-2 underline-offset-2 hover:text-[#008a6e] transition-all duration-300 hover:decoration-[#008a6e]"
-                          aria-label="Report fraud to Action Fraud"
-                        >
-                          Action Fraud
-                        </Link>
-                      </motion.span>
-                      . The security of our systems has not been impacted.
+                      and we have reported this to Action Fraud. The security of our systems has not been impacted.
                     </motion.p>
                     
                     <motion.p variants={itemVariants}>
-                      To find out how to protect yourself and your data please read the article{' '}
-                      <motion.span whileHover={{ scale: 1.02 }}>
-                        <Link
-                          href="https://www.harveynash.co.uk/latest-news/how-to-protect-yourself-from-recruitment-phishing-scams"
-                          className="text-[#00d9a6] font-semibold underline decoration-2 underline-offset-2 hover:text-[#008a6e] transition-all duration-300 hover:decoration-[#008a6e]"
-                          aria-label="Learn how to protect yourself from phishing scams"
-                        >
-                          'How to protect yourself from recruitment phishing scams.'
-                        </Link>
-                      </motion.span>
+                      To find out how to protect yourself and your data please read our security guidelines
+                      and learn how to protect yourself from recruitment phishing scams.
                     </motion.p>
                   </motion.div>
                 </motion.div>
@@ -1750,16 +1662,7 @@ const ContactUs = () => {
               >
                 <motion.h2 
                   variants={itemVariants}
-                  className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight"
-                  whileInView={{
-                    backgroundImage: [
-                      "linear-gradient(45deg, #333, #333)",
-                      "linear-gradient(45deg, #c5f82a, #00d9a6)",
-                      "linear-gradient(45deg, #333, #333)"
-                    ]
-                  }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  style={{ WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}
+                  className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text"
                 >
                   Let's Connect
                 </motion.h2>
@@ -1798,9 +1701,9 @@ const ContactUs = () => {
                       ),
                       title: "Call Us",
                       content: (
-                        <a href="tel:+442073330033" className="text-[#00d9a6] hover:text-[#008a6e] transition-colors text-lg sm:text-xl font-semibold">
+                        <span className="text-blue-500 hover:text-blue-700 transition-colors text-lg sm:text-xl font-semibold cursor-pointer">
                           +44 (0)20 7333 0033
-                        </a>
+                        </span>
                       )
                     },
                     {
@@ -1811,9 +1714,9 @@ const ContactUs = () => {
                       ),
                       title: "Email Us",
                       content: (
-                        <a href="mailto:info@harveynash.com" className="text-[#00d9a6] hover:text-[#008a6e] transition-colors text-lg sm:text-xl font-semibold">
+                        <span className="text-blue-500 hover:text-blue-700 transition-colors text-lg sm:text-xl font-semibold cursor-pointer">
                           info@harveynash.com
-                        </a>
+                        </span>
                       )
                     },
                     {
@@ -1829,14 +1732,9 @@ const ContactUs = () => {
                           <p className="text-gray-700 text-lg leading-relaxed">
                             LDN:W, 3 Noble Street<br />London, EC2V 7EE
                           </p>
-                          <a 
-                            href="https://maps.google.com" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-[#00d9a6] hover:text-[#008a6e] transition-colors inline-block mt-3 font-semibold"
-                          >
+                          <span className="text-blue-500 hover:text-blue-700 transition-colors inline-block mt-3 font-semibold cursor-pointer">
                             View on map →
-                          </a>
+                          </span>
                         </div>
                       )
                     }
@@ -1849,11 +1747,11 @@ const ContactUs = () => {
                       transition={{ duration: 0.3 }}
                     >
                       <motion.div 
-                        className="flex-shrink-0 bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] p-4 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300"
+                        className="flex-shrink-0 bg-gradient-to-br from-green-400 to-blue-500 p-4 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300"
                         whileHover={{ 
                           scale: 1.1,
                           rotate: 5,
-                          boxShadow: "0 10px 30px rgba(197, 248, 42, 0.3)"
+                          boxShadow: "0 10px 30px rgba(34, 197, 94, 0.3)"
                         }}
                       >
                         {item.icon}
@@ -1882,12 +1780,12 @@ const ContactUs = () => {
                 >
                   {/* Animated Background Gradient */}
                   <motion.div 
-                    className="absolute inset-0 bg-gradient-to-br from-[#c5f82a]/5 via-transparent to-[#00d9a6]/5"
+                    className="absolute inset-0 bg-gradient-to-br from-green-400/5 via-transparent to-blue-500/5"
                     animate={{ 
                       background: [
-                        "linear-gradient(45deg, rgba(197, 248, 42, 0.05) 0%, transparent 50%, rgba(0, 217, 166, 0.05) 100%)",
-                        "linear-gradient(45deg, rgba(0, 217, 166, 0.05) 0%, transparent 50%, rgba(197, 248, 42, 0.05) 100%)",
-                        "linear-gradient(45deg, rgba(197, 248, 42, 0.05) 0%, transparent 50%, rgba(0, 217, 166, 0.05) 100%)"
+                        "linear-gradient(45deg, rgba(34, 197, 94, 0.05) 0%, transparent 50%, rgba(59, 130, 246, 0.05) 100%)",
+                        "linear-gradient(45deg, rgba(59, 130, 246, 0.05) 0%, transparent 50%, rgba(34, 197, 94, 0.05) 100%)",
+                        "linear-gradient(45deg, rgba(34, 197, 94, 0.05) 0%, transparent 50%, rgba(59, 130, 246, 0.05) 100%)"
                       ]
                     }}
                     transition={{ duration: 8, repeat: Infinity }}
@@ -1913,14 +1811,7 @@ const ContactUs = () => {
                     animate="visible"
                     onSubmit={handleSubmit}
                     className="space-y-8 relative z-10"
-                    aria-label="Contact form"
                   >
-                    {/* Hidden Web3Forms fields */}
-                    <input type="hidden" name="access_key" value="86898b60-2f23-47a2-995e-0fa8a8df83ba" />
-                    <input type="hidden" name="subject" value="New Contact Form Submission from Harvey Nash Website" />
-                    <input type="hidden" name="from_name" value="Harvey Nash Website" />
-                    <input type="hidden" name="botcheck" className="hidden" style={{ display: 'none' }} />
-
                     {/* Enhanced Success/Error Messages */}
                     <AnimatePresence>
                       {submitStatus === 'successfully_submitted' && (
@@ -1929,7 +1820,6 @@ const ContactUs = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -20, scale: 0.9 }}
                           className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-6 rounded-2xl shadow-lg relative overflow-hidden"
-                          role="alert"
                         >
                           <motion.div 
                             className="absolute inset-0 bg-white/20"
@@ -1960,7 +1850,6 @@ const ContactUs = () => {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: -20, scale: 0.9 }}
                           className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-8 py-6 rounded-2xl shadow-lg"
-                          role="alert"
                         >
                           <div className="flex items-center space-x-3">
                             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -1978,7 +1867,6 @@ const ContactUs = () => {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -20 }}
                           className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-8 py-6 rounded-2xl shadow-lg"
-                          role="alert"
                         >
                           <p className="text-lg">{submitStatus}</p>
                         </motion.div>
@@ -1992,8 +1880,8 @@ const ContactUs = () => {
                         </label>
                         <motion.input
                           whileFocus={{ 
-                            boxShadow: "0 0 0 4px rgba(197, 248, 42, 0.2)",
-                            borderColor: "#00d9a6",
+                            boxShadow: "0 0 0 4px rgba(34, 197, 94, 0.2)",
+                            borderColor: "#22c55e",
                             scale: 1.02
                           }}
                           onFocus={() => setActiveField('firstName')}
@@ -2005,10 +1893,9 @@ const ContactUs = () => {
                           onChange={handleInputChange}
                           required
                           className="w-full px-5 py-4 border-2 border-gray-300 rounded-xl focus:ring-0 focus:outline-none transition-all duration-300 text-lg bg-gray-50 focus:bg-white"
-                          aria-required="true"
                         />
                         <motion.div 
-                          className="h-0.5 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full"
+                          className="h-0.5 bg-gradient-to-r from-green-400 to-blue-500 rounded-full"
                           initial={{ width: 0 }}
                           animate={{ width: activeField === 'firstName' ? "100%" : "0%" }}
                           transition={{ duration: 0.3 }}
@@ -2021,8 +1908,8 @@ const ContactUs = () => {
                         </label>
                         <motion.input
                           whileFocus={{ 
-                            boxShadow: "0 0 0 4px rgba(197, 248, 42, 0.2)",
-                            borderColor: "#00d9a6",
+                            boxShadow: "0 0 0 4px rgba(34, 197, 94, 0.2)",
+                            borderColor: "#22c55e",
                             scale: 1.02
                           }}
                           onFocus={() => setActiveField('lastName')}
@@ -2034,10 +1921,9 @@ const ContactUs = () => {
                           onChange={handleInputChange}
                           required
                           className="w-full px-5 py-4 border-2 border-gray-300 rounded-xl focus:ring-0 focus:outline-none transition-all duration-300 text-lg bg-gray-50 focus:bg-white"
-                          aria-required="true"
                         />
                         <motion.div 
-                          className="h-0.5 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full"
+                          className="h-0.5 bg-gradient-to-r from-green-400 to-blue-500 rounded-full"
                           initial={{ width: 0 }}
                           animate={{ width: activeField === 'lastName' ? "100%" : "0%" }}
                           transition={{ duration: 0.3 }}
@@ -2052,8 +1938,8 @@ const ContactUs = () => {
                         </label>
                         <motion.input
                           whileFocus={{ 
-                            boxShadow: "0 0 0 4px rgba(197, 248, 42, 0.2)",
-                            borderColor: "#00d9a6",
+                            boxShadow: "0 0 0 4px rgba(34, 197, 94, 0.2)",
+                            borderColor: "#22c55e",
                             scale: 1.02
                           }}
                           onFocus={() => setActiveField('email')}
@@ -2065,10 +1951,9 @@ const ContactUs = () => {
                           onChange={handleInputChange}
                           required
                           className="w-full px-5 py-4 border-2 border-gray-300 rounded-xl focus:ring-0 focus:outline-none transition-all duration-300 text-lg bg-gray-50 focus:bg-white"
-                          aria-required="true"
                         />
                         <motion.div 
-                          className="h-0.5 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full"
+                          className="h-0.5 bg-gradient-to-r from-green-400 to-blue-500 rounded-full"
                           initial={{ width: 0 }}
                           animate={{ width: activeField === 'email' ? "100%" : "0%" }}
                           transition={{ duration: 0.3 }}
@@ -2081,8 +1966,8 @@ const ContactUs = () => {
                         </label>
                         <motion.input
                           whileFocus={{ 
-                            boxShadow: "0 0 0 4px rgba(197, 248, 42, 0.2)",
-                            borderColor: "#00d9a6",
+                            boxShadow: "0 0 0 4px rgba(34, 197, 94, 0.2)",
+                            borderColor: "#22c55e",
                             scale: 1.02
                           }}
                           onFocus={() => setActiveField('phone')}
@@ -2095,7 +1980,7 @@ const ContactUs = () => {
                           className="w-full px-5 py-4 border-2 border-gray-300 rounded-xl focus:ring-0 focus:outline-none transition-all duration-300 text-lg bg-gray-50 focus:bg-white"
                         />
                         <motion.div 
-                          className="h-0.5 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full"
+                          className="h-0.5 bg-gradient-to-r from-green-400 to-blue-500 rounded-full"
                           initial={{ width: 0 }}
                           animate={{ width: activeField === 'phone' ? "100%" : "0%" }}
                           transition={{ duration: 0.3 }}
@@ -2109,8 +1994,8 @@ const ContactUs = () => {
                       </label>
                       <motion.input
                         whileFocus={{ 
-                          boxShadow: "0 0 0 4px rgba(197, 248, 42, 0.2)",
-                          borderColor: "#00d9a6",
+                          boxShadow: "0 0 0 4px rgba(34, 197, 94, 0.2)",
+                          borderColor: "#22c55e",
                           scale: 1.02
                         }}
                         onFocus={() => setActiveField('location')}
@@ -2123,7 +2008,7 @@ const ContactUs = () => {
                         className="w-full px-5 py-4 border-2 border-gray-300 rounded-xl focus:ring-0 focus:outline-none transition-all duration-300 text-lg bg-gray-50 focus:bg-white"
                       />
                       <motion.div 
-                        className="h-0.5 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full"
+                        className="h-0.5 bg-gradient-to-r from-green-400 to-blue-500 rounded-full"
                         initial={{ width: 0 }}
                         animate={{ width: activeField === 'location' ? "100%" : "0%" }}
                         transition={{ duration: 0.3 }}
@@ -2136,8 +2021,8 @@ const ContactUs = () => {
                       </label>
                       <motion.textarea
                         whileFocus={{ 
-                          boxShadow: "0 0 0 4px rgba(197, 248, 42, 0.2)",
-                          borderColor: "#00d9a6",
+                          boxShadow: "0 0 0 4px rgba(34, 197, 94, 0.2)",
+                          borderColor: "#22c55e",
                           scale: 1.02
                         }}
                         onFocus={() => setActiveField('message')}
@@ -2149,10 +2034,9 @@ const ContactUs = () => {
                         rows={6}
                         required
                         className="w-full px-5 py-4 border-2 border-gray-300 rounded-xl focus:ring-0 focus:outline-none transition-all duration-300 resize-none text-lg bg-gray-50 focus:bg-white"
-                        aria-required="true"
                       />
                       <motion.div 
-                        className="h-0.5 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full"
+                        className="h-0.5 bg-gradient-to-r from-green-400 to-blue-500 rounded-full"
                         initial={{ width: 0 }}
                         animate={{ width: activeField === 'message' ? "100%" : "0%" }}
                         transition={{ duration: 0.3 }}
@@ -2169,8 +2053,7 @@ const ContactUs = () => {
                           name="accept"
                           checked={formData.accept}
                           onChange={handleInputChange}
-                          className="mt-1 h-6 w-6 text-[#00d9a6] focus:ring-[#c5f82a] border-3 border-gray-400 rounded-lg transition-all duration-300"
-                          aria-required="true"
+                          className="mt-1 h-6 w-6 text-green-500 focus:ring-green-400 border-3 border-gray-400 rounded-lg transition-all duration-300"
                           required
                         />
                         <div>
@@ -2178,13 +2061,7 @@ const ContactUs = () => {
                             I agree to the privacy policy *
                           </label>
                           <p className="text-base text-gray-600 leading-relaxed">
-                            By submitting this form, you agree to our{' '}
-                            <motion.span whileHover={{ scale: 1.05 }}>
-                              <a href="/Policies/Privacy-Policy" className="text-[#00d9a6] hover:text-[#008a6e] font-semibold underline decoration-2 underline-offset-2 transition-all duration-300">
-                                privacy policy
-                              </a>
-                            </motion.span>
-                            {' '}and consent to having Harvey Nash collect your personal information.
+                            By submitting this form, you agree to our privacy policy and consent to having Harvey Nash collect your personal information.
                           </p>
                         </div>
                       </div>
@@ -2194,7 +2071,7 @@ const ContactUs = () => {
                       <motion.button
                         whileHover={{ 
                           scale: isSubmitting ? 1 : 1.05,
-                          boxShadow: isSubmitting ? "none" : "0 20px 40px rgba(197, 248, 42, 0.4)",
+                          boxShadow: isSubmitting ? "none" : "0 20px 40px rgba(34, 197, 94, 0.4)",
                           y: isSubmitting ? 0 : -2
                         }}
                         whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
@@ -2203,9 +2080,8 @@ const ContactUs = () => {
                         className={`${
                           isSubmitting 
                             ? 'bg-gray-400 cursor-not-allowed shadow-none' 
-                            : 'bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] hover:from-[#b8e827] hover:to-[#00c49a] shadow-xl'
-                        } text-black font-bold py-5 px-10 rounded-2xl transition-all duration-500 w-full text-xl flex items-center justify-center relative overflow-hidden`}
-                        aria-label="Submit contact form"
+                            : 'bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 shadow-xl'
+                        } text-white font-bold py-5 px-10 rounded-2xl transition-all duration-500 w-full text-xl flex items-center justify-center relative overflow-hidden`}
                       >
                         <AnimatePresence mode="wait">
                           {isSubmitting ? (
@@ -2220,7 +2096,6 @@ const ContactUs = () => {
                                 className="w-6 h-6 border-3 border-white border-t-transparent rounded-full mr-4"
                                 animate={{ rotate: 360 }}
                                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                aria-hidden="true"
                               />
                               SENDING...
                             </motion.div>
