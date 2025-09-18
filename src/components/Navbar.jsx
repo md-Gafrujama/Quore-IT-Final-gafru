@@ -5,6 +5,8 @@ import logo from "@/assets/logo.png"
 import Link from 'next/link';
 import Image from 'next/image';
 
+
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -67,13 +69,13 @@ const Navbar = () => {
     { name: 'FIND TECH JOBS', href: '/Find-tech-jobs', hasDropdown: true },
     { name: 'FIND TECH TALENT', href: '/Find-tech-talent' },
     { name: 'WHAT WE DO', href: '/What-we-do' },
-    { name: 'NEWS & EVENTS', href: 'https://quore-it-ai-blogs.vercel.app/' },
-    { name: 'OUR COMPANY', href: '/Our-company' },
+    { name: 'NEWS & EVENTS', href: '/News-and-events' },
+    { name: 'ABOUT US', href: '/About-Us' },
     { name: 'CONTACT US', href: '/Contact-us' },
   ];
 
   return (
-    <nav className="absolute top-0 left-0 w-full z-50 bg-white shadow-sm">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
