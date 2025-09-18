@@ -202,13 +202,7 @@ const bounceIn = {
 
 const isExternal = (url) => url.startsWith('http');
 
-// Stats data
-const stats = [
-  { number: "25+", label: "Years Experience", icon: <Award className="w-8 h-8" /> },
-  { number: "1000+", label: "Successful Projects", icon: <Star className="w-8 h-8" /> },
-  { number: "50+", label: "Countries Served", icon: <Globe className="w-8 h-8" /> },
-  { number: "10k+", label: "Happy Clients", icon: <Users className="w-8 h-8" /> },
-];
+
 
 const Firstpage = () => {
   return (
@@ -290,104 +284,9 @@ const Firstpage = () => {
       </motion.section>
 
       {/* Stats Section */}
-      <motion.section 
-        className="relative py-16 bg-white "
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                className="text-center group"
-                variants={scaleUp}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="flex justify-center mb-4">
-                  <div className="p-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-2xl group-hover:shadow-lg transition-shadow duration-300">
-                    {React.cloneElement(stat.icon, { className: "w-8 h-8 text-white" })}
-                  </div>
-                </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">{stat.number}</h3>
-                <p className="text-gray-600 font-medium">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
+   
 
-      {/* About Us Section with enhanced design */}
-      <motion.section 
-        className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.div variants={bounceIn} className="mb-16">
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full text-gray-600 text-sm font-medium mb-4">
-              About Our Company
-            </span>
-            <h1 className="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-              About us
-            </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-gray-700 leading-relaxed">
-              A pioneer in professional recruitment and IT outsourcing, delivering excellence for over 25 years
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto"
-            variants={staggerContainer}
-          >
-            {[
-              { 
-                icon: "💼", 
-                text: "Jobs & Careers", 
-                description: "Discover exciting opportunities in technology",
-                gradient: "from-blue-500 to-blue-600"
-              },
-              { 
-                icon: "🚀", 
-                text: "What we do", 
-                description: "Comprehensive IT solutions and consulting",
-                gradient: "from-green-500 to-green-600"
-              },
-              { 
-                icon: "🌍", 
-                text: "Our Locations", 
-                description: "Global presence, local expertise",
-                gradient: "from-purple-500 to-purple-600"
-              }
-            ].map((item, index) => (
-              <motion.div 
-                key={index}
-                className="group cursor-pointer"
-                variants={scaleUp}
-                whileHover={{ y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-gray-200">
-                  <div className={`w-16 h-16 mx-auto mb-6 bg-gradient-to-r ${item.gradient} rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300`}>
-                    {item.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors duration-300">
-                    {item.text}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </motion.section>
+   
 
       {/* Business Solutions Section with improved layout */}
       <section className="py-20 px-4 md:px-12 lg:px-24 bg-gray-50">
@@ -726,78 +625,7 @@ const Firstpage = () => {
         </div>
       </motion.section>
 
-      {/* Location Section with enhanced design */}
-      <motion.section 
-        className="bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] py-24 px-6"
-        variants={fadeInUp}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Global Presence, Local Expertise
-            </h2>
-            <p className="text-xl text-black/80 max-w-3xl mx-auto">
-              Find us in major cities worldwide, ready to serve your business needs
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <motion.div
-              variants={slideInLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="bg-white/10 backdrop-blur-sm rounded-3xl p-8"
-            >
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <Globe className="w-8 h-8" />
-                Choose your location
-              </h3>
-              <div className="grid grid-cols-2 gap-4">
-                {['Belgium', 'Canada', 'Germany', 'Ireland', 'Netherlands', 'Poland', 'USA', 'United Kingdom'].map((location, index) => (
-                  <motion.div 
-                    key={location}
-                    className="bg-white/20 backdrop-blur-sm rounded-xl p-4 hover:bg-white/30 cursor-pointer transition-all duration-300"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    variants={fadeInUp}
-                  >
-                    <span className="text-white font-semibold">{location}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              variants={slideInRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="bg-white/10 backdrop-blur-sm rounded-3xl p-8"
-            >
-              <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                <Award className="w-8 h-8" />
-                Our Brands
-              </h3>
-              <div className="space-y-4">
-                {['Nash Squared', 'Workforce Solutions'].map((site, index) => (
-                  <motion.div 
-                    key={site}
-                    className="bg-white/20 backdrop-blur-sm rounded-xl p-4 hover:bg-white/30 cursor-pointer transition-all duration-300"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    variants={fadeInUp}
-                  >
-                    <span className="text-white font-semibold text-lg">{site}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </motion.section>
-
+      
      
 
       {/* Contact Section with enhanced CTA */}
