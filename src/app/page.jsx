@@ -279,289 +279,260 @@ const Firstpage = () => {
       </motion.section>
 
       {/* The Quore Advantage Section */}
-      <section className="py-24 px-4 md:px-12 lg:px-24 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto">
-          {/* Section Header */}
-          <motion.div 
-            className="text-center mb-20"
-            variants={bounceIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide">
-              Why Choose Us
-            </span>
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
-              The Quore
-              <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
-                Advantage
-              </span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              We believe building the right team goes beyond matching skills to job descriptions. Our approach is designed to ensure every hire adds real value to your business while fitting seamlessly into your culture.
-            </p>
-          </motion.div>
+   {/* The Quore Advantage Section */}
+<section className="py-24 px-4 md:px-12 lg:px-24 bg-gradient-to-br from-gray-50 to-white">
+  <div className="max-w-7xl mx-auto">
+    {/* Section Header */}
+    <motion.div 
+      className="text-center mb-20"
+      variants={bounceIn}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide">
+        Why Choose Us
+      </span>
+      <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+        <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
+          The Quore Advantage
+        </span>
+      </h2>
+      <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed font-semibold">
+        We believe building the right team goes beyond matching skills to job descriptions. Our approach is designed to ensure every hire adds real value to your business while fitting seamlessly into your culture.
+      </p>
+    </motion.div>
 
-          {/* Advantage Cards */}
-          <motion.div 
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {/* Understanding Your Needs */}
-            <motion.div 
-              className="group bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden"
-              variants={scaleUp}
-              whileHover={{ y: -8 }}
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 blur-2xl transform translate-x-16 -translate-y-16"></div>
-              
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <Users className="w-8 h-8 text-white" />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-blue-600 transition-colors duration-300">
-                  Understanding Your Needs
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  We begin with listening. By engaging closely with your leadership and HR teams, we identify not just the technical requirements of a role, but also the values, goals, and culture that define your organization.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Access to Trusted Talent Network */}
-            <motion.div 
-              className="group bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden"
-              variants={scaleUp}
-              whileHover={{ y: -8 }}
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 blur-2xl transform translate-x-16 -translate-y-16"></div>
-              
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <Globe className="w-8 h-8 text-white" />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-green-600 transition-colors duration-300">
-                  Access to a Trusted Talent Network
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  With over a decade of experience in staffing and recruitment, our founders have built strong connections with top IT professionals. This network allows us to source candidates who are not only technically proficient but also dependable and adaptable.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Rigorous Screening & Vetting */}
-            <motion.div 
-              className="group bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden"
-              variants={scaleUp}
-              whileHover={{ y: -8 }}
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 blur-2xl transform translate-x-16 -translate-y-16"></div>
-              
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <Shield className="w-8 h-8 text-white" />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-purple-600 transition-colors duration-300">
-                  Rigorous Screening & Vetting
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  Every candidate undergoes a thorough evaluation process, from technical assessments to cultural fit checks. This ensures that the professionals we recommend are ready to deliver impact from day one.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Flexible Staffing Solutions */}
-            <motion.div 
-              className="group bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden lg:col-span-1"
-              variants={scaleUp}
-              whileHover={{ y: -8 }}
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 blur-2xl transform translate-x-16 -translate-y-16"></div>
-              
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <Target className="w-8 h-8 text-white" />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-orange-600 transition-colors duration-300">
-                  Flexible Staffing Solutions
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  Whether you're a startup in need of agile, versatile talent or an enterprise requiring specialized skills at scale, we tailor our solutions (contract, permanent, or project-based) to align with your business objectives.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Partnership Beyond Hiring */}
-            <motion.div 
-              className="group bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden md:col-span-2 lg:col-span-2"
-              variants={scaleUp}
-              whileHover={{ y: -8 }}
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 blur-2xl transform translate-x-16 -translate-y-16"></div>
-              
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                  <Heart className="w-8 h-8 text-white" />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-red-600 transition-colors duration-300">
-                  Partnership Beyond Hiring
-                </h3>
-                
-                <p className="text-gray-600 leading-relaxed">
-                  We view staffing as more than a transaction - it's a partnership. By staying connected beyond placement, we ensure long-term success for both clients and candidates, creating teams that can grow and thrive together.
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
+    {/* Advantage Cards */}
+    <motion.div 
+      className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {/* Understanding Your Needs */}
+      <motion.div 
+        className="bg-white border border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+        variants={scaleUp}
+        whileHover={{ y: -10, scale: 1.02 }}
+      >
+        <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+          <Users className="w-8 h-8 text-white" />
         </div>
-      </section>
+        
+        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center group-hover:text-blue-600 transition-colors duration-300">
+          Understanding Your Needs
+        </h3>
+        
+        <p className="text-gray-600 text-center leading-relaxed">
+          We begin with listening. By engaging closely with your leadership and HR teams, we identify not just the technical requirements of a role, but also the values, goals, and culture that define your organization.
+        </p>
+      </motion.div>
+
+      {/* Access to Trusted Talent Network */}
+      <motion.div 
+        className="bg-white border border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+        variants={scaleUp}
+        whileHover={{ y: -10, scale: 1.02 }}
+      >
+        <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+          <Globe className="w-8 h-8 text-white" />
+        </div>
+        
+        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center group-hover:text-green-600 transition-colors duration-300">
+          Access to a Trusted Talent Network
+        </h3>
+        
+        <p className="text-gray-600 text-center leading-relaxed">
+          With over a decade of experience in staffing and recruitment, our founders have built strong connections with top IT professionals. This network allows us to source candidates who are not only technically proficient but also dependable and adaptable.
+        </p>
+      </motion.div>
+
+      {/* Rigorous Screening & Vetting */}
+      <motion.div 
+        className="bg-white border border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+        variants={scaleUp}
+        whileHover={{ y: -10, scale: 1.02 }}
+      >
+        <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+          <Shield className="w-8 h-8 text-white" />
+        </div>
+        
+        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center group-hover:text-purple-600 transition-colors duration-300">
+          Rigorous Screening & Vetting
+        </h3>
+        
+        <p className="text-gray-600 text-center leading-relaxed">
+          Every candidate undergoes a thorough evaluation process, from technical assessments to cultural fit checks. This ensures that the professionals we recommend are ready to deliver impact from day one.
+        </p>
+      </motion.div>
+
+      {/* Flexible Staffing Solutions */}
+      <motion.div 
+        className="bg-white border border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+        variants={scaleUp}
+        whileHover={{ y: -10, scale: 1.02 }}
+      >
+        <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+          <Target className="w-8 h-8 text-white" />
+        </div>
+        
+        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center group-hover:text-orange-600 transition-colors duration-300">
+          Flexible Staffing Solutions
+        </h3>
+        
+        <p className="text-gray-600 text-center leading-relaxed">
+          Whether you're a startup in need of agile, versatile talent or an enterprise requiring specialized skills at scale, we tailor our solutions (contract, permanent, or project-based) to align with your business objectives.
+        </p>
+      </motion.div>
+
+      {/* Partnership Beyond Hiring - Now Same Size */}
+      <motion.div 
+        className="bg-white border border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+        variants={scaleUp}
+        whileHover={{ y: -10, scale: 1.02 }}
+      >
+        <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+          <Heart className="w-8 h-8 text-white" />
+        </div>
+        
+        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center group-hover:text-red-600 transition-colors duration-300">
+          Partnership Beyond Hiring
+        </h3>
+        
+        <p className="text-gray-600 text-center leading-relaxed">
+          We view staffing as more than a transaction - it's a partnership. By staying connected beyond placement, we ensure long-term success for both clients and candidates, creating teams that can grow and thrive together.
+        </p>
+      </motion.div>
+
+      {/* Proven Results */}
+      <motion.div 
+        className="bg-white border border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+        variants={scaleUp}
+        whileHover={{ y: -10, scale: 1.02 }}
+      >
+        <div className="w-16 h-16 bg-gradient-to-r from-indigo-500 to-indigo-600 flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform duration-300">
+          <CheckCircle className="w-8 h-8 text-white" />
+        </div>
+        
+        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center group-hover:text-indigo-600 transition-colors duration-300">
+          Proven Results
+        </h3>
+        
+        <p className="text-gray-600 text-center leading-relaxed">
+          Our track record speaks for itself. We consistently deliver high-quality placements that drive business growth and contribute to long-term organizational success across diverse industries.
+        </p>
+      </motion.div>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Our Commitment Section */}
-      <section className="py-24 px-4 md:px-12 lg:px-24 bg-white">
-        <div className="max-w-7xl mx-auto">
-          {/* First Row - Image and Content */}
-          <div className="grid md:grid-cols-2 gap-20 items-center mb-24">
-            <motion.div
-              variants={slideInLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 blur-xl"></div>
-                <Image
-                  src="/images/laptop_globe.webp"
-                  alt="Laptop with globe overlay"
-                  width={600}
-                  height={400}
-                  className="relative shadow-2xl"
-                />
-              </div>
-            </motion.div>
+    <section className="py-4 px-4 md:px-12 lg:px-24 bg-white">
+  <div className="max-w-7xl mx-auto">
+    {/* Header */}
+    <div className="text-center mb-16">
+      
+      
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+        Our
+        <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
+          Commitment
+        </span>
+      </h2>
+      
+      <p className="text-xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto">
+        We are committed to more than just filling roles, we are committed to building lasting partnerships that drive real business impact.
+      </p>
+    </div>
 
-            <motion.div
-              variants={slideInRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="md:order-2"
-            >
-              <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide">
-                Our Promise
-              </span>
-              
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-                Our
-                <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
-                  Commitment
-                </span>
-              </h2>
-              
-              <p className="text-xl text-gray-700 mb-10 leading-relaxed">
-                We are committed to more than just filling roles, we are committed to building lasting partnerships that drive real business impact.
-              </p>
-
-              <div className="space-y-8">
-                <div className="flex items-start gap-6 p-6 bg-gray-50 transition-colors duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Star className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Over Quantity</h3>
-                    <p className="text-gray-600">Every candidate we recommend is carefully vetted to ensure the highest standards of technical expertise, reliability, and cultural alignment.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-6 p-6 bg-gray-50 transition-colors duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Shield className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Transparency & Trust</h3>
-                    <p className="text-gray-600">We believe in open communication and complete honesty throughout the staffing process, so our clients always know what to expect.</p>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Second Row - Content and Image */}
-          <div className="grid md:grid-cols-2 gap-20 items-center">
-            <motion.div
-              variants={slideInLeft}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <div className="space-y-8 mb-10">
-                <div className="flex items-start gap-6 p-6 bg-gray-50 transition-colors duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Target className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Tailored Solutions</h3>
-                    <p className="text-gray-600">No two businesses are the same. Whether you're a fast-growing startup or an established enterprise, we design staffing solutions that match your unique needs.</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-6 p-6 bg-gray-50 transition-colors duration-300">
-                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Long-Term Value</h3>
-                    <p className="text-gray-600">Our role doesn't end with placement. We stay invested in the success of both our clients and candidates to ensure strong, lasting outcomes.</p>
-                  </div>
-                </div>
-              </div>
-
-              <motion.button
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold px-10 py-4 hover:shadow-xl transition-all duration-300 group"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                START YOUR JOURNEY
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </motion.button>
-            </motion.div>
-
-            <motion.div
-              variants={slideInRight}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 blur-xl"></div>
-                <Image
-                  src="/images/business-contract.webp"
-                  alt="Business handshake over contract"
-                  width={600}
-                  height={400}
-                  className="relative shadow-2xl"
-                />
-              </div>
-            </motion.div>
-          </div>
+    {/* Cards Grid */}
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      {/* Quality Over Quantity Card */}
+      <motion.div
+        variants={slideInLeft}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        whileHover={{ y: -10, scale: 1.02 }}
+        transition={{ duration: 0.3 }}
+        className="bg-white border border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+      >
+        <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mb-6 mx-auto">
+          <Star className="w-8 h-8 text-white" />
         </div>
-      </section>
+        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Quality Over Quantity</h3>
+        <p className="text-gray-600 text-center">Every candidate we recommend is carefully vetted to ensure the highest standards of technical expertise, reliability, and cultural alignment.</p>
+      </motion.div>
+
+      {/* Transparency & Trust Card */}
+      <motion.div
+        variants={slideInRight}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        whileHover={{ y: -10, scale: 1.02 }}
+        transition={{ duration: 0.3 }}
+        className="bg-white border border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+      >
+        <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center mb-6 mx-auto">
+          <Shield className="w-8 h-8 text-white" />
+        </div>
+        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Transparency & Trust</h3>
+        <p className="text-gray-600 text-center">We believe in open communication and complete honesty throughout the staffing process, so our clients always know what to expect.</p>
+      </motion.div>
+
+      {/* Tailored Solutions Card */}
+      <motion.div
+        variants={slideInLeft}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        whileHover={{ y: -10, scale: 1.02 }}
+        transition={{ duration: 0.3 }}
+        className="bg-white border border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+      >
+        <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mb-6 mx-auto">
+          <Target className="w-8 h-8 text-white" />
+        </div>
+        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Tailored Solutions</h3>
+        <p className="text-gray-600 text-center">No two businesses are the same. Whether you're a fast-growing startup or an established enterprise, we design staffing solutions that match your unique needs.</p>
+      </motion.div>
+
+      {/* Long-Term Value Card */}
+      <motion.div
+        variants={slideInRight}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        whileHover={{ y: -10, scale: 1.02 }}
+        transition={{ duration: 0.3 }}
+        className="bg-white border border-gray-200 p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+      >
+        <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center mb-6 mx-auto">
+          <CheckCircle className="w-8 h-8 text-white" />
+        </div>
+        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Long-Term Value</h3>
+        <p className="text-gray-600 text-center">Our role doesn't end with placement. We stay invested in the success of both our clients and candidates to ensure strong, lasting outcomes.</p>
+      </motion.div>
+    </div>
+
+    {/* CTA Button */}
+    <div className="text-center">
+      <motion.button
+        className="inline-flex items-center gap-3 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold px-10 py-4 hover:shadow-xl transition-all duration-300 group"
+        whileHover={{ scale: 1.05, y: -2 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        START YOUR JOURNEY
+        <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+      </motion.button>
+    </div>
+  </div>
+</section>
+
 
       {/* Logo Slider Section - Straight Line Scroll */}
       <motion.section 
