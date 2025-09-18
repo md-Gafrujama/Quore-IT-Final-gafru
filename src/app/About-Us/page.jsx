@@ -178,7 +178,7 @@ const AboutPage = () => {
                 >
                   <div className="relative">
                     <Image
-                      src="/api/placeholder/600/400"
+                      src="images/pic2.webp"
                       alt="Professional team collaboration"
                       width={600}
                       height={400}
