@@ -1,7 +1,4 @@
  import Link from "next/link";
-// import Navbar from "@/components/newNavbar";
-// import Footer from "@/components/newFooter";
-
 export default function PrivacyNotice() {
   return (
     <>
@@ -2018,7 +2015,7 @@ export default function PrivacyNotice() {
           </div>
         </div>
       </div>
-      {/* <Footer /> */}
+  
     </>
   );
 }
