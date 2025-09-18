@@ -60,8 +60,7 @@ const Navbar = () => {
     { name: 'ENGINEERING', href: '/Find-tech-jobs/engineering' },
     { name: 'GOVERNMENT SERVICES', href: '/Find-tech-jobs/government-services' },
     { name: 'CONSULTING SERVICES', href: '/Find-tech-jobs/consulting-services' },
-    { name: 'TECHNOLOGY SOLUTIONS', href: '/Find-tech-jobs/technology-solutions' },
-    { name: 'PAST PERFORMANCE', href: '/Find-tech-jobs/past-performance' },
+  
   ];
 
   const navItems = [
