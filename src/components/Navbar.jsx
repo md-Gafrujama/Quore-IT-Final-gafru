@@ -68,7 +68,7 @@ const Navbar = () => {
     { name: 'FIND TECH TALENT', href: '/Find-tech-talent' },
     { name: 'WHAT WE DO', href: '/What-we-do' },
     { name: 'NEWS & EVENTS', href: 'https://quore-it-ai-blogs.vercel.app/' },
-    { name: 'OUR COMPANY', href: '/Our-company' },
+    { name: 'ABOUT US', href: '/About-Us' },
     { name: 'CONTACT US', href: '/Contact-us' },
   ];
 
