@@ -40,40 +40,35 @@ const AboutPage = () => {
       icon: <Target className="w-8 h-8" />,
       title: "Understanding Your Needs",
       description: "We begin with listening. By engaging closely with your leadership and HR teams, we identify not just the technical requirements of a role, but also the values, goals, and culture that define your organization. Our comprehensive discovery process ensures perfect alignment between your business objectives and talent acquisition strategy.",
-      image: "/api/placeholder/400/250"
+      image: "/images/women6.webp"
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: "Access to a Trusted Talent Network",
       description: "With over a decade of experience in staffing and recruitment, our founders have built strong connections with top IT professionals. This network allows us to source candidates who are not only technically proficient but also dependable and adaptable. Our extensive database includes professionals across all technology domains and experience levels.",
-      image: "/api/placeholder/400/250"
+      image: "/images/women1.webp"
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Rigorous Screening & Vetting",
       description: "Every candidate undergoes a thorough evaluation process, from technical assessments to cultural fit checks. This ensures that the professionals we recommend are ready to deliver impact from day one. Our multi-stage vetting process includes technical interviews, reference checks, and personality assessments.",
-      image: "/api/placeholder/400/250"
+      image: "/images/women2.webp"
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Flexible Staffing Solutions",
       description: "Whether you're a startup in need of agile, versatile talent or an enterprise requiring specialized skills at scale, we tailor our solutions (contract, permanent, or project-based) to align with your business objectives. Our flexible engagement models adapt to your changing needs and market conditions.",
-      image: "/api/placeholder/400/250"
+      image: "/images/women3.webp"
     },
     {
       icon: <CheckCircle className="w-8 h-8" />,
       title: "Partnership Beyond Hiring",
       description: "We view staffing as more than a transaction - it's a partnership. By staying connected beyond placement, we ensure long-term success for both clients and candidates, creating teams that can grow and thrive together. Our ongoing support includes performance monitoring and career development guidance.",
-      image: "/api/placeholder/400/250"
+      image: "/images/women4.webp"
     }
   ];
 
-  const stats = [
-    { number: "10+", label: "Years Experience", icon: <Award className="w-6 h-6" /> },
-    { number: "500+", label: "Successful Placements", icon: <Users className="w-6 h-6" /> },
-    { number: "95%", label: "Client Satisfaction", icon: <Star className="w-6 h-6" /> },
-    { number: "50+", label: "Enterprise Clients", icon: <Globe className="w-6 h-6" /> }
-  ];
+  
 
   const testimonials = [
     {
@@ -171,10 +166,7 @@ const AboutPage = () => {
                       <span>Explore Our Services</span>
                       <ArrowRight className="w-5 h-5" />
                     </button>
-                    <button className="border-2 border-[#00d9a6] text-[#00d9a6] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#00d9a6] hover:text-gray-900 transition-all duration-300 flex items-center justify-center space-x-2">
-                      <PlayCircle className="w-5 h-5" />
-                      <span>Watch Our Story</span>
-                    </button>
+                  
                   </div>
                 </div>
 
@@ -205,27 +197,7 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-16 bg-gradient-to-r from-[#00d9a6] to-green-500 text-gray-900">
-          <div className="container mx-auto px-4">
-            <div 
-              id="stats"
-              className={`grid grid-cols-2 lg:grid-cols-4 gap-8 transform transition-all duration-1000 delay-200 ${
-                isVisible['stats'] ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-              }`}
-            >
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center group">
-                  <div className="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white/30 transition-all duration-300">
-                    {stat.icon}
-                  </div>
-                  <div className="text-3xl lg:text-4xl font-bold mb-2">{stat.number}</div>
-                  <div className="text-lg font-medium">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+       
 
         {/* Company Overview */}
         <section className="py-20 bg-white">
@@ -259,7 +231,7 @@ const AboutPage = () => {
 
                 <div className="relative">
                   <Image
-                    src="/api/placeholder/600/500"
+                    src="images/pic1.webp"
                     alt="Modern office environment with technology professionals"
                     width={600}
                     height={500}
