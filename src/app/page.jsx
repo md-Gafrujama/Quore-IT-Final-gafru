@@ -437,13 +437,13 @@ const Firstpage = () => {
       
       
       <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-        Our
+     
         <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
-          Commitment
+             Our Commitment
         </span>
       </h2>
       
-      <p className="text-xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto">
+      <p className="text-xl text-gray-700 mb-10 leading-relaxed max-w-3xl mx-auto front-semibold">
         We are committed to more than just filling roles, we are committed to building lasting partnerships that drive real business impact.
       </p>
     </div>
