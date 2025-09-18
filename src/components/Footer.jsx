@@ -225,7 +225,7 @@ export default function Footer() {
                   { label: "Find Tech Jobs", path: "/Find-tech-jobs", description: "Discover opportunities" },
                   { label: "Submit Vacancy", path: "/Find-tech-talent", description: "Find talent" },
                   { label: "What We Do", path: "/What-we-do", description: "Our services" },
-                  { label: "Our Company", path: "/workforce-solutions", description: "Strategic consulting" },
+                  { label: "Workforce Solutions", path: "/workforce-solutions", description: "Strategic consulting" },
                   { label: "Contact Us", path: "/Contact-us", description: "Get in touch" },
                 ].map(({ label, path, description }, idx) => (
                   <li key={idx} className="group">
