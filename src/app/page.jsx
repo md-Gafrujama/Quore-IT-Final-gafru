@@ -204,14 +204,15 @@ const isExternal = (url) => url.startsWith('http');
 const Firstpage = () => {
   return (
     <> 
-      {/* Hero Section with enhanced design */}
+      {/* Hero Section */}
       <motion.section 
-        className="relative min-h-[70vh] flex items-center justify-center overflow-hidden mt-20"
+        className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
+        style={{ marginTop: '80px' }}
       >
-        {/* Background Image with Parallax Effect */}
+        {/* Background Image */}
         <motion.div 
           className="absolute inset-0 z-0"
           initial={{ scale: 1.1 }}
@@ -226,24 +227,24 @@ const Firstpage = () => {
             priority
             quality={90}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
         </motion.div>
         
-        {/* Enhanced Content */}
-        <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
+        {/* Content */}
+        <div className="relative z-10 text-center max-w-7xl mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <motion.span 
-              className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6 border border-white/20"
+              className="inline-block px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 uppercase tracking-wide"
               whileHover={{ scale: 1.05 }}
             >
-              ✨ Leading Technology Solutions Provider
+              Leading Technology Solutions Provider
             </motion.span>
             
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-wide mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-8 leading-tight">
               Technology Recruitment,
               <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
                 IT Outsourcing
@@ -251,37 +252,34 @@ const Firstpage = () => {
               and Leadership Services
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Transforming businesses through innovative technology solutions and expert talent acquisition
+            <p className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto mb-12 leading-relaxed">
+              Transforming businesses through innovative technology solutions and expert talent acquisition. 
+              We connect exceptional professionals with forward-thinking organizations.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <motion.button
-                className="px-8 py-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-semibold rounded-lg hover:shadow-xl transition-all duration-300"
+                className="px-10 py-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold text-lg hover:shadow-2xl transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get Started Today
+                GET STARTED TODAY
               </motion.button>
               
               <motion.button
-                className="px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition-all duration-300"
+                className="px-10 py-4 border-2 border-white text-white font-bold text-lg hover:bg-white hover:text-black transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Learn More
+                LEARN MORE
               </motion.button>
             </div>
           </motion.div>
         </div>
-
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-to-r from-[#c5f82a]/10 to-[#00d9a6]/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
       </motion.section>
 
       {/* The Quore Advantage Section */}
-      <section className="py-20 px-4 md:px-12 lg:px-24 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-24 px-4 md:px-12 lg:px-24 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <motion.div 
@@ -291,10 +289,10 @@ const Firstpage = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full text-gray-600 text-sm font-medium mb-6 border border-gray-200">
+            <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide">
               Why Choose Us
             </span>
-            <h2 className="text-4xl md:text-6xl font-extrabold text-gray-800 mb-6 leading-tight">
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
               The Quore
               <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
                 Advantage
@@ -315,18 +313,18 @@ const Firstpage = () => {
           >
             {/* Understanding Your Needs */}
             <motion.div 
-              className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden"
+              className="group bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden"
               variants={scaleUp}
               whileHover={{ y: -8 }}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 blur-2xl transform translate-x-16 -translate-y-16"></div>
               
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                   <Users className="w-8 h-8 text-white" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-blue-600 transition-colors duration-300">
                   Understanding Your Needs
                 </h3>
                 
@@ -338,18 +336,18 @@ const Firstpage = () => {
 
             {/* Access to Trusted Talent Network */}
             <motion.div 
-              className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden"
+              className="group bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden"
               variants={scaleUp}
               whileHover={{ y: -8 }}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 blur-2xl transform translate-x-16 -translate-y-16"></div>
               
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                   <Globe className="w-8 h-8 text-white" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-green-600 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-green-600 transition-colors duration-300">
                   Access to a Trusted Talent Network
                 </h3>
                 
@@ -361,18 +359,18 @@ const Firstpage = () => {
 
             {/* Rigorous Screening & Vetting */}
             <motion.div 
-              className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden"
+              className="group bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden"
               variants={scaleUp}
               whileHover={{ y: -8 }}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 blur-2xl transform translate-x-16 -translate-y-16"></div>
               
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                   <Shield className="w-8 h-8 text-white" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-purple-600 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-purple-600 transition-colors duration-300">
                   Rigorous Screening & Vetting
                 </h3>
                 
@@ -384,18 +382,18 @@ const Firstpage = () => {
 
             {/* Flexible Staffing Solutions */}
             <motion.div 
-              className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden lg:col-span-1"
+              className="group bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden lg:col-span-1"
               variants={scaleUp}
               whileHover={{ y: -8 }}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 blur-2xl transform translate-x-16 -translate-y-16"></div>
               
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                   <Target className="w-8 h-8 text-white" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-orange-600 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-orange-600 transition-colors duration-300">
                   Flexible Staffing Solutions
                 </h3>
                 
@@ -407,18 +405,18 @@ const Firstpage = () => {
 
             {/* Partnership Beyond Hiring */}
             <motion.div 
-              className="group bg-white rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden md:col-span-2 lg:col-span-2"
+              className="group bg-white p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 relative overflow-hidden md:col-span-2 lg:col-span-2"
               variants={scaleUp}
               whileHover={{ y: -8 }}
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 rounded-full blur-2xl transform translate-x-16 -translate-y-16"></div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#c5f82a]/10 to-[#00d9a6]/10 blur-2xl transform translate-x-16 -translate-y-16"></div>
               
               <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
                   <Heart className="w-8 h-8 text-white" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-800 mb-4 group-hover:text-red-600 transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 group-hover:text-red-600 transition-colors duration-300">
                   Partnership Beyond Hiring
                 </h3>
                 
@@ -432,10 +430,10 @@ const Firstpage = () => {
       </section>
 
       {/* Our Commitment Section */}
-      <section className="py-20 px-4 md:px-12 lg:px-24 bg-white">
+      <section className="py-24 px-4 md:px-12 lg:px-24 bg-white">
         <div className="max-w-7xl mx-auto">
           {/* First Row - Image and Content */}
-          <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
+          <div className="grid md:grid-cols-2 gap-20 items-center mb-24">
             <motion.div
               variants={slideInLeft}
               initial="hidden"
@@ -445,13 +443,13 @@ const Firstpage = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-3xl blur-xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 blur-xl"></div>
                 <Image
                   src="/images/laptop_globe.webp"
                   alt="Laptop with globe overlay"
                   width={600}
                   height={400}
-                  className="relative rounded-3xl shadow-2xl"
+                  className="relative shadow-2xl"
                 />
               </div>
             </motion.div>
@@ -463,38 +461,38 @@ const Firstpage = () => {
               viewport={{ once: true }}
               className="md:order-2"
             >
-              <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full text-gray-600 text-sm font-medium mb-6 border border-gray-200">
+              <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide">
                 Our Promise
               </span>
               
-              <h2 className="text-3xl md:text-5xl font-extrabold text-gray-800 mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
                 Our
                 <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
                   Commitment
                 </span>
               </h2>
               
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-700 mb-10 leading-relaxed">
                 We are committed to more than just filling roles, we are committed to building lasting partnerships that drive real business impact.
               </p>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-2xl">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                    <Star className="w-5 h-5 text-white" />
+              <div className="space-y-8">
+                <div className="flex items-start gap-6 p-6 bg-gray-50 transition-colors duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <Star className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">Quality Over Quantity</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Over Quantity</h3>
                     <p className="text-gray-600">Every candidate we recommend is carefully vetted to ensure the highest standards of technical expertise, reliability, and cultural alignment.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-2xl">
-                  <div className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                    <Shield className="w-5 h-5 text-white" />
+                <div className="flex items-start gap-6 p-6 bg-gray-50 transition-colors duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <Shield className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">Transparency & Trust</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">Transparency & Trust</h3>
                     <p className="text-gray-600">We believe in open communication and complete honesty throughout the staffing process, so our clients always know what to expect.</p>
                   </div>
                 </div>
@@ -503,41 +501,41 @@ const Firstpage = () => {
           </div>
 
           {/* Second Row - Content and Image */}
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-20 items-center">
             <motion.div
               variants={slideInLeft}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <div className="space-y-6 mb-8">
-                <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-2xl">
-                  <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                    <Target className="w-5 h-5 text-white" />
+              <div className="space-y-8 mb-10">
+                <div className="flex items-start gap-6 p-6 bg-gray-50 transition-colors duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <Target className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">Tailored Solutions</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">Tailored Solutions</h3>
                     <p className="text-gray-600">No two businesses are the same. Whether you're a fast-growing startup or an established enterprise, we design staffing solutions that match your unique needs.</p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-2xl">
-                  <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                    <CheckCircle className="w-5 h-5 text-white" />
+                <div className="flex items-start gap-6 p-6 bg-gray-50 transition-colors duration-300">
+                  <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <CheckCircle className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">Long-Term Value</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">Long-Term Value</h3>
                     <p className="text-gray-600">Our role doesn't end with placement. We stay invested in the success of both our clients and candidates to ensure strong, lasting outcomes.</p>
                   </div>
                 </div>
               </div>
 
               <motion.button
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-semibold px-8 py-4 rounded-2xl hover:shadow-xl transition-all duration-300 group"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold px-10 py-4 hover:shadow-xl transition-all duration-300 group"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Start Your Journey
+                START YOUR JOURNEY
                 <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
               </motion.button>
             </motion.div>
@@ -551,13 +549,13 @@ const Firstpage = () => {
               transition={{ duration: 0.3 }}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-3xl blur-xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 blur-xl"></div>
                 <Image
                   src="/images/business-contract.webp"
                   alt="Business handshake over contract"
                   width={600}
                   height={400}
-                  className="relative rounded-3xl shadow-2xl"
+                  className="relative shadow-2xl"
                 />
               </div>
             </motion.div>
@@ -565,9 +563,9 @@ const Firstpage = () => {
         </div>
       </section>
 
-      {/* Logo Slider Section with enhanced design */}
+      {/* Logo Slider Section - Straight Line Scroll */}
       <motion.section 
-        className="relative bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] text-white py-24 overflow-hidden"
+        className="relative bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-white py-20 overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -577,28 +575,36 @@ const Firstpage = () => {
         <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
         <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
 
-        {/* TOP SLIDER */}
+        {/* TOP SLIDER - Continuous Right Movement */}
         <div className="overflow-hidden mb-16">
           <motion.div 
-            className="flex gap-12 whitespace-nowrap"
-            animate={{ x: [0, -1000] }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="flex gap-8 whitespace-nowrap w-max"
+            animate={{ 
+              x: [0, -2000]
+            }}
+            transition={{ 
+              duration: 25, 
+              repeat: Infinity, 
+              ease: "linear",
+              repeatType: "loop"
+            }}
           >
-            {[...topLogos, ...topLogos, ...topLogos].map((logo, idx) => (
-              <motion.div
-                key={`top-${idx}`}
-                className="flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-colors duration-300"
-                whileHover={{ scale: 1.1 }}
-              >
-                <Image
-                  src={`/images/${logo}`}
-                  alt={`Top Logo ${idx}`}
-                  width={120}
-                  height={80}
-                  className="h-12 w-auto object-contain filter brightness-0 invert"
-                />
-              </motion.div>
-            ))}
+            {Array.from({ length: 4 }).map((_, groupIndex) => 
+              topLogos.map((logo, idx) => (
+                <div
+                  key={`top-${groupIndex}-${idx}`}
+                  className="flex-shrink-0 bg-white/10 backdrop-blur-sm p-6 hover:bg-white/20 transition-colors duration-300 w-32 h-20 flex items-center justify-center"
+                >
+                  <Image
+                    src={`/images/${logo}`}
+                    alt={`Partner Logo`}
+                    width={120}
+                    height={60}
+                    className="max-h-12 w-auto object-contain filter brightness-0 invert"
+                  />
+                </div>
+              ))
+            )}
           </motion.div>
         </div>
 
@@ -613,7 +619,7 @@ const Firstpage = () => {
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
             Resourcing and staffing that's trusted
             <br />
-            <span className="text-orange-300">from Main Street to Wall Street</span>
+            <span className="text-black/90">from Main Street to Wall Street</span>
           </h2>
           <p className="text-lg md:text-xl text-black/80 max-w-4xl mx-auto leading-relaxed">
             From small businesses to the Fortune 100, organizations across the country leverage
@@ -621,33 +627,41 @@ const Firstpage = () => {
           </p>
         </motion.div>
 
-        {/* BOTTOM SLIDER */}
+        {/* BOTTOM SLIDER - Continuous Left Movement */}
         <div className="overflow-hidden">
           <motion.div 
-            className="flex gap-12 whitespace-nowrap"
-            animate={{ x: [-1000, 0] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="flex gap-8 whitespace-nowrap w-max"
+            animate={{ 
+              x: [-2000, 0]
+            }}
+            transition={{ 
+              duration: 30, 
+              repeat: Infinity, 
+              ease: "linear",
+              repeatType: "loop"
+            }}
           >
-            {[...bottomLogos, ...bottomLogos, ...bottomLogos].map((logo, idx) => (
-              <motion.div
-                key={`bottom-${idx}`}
-                className="flex-shrink-0 bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20 transition-colors duration-300"
-                whileHover={{ scale: 1.1 }}
-              >
-                <Image
-                  src={`/images/${logo}`}
-                  alt={`Bottom Logo ${idx}`}
-                  width={120}
-                  height={80}
-                  className="h-12 w-auto object-contain filter brightness-0 invert"
-                />
-              </motion.div>
-            ))}
+            {Array.from({ length: 4 }).map((_, groupIndex) => 
+              bottomLogos.map((logo, idx) => (
+                <div
+                  key={`bottom-${groupIndex}-${idx}`}
+                  className="flex-shrink-0 bg-white/10 backdrop-blur-sm p-6 hover:bg-white/20 transition-colors duration-300 w-32 h-20 flex items-center justify-center"
+                >
+                  <Image
+                    src={`/images/${logo}`}
+                    alt={`Partner Logo`}
+                    width={120}
+                    height={60}
+                    className="max-h-12 w-auto object-contain filter brightness-0 invert"
+                  />
+                </div>
+              ))
+            )}
           </motion.div>
         </div>
       </motion.section>
 
-      {/* Industries Section with enhanced cards */}
+      {/* Industries Section */}
       <motion.section 
         className="bg-gray-50 py-24 px-4"
         variants={staggerContainer}
@@ -656,11 +670,11 @@ const Firstpage = () => {
         viewport={{ once: true }}
       >
         <div className="max-w-6xl mx-auto">
-          <motion.div className="text-center mb-16" variants={bounceIn}>
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full text-gray-600 text-sm font-medium mb-4">
+          <motion.div className="text-center mb-20" variants={bounceIn}>
+            <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide">
               Our Expertise
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-transparent bg-clip-text mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-transparent bg-clip-text mb-8">
               Industries Served
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -669,7 +683,7 @@ const Firstpage = () => {
           </motion.div>
           
           <motion.div 
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6"
             variants={staggerContainer}
           >
             {industries.map((industry, index) => (
@@ -680,8 +694,8 @@ const Firstpage = () => {
                 whileHover={{ y: -10 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-gray-200 text-center">
-                  <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${industry.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                <div className="bg-white p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group-hover:border-gray-200 text-center min-h-[140px] flex flex-col items-center justify-center">
+                  <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${industry.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                     <Image
                       src={`/images/${industry.image}`}
                       alt={industry.name}
@@ -690,7 +704,7 @@ const Firstpage = () => {
                       className="filter brightness-0 invert"
                     />
                   </div>
-                  <p className="text-sm font-bold text-gray-700 uppercase tracking-wide group-hover:text-green-600 transition-colors duration-300">
+                  <p className="text-xs font-bold text-gray-700 uppercase tracking-wide group-hover:text-green-600 transition-colors duration-300 leading-tight">
                     {industry.name}
                   </p>
                 </div>
@@ -700,7 +714,7 @@ const Firstpage = () => {
         </div>
       </motion.section>
 
-      {/* Services Section with enhanced design */}
+      {/* Services Section */}
       <motion.section 
         className="bg-white py-24 px-4 md:px-12 lg:px-24"
         variants={staggerContainer}
@@ -708,12 +722,12 @@ const Firstpage = () => {
         whileInView="visible"
         viewport={{ once: true }}
       >
-        <div className="max-w-6xl mx-auto">
-          <motion.div className="text-center mb-16" variants={bounceIn}>
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full text-gray-600 text-sm font-medium mb-4">
+        <div className="max-w-7xl mx-auto">
+          <motion.div className="text-center mb-20" variants={bounceIn}>
+            <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide">
               What We Offer
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
               Our Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -725,7 +739,7 @@ const Firstpage = () => {
             {services.map((service, idx) => (
               <motion.div 
                 key={idx} 
-                className="group bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100"
+                className="group bg-white overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100"
                 variants={scaleUp}
                 whileHover={{ y: -8 }}
               >
@@ -745,21 +759,21 @@ const Firstpage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-xl">
+                <div className="p-10">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="p-3 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6]">
                       {React.cloneElement(service.icon, { className: "w-6 h-6 text-white" })}
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-800 group-hover:text-green-600 transition-colors duration-300">
+                    <h3 className="text-2xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
                       {service.title}
                     </h3>
                   </div>
                   
-                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                  <p className="text-gray-600 mb-8 leading-relaxed text-lg">{service.description}</p>
                   
                   <Link href={service.link}>
                     <motion.div 
-                      className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold px-6 py-3 rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all duration-300 group-hover:gap-4"
+                      className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold px-8 py-4 hover:from-orange-600 hover:to-orange-700 transition-all duration-300 group-hover:gap-4"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -774,29 +788,29 @@ const Firstpage = () => {
         </div>
       </motion.section>
 
-      {/* Contact Section with enhanced CTA */}
+      {/* Contact Section */}
       <motion.section
-        className="relative min-h-[70vh] flex items-center justify-center text-white overflow-hidden"
+        className="relative min-h-[80vh] flex items-center justify-center text-white overflow-hidden"
         style={{ backgroundImage: "url('/images/keyboard.jpg')" }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
         
-        <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
+        <div className="relative z-10 text-center max-w-7xl mx-auto px-4">
           <motion.div
             variants={bounceIn}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6 border border-white/20">
+            <span className="inline-block px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 uppercase tracking-wide">
               Get In Touch
             </span>
             
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
               How can we help
               <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
                 transform your business?
@@ -805,7 +819,7 @@ const Firstpage = () => {
           </motion.div>
           
           <motion.p 
-            className="text-xl md:text-2xl mb-10 max-w-4xl mx-auto leading-relaxed text-gray-200"
+            className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed text-gray-200"
             variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
@@ -823,7 +837,7 @@ const Firstpage = () => {
           >
             <Link href="/Contact-us">
               <motion.button 
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold py-4 px-8 rounded-xl hover:shadow-2xl transition-all duration-300 group"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold py-4 px-10 hover:shadow-2xl transition-all duration-300 group"
                 whileHover={{ 
                   scale: 1.05,
                   y: -2
@@ -837,7 +851,7 @@ const Firstpage = () => {
             </Link>
             
             <motion.button 
-              className="inline-flex items-center gap-3 border-2 border-white text-white font-bold py-4 px-8 rounded-xl hover:bg-white hover:text-black transition-all duration-300"
+              className="inline-flex items-center gap-3 border-2 border-white text-white font-bold py-4 px-10 hover:bg-white hover:text-black transition-all duration-300"
               whileHover={{ 
                 scale: 1.05,
                 y: -2
@@ -850,10 +864,6 @@ const Firstpage = () => {
             </motion.button>
           </motion.div>
         </div>
-
-        {/* Floating elements for visual appeal */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-r from-[#c5f82a]/10 to-[#00d9a6]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
       </motion.section>
     </>
   );
