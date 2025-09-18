@@ -63,7 +63,7 @@ const SenecaServicesPage = () => {
 
       <main className="min-h-screen bg-gray-50 ">
         {/* Hero Section */}
-    <section className="relative bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] mt-18 overflow-hidden">
+    <section className="relative bg-gradient-to-r from-[#1f2937] to-[#1f2937] mt-18 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -327,138 +327,7 @@ const SenecaServicesPage = () => {
       </div>
     </section>
 
-      {/* Services Grid Section */}
-<section className="py-12 lg:py-20 bg-gray-100">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-      {/* Government Services */}
-      <article className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
-        <div className="text-center space-y-6 flex-grow flex flex-col">
-          <div className="w-16 h-16 mx-auto bg-orange-100 rounded-lg flex items-center justify-center">
-            <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
-            </svg>
-          </div>
-          
-          <h2 className="text-xl lg:text-2xl font-bold text-gray-900">
-            Government Services
-          </h2>
-          
-          <p className="text-gray-600 leading-relaxed text-sm lg:text-base flex-grow">
-            Understanding how to efficiently navigate regulated and compliance-driven government 
-            environments allows us to move as quickly and precisely and precisely to meet your staffing and 
-            recruiting needs as the project demands.
-          </p>
-          
-          <Link 
-            href="/services/government-services"
-            className="inline-flex items-center px-6 py-3 bg-green-300 hover:bg-gradient-to-br from-[#c5f82a] to-[#00d9a6]  text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 mt-auto"
-            aria-label="Learn more about Government Services"
-          >
-            LEARN MORE
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
-      </article>
-
-      {/* Information Technology */}
-      <article className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
-        <div className="text-center space-y-6 flex-grow flex flex-col">
-          <div className="w-16 h-16 mx-auto bg-orange-100 rounded-lg flex items-center justify-center">
-            <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1 .9 2 2 2h3l-1 1v1h12v-1l-1-1h3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11z"/>
-            </svg>
-          </div>
-          
-          <h2 className="text-xl lg:text-2xl font-bold text-gray-900">
-            Information Technology
-          </h2>
-          
-          <p className="text-gray-600 leading-relaxed text-sm lg:text-base flex-grow">
-            There's no room for error in a world of constantly changing technology. From development to AI, 
-            our expert IT recruiters stay on top of the latest developments in their specialties so they know 
-            where to focus, and why.
-          </p>
-          
-          <Link 
-            href="/services/information-technology"
-            className="inline-flex items-center px-6 py-3 bg-green-300 hover:bg-gradient-to-br from-[#c5f82a] to-[#00d9a6]  text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 mt-auto"
-            aria-label="Learn more about Information Technology Services"
-          >
-            LEARN MORE
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
-      </article>
-
-      {/* Engineering */}
-      <article className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
-        <div className="text-center space-y-6 flex-grow flex flex-col">
-          <div className="w-16 h-16 mx-auto bg-orange-100 rounded-lg flex items-center justify-center">
-            <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-          </div>
-          
-          <h2 className="text-xl lg:text-2xl font-bold text-gray-900">
-            Engineering
-          </h2>
-          
-          <p className="text-gray-600 leading-relaxed text-sm lg:text-base flex-grow">
-            When it comes to recruiting the best engineers, deep expertise doesn't mean blinders are on. We 
-            onboard team members who have a sense of where they fit in within the larger mission.
-          </p>
-          
-          <Link 
-            href="/services/engineering"
-            className="inline-flex items-center px-6 py-3 bg-green-300 hover:bg-gradient-to-br from-[#c5f82a] to-[#00d9a6]  text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 mt-auto"
-            aria-label="Learn more about Engineering Services"
-          >
-            LEARN MORE
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
-      </article>
-
-      {/* Consulting Services */}
-      <article className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 flex flex-col h-full">
-        <div className="text-center space-y-6 flex-grow flex flex-col">
-          <div className="w-16 h-16 mx-auto bg-orange-100 rounded-lg flex items-center justify-center">
-            <svg className="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1 .9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
-            </svg>
-          </div>
-          
-          <h2 className="text-xl lg:text-2xl font-bold text-gray-900">
-            Consulting Services
-          </h2>
-          
-          <p className="text-gray-600 leading-relaxed text-sm lg:text-base flex-grow">
-            Understanding how a skill fits in to a larger mechanism is the mark of a true expert. Our 
-            specialists understand the bigger picture, and help our clients do the same.
-          </p>
-          
-          <Link 
-            href="/services/consulting-services"
-            className="inline-flex items-center px-6 py-3 bg-green-300 hover:bg-gradient-to-br from-[#c5f82a] to-[#00d9a6]  text-white font-semibold rounded-lg hover:bg-green-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 mt-auto"
-            aria-label="Learn more about Consulting Services"
-          >
-            LEARN MORE
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+ 
 
          
       

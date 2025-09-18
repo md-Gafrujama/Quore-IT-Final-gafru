@@ -154,24 +154,24 @@ import logo from "@/assets/logo1.jpg";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-[#001f26] via-[#002a33] to-[#001a20] text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
       {/* Enhanced Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#00d9a6]/10 via-transparent to-transparent"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-blue-400/5 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-600/10 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-gray-500/5 via-transparent to-transparent"></div>
         
         {/* Decorative Grid */}
         <div 
           className="absolute inset-0 opacity-5"
           style={{
-            backgroundImage: 'linear-gradient(rgba(0,217,166,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,217,166,0.1) 1px, transparent 1px)',
+            backgroundImage: 'linear-gradient(rgba(156,163,175,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(156,163,175,0.1) 1px, transparent 1px)',
             backgroundSize: '60px 60px'
           }}
         ></div>
         
         {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-32 h-32 bg-[#00d9a6]/5 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute bottom-32 right-16 w-40 h-40 bg-blue-400/5 rounded-full blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gray-600/5 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-32 right-16 w-40 h-40 bg-gray-500/5 rounded-full blur-xl animate-pulse delay-1000"></div>
       </div>
       
       <div className="relative z-10">
@@ -183,14 +183,14 @@ export default function Footer() {
             <div className="lg:col-span-1 space-y-6">
               <div className="group cursor-pointer">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-[#00d9a6] rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-[#001f26] font-bold text-xl">Q</span>
+                  <div className="w-12 h-12 bg-gray-700 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white font-bold text-xl">Q</span>
                   </div>
                   <h1 className="text-3xl font-bold text-white group-hover:text-[#00d9a6] transition-all duration-300">
                     QuoreIT
                   </h1>
                 </div>
-                <div className="w-16 h-1 bg-gradient-to-r from-[#00d9a6] to-blue-400 rounded-full transform group-hover:w-24 transition-all duration-500"></div>
+                <div className="w-16 h-1 bg-gradient-to-r from-gray-600 to-gray-400 rounded-full transform group-hover:w-24 transition-all duration-500"></div>
               </div>
               
               <p className="text-gray-300 text-base leading-relaxed max-w-sm">
@@ -218,7 +218,7 @@ export default function Footer() {
             <div className="space-y-6">
               <h3 className="text-xl font-bold mb-6 text-white relative pb-3">
                 Services
-                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-[#00d9a6] to-blue-400 rounded-full"></div>
+                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-gray-600 to-gray-400 rounded-full"></div>
               </h3>
               <ul className="space-y-4">
                 {[
@@ -254,7 +254,7 @@ export default function Footer() {
             <div className="space-y-6">
               <h3 className="text-xl font-bold mb-6 text-white relative pb-3">
                 Resources
-                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-[#00d9a6] to-blue-400 rounded-full"></div>
+                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-gray-600 to-gray-400 rounded-full"></div>
               </h3>
               <ul className="space-y-4">
                 {[
@@ -292,15 +292,15 @@ export default function Footer() {
             <div className="space-y-6">
               <h3 className="text-xl font-bold mb-6 text-white relative pb-3">
                 Stay Connected
-                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-[#00d9a6] to-blue-400 rounded-full"></div>
+                <div className="absolute bottom-0 left-0 w-12 h-0.5 bg-gradient-to-r from-gray-600 to-gray-400 rounded-full"></div>
               </h3>
               
               {/* Social Media Icons */}
               <div className="flex gap-4 mb-8">
                 {[
-                  { Icon: Facebook, label: "Facebook", href: "#", color: "hover:bg-blue-600" },
-                  { Icon: Linkedin, label: "LinkedIn", href: "#", color: "hover:bg-blue-700" },
-                  { Icon: Twitter, label: "Twitter", href: "#", color: "hover:bg-blue-500" },
+                  { Icon: Facebook, label: "Facebook", href: "#", color: "hover:bg-gray-600" },
+                  { Icon: Linkedin, label: "LinkedIn", href: "#", color: "hover:bg-gray-600" },
+                  { Icon: Twitter, label: "Twitter", href: "#", color: "hover:bg-gray-600" },
                 ].map(({ Icon, label, href, color }, idx) => (
                   <Link
                     key={idx}
@@ -309,21 +309,19 @@ export default function Footer() {
                     className={`group relative p-4 bg-white/10 backdrop-blur-sm rounded-2xl ${color} transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 hover:shadow-lg`}
                   >
                     <Icon className="w-5 h-5 text-gray-300 group-hover:text-white transition-colors duration-300" />
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#00d9a6]/20 to-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gray-600/20 to-gray-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </Link>
                 ))}
               </div>
 
-             
-
               {/* Trust Indicators */}
               <div className="space-y-3 pt-4">
                 <div className="flex items-center text-gray-400 text-sm">
-                  <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                  <div className="w-2 h-2 bg-gray-400 rounded-full mr-3 animate-pulse"></div>
                   <span>Trusted by 500+ companies worldwide</span>
                 </div>
                 <div className="flex items-center text-gray-400 text-sm">
-                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse delay-500"></div>
+                  <div className="w-2 h-2 bg-gray-500 rounded-full mr-3 animate-pulse delay-500"></div>
                   <span>25+ years of industry expertise</span>
                 </div>
               </div>
@@ -333,12 +331,12 @@ export default function Footer() {
 
         {/* Enhanced Divider */}
         <div className="relative mx-6 lg:mx-8">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#00d9a6]/50 to-transparent h-px"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/30 to-transparent h-px transform translate-y-px"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-600/50 to-transparent h-px"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gray-500/30 to-transparent h-px transform translate-y-px"></div>
         </div>
 
         {/* Enhanced Bottom Section */}
-        <div className="bg-gradient-to-r from-[#213c42] via-[#1a3238] to-[#213c42] py-8">
+        <div className="bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 py-8">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
               
@@ -346,8 +344,8 @@ export default function Footer() {
               <div className="flex flex-col sm:flex-row items-center gap-4">
                 <div className="flex items-center gap-4">
                   <div className="group cursor-pointer flex items-center">
-                    <div className="w-8 h-8 bg-[#00d9a6] rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-[#001f26] font-bold text-sm">Q</span>
+                    <div className="w-8 h-8 bg-gray-700 rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-bold text-sm">Q</span>
                     </div>
                     <h1 className="text-xl font-bold text-white group-hover:text-[#00d9a6] transition-colors duration-300">
                       QuoreIT
@@ -371,8 +369,8 @@ export default function Footer() {
                 <div className="flex items-center gap-6">
                   <div className="flex items-center gap-2">
                     <div className="relative">
-                      <div className="w-3 h-3 bg-[#00d9a6] rounded-full animate-ping"></div>
-                      <div className="absolute inset-0 w-3 h-3 bg-[#00d9a6] rounded-full"></div>
+                      <div className="w-3 h-3 bg-gray-400 rounded-full animate-ping"></div>
+                      <div className="absolute inset-0 w-3 h-3 bg-gray-400 rounded-full"></div>
                     </div>
                     <span className="text-gray-400 text-xs">System Online</span>
                   </div>

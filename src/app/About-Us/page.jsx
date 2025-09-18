@@ -96,12 +96,7 @@ const AboutPage = () => {
     }
   ];
 
-  const stats = [
-    { number: "95%", label: "Success Rate", icon: <TrendingUp className="w-8 h-8" /> },
-    { number: "500+", label: "Placements", icon: <Users className="w-8 h-8" /> },
-    { number: "100+", label: "Happy Clients", icon: <Star className="w-8 h-8" /> },
-    { number: "10+", label: "Years Experience", icon: <Award className="w-8 h-8" /> }
-  ];
+  
 
   return (
     <div className="min-h-screen bg-white">
@@ -164,10 +159,7 @@ const AboutPage = () => {
                     <span>Explore Our Services</span>
                     <ArrowRight className="w-5 h-5" />
                   </button>
-                  <button className="border-2 border-[#00d9a6] text-[#00d9a6] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#00d9a6] hover:text-white transition-all duration-300 flex items-center justify-center space-x-2">
-                    <PlayCircle className="w-5 h-5" />
-                    <span>Watch Demo</span>
-                  </button>
+                 
                 </div>
               </div>
 
@@ -198,32 +190,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-gradient-to-r from-[#00d9a6] to-green-500 text-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div 
-                  key={index}
-                  id={`stat-${index}`}
-                  className={`text-center transform transition-all duration-1000 ${
-                    isVisible[`stat-${index}`] ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-                  }`}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <div className="flex justify-center mb-4 text-white/80">
-                    {stat.icon}
-                  </div>
-                  <div className="text-3xl lg:text-4xl font-bold mb-2">{stat.number}</div>
-                  <div className="text-white/90 font-medium">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
+    
       {/* Company Overview */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
