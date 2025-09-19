@@ -114,7 +114,7 @@ const SenecaServicesPage = () => {
 
                 {/* Main Heading with Professional Typography */}
                 <motion.h1 
-                  className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] tracking-tight"
+                  className="text-5xl sm:text-6xl lg:text-5xl xl:text-5xl font-bold leading-[1.1] tracking-tight"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
@@ -275,7 +275,7 @@ const SenecaServicesPage = () => {
               </motion.h2>
               
               <motion.p 
-                className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-12 text-justify"
+                className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-12  text-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
