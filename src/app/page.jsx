@@ -7,14 +7,7 @@ import Image from 'next/image';
 import { Home, ChevronRight, ArrowRight, Star, Users, Award, Globe, Shield, Target, CheckCircle, Heart } from 'lucide-react';
 
 const services = [
-  {
-    title: 'Government Services',
-    description:
-      'Understanding how to efficiently navigate regulated and compliance-driven environments allows us to move as quickly and precisely as the project demands.',
-    image: '/images/pics1.png',
-    link: '/services/government',
-    icon: <Award className="w-6 h-6" />,
-  },
+ 
   {
     title: 'Information Technology',
     description:
@@ -38,6 +31,14 @@ const services = [
     image: '/images/pics4.png',
     link: '/services/consulting',
     icon: <Users className="w-6 h-6" />,
+  },
+   {
+    title: 'Government Services',
+    description:
+      'Understanding how to efficiently navigate regulated and compliance-driven environments allows us to move as quickly and precisely as the project demands.',
+    image: '/images/pics1.png',
+    link: '/services/government',
+    icon: <Award className="w-6 h-6" />,
   },
 ];
 
@@ -219,16 +220,20 @@ const Firstpage = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-        <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
+        <div className="relative w-full h-[500px] sm:h-[400px] md:h-[500px] lg:h-[400px] xl:h-[450px]">
   <Image
     src="/images/hero.webp"
     alt="Candidates Hero Background"
     fill
-    className="object-cover object-center"
+    className="object-contain md:object-cover object-center rounded-2xl shadow-lg"
     priority
     quality={90}
+    sizes="(max-width: 768px) 100vw,
+           (max-width: 1200px) 100vw,
+           100vw"
   />
 </div>
+
 
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
         </motion.div>
@@ -240,34 +245,49 @@ const Firstpage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-white tracking-normal mb-4 leading-snug text-center">
-  <span className="block bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] bg-clip-text text-transparent">
-    Driving Success Through People, Passion, and Technology.
+         <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl font-bold tracking-normal mb-4 leading-snug text-center">
+  <span className="bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] bg-clip-text text-transparent">
+    Driving Success
   </span>
+  <span className="text-white"> Through People, Passion, and Technology.</span>
 </h1>
-           <p className="text-2xl md:text-3xl font-semibold text-justify text-gray-100 max-w-3xl mx-auto mb-12 leading-relaxed tracking-wide">
-  <span className="text-[#00D8A6]">From startups to enterprises,</span> we connect businesses with 
-  <span className="text-[#00D8A6] font-bold"> skilled IT professionals</span> who deliver results you can trust.
-</p>
 
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <motion.button
-                className="px-10 py-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold text-lg hover:shadow-2xl transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                GET STARTED TODAY
-              </motion.button>
-              
-              <motion.button
-                className="px-10 py-4 border-2 border-white text-white font-bold text-lg hover:bg-white hover:text-black transition-all duration-300"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                LEARN MORE
-              </motion.button>
-            </div>
+<p
+  className="text-xl md:text-2xl font-medium text-center text-white max-w-3xl mx-auto mb-10 leading-snug tracking-tight transition-all duration-300 hover:scale-105 hover:text-[#eaeaea]"
+  style={{ wordSpacing: "0.05em" }}
+>
+  <span className="text-[#00D8A6] font-semibold hover:text-[#00e7b5] transition-colors duration-300">
+    From startups to enterprises,
+  </span>{" "}
+  we connect businesses with{" "}
+  <span className="text-white font-bold hover:text-[#00D8A6] transition-colors duration-300">
+    skilled IT professionals
+  </span>{" "}
+  who deliver results you can trust.
+</p>
+       
+        <div className="flex flex-row gap-6 justify-center">
+  <Link href="/get-started">
+    <motion.button
+      className="w-48 h-16 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
+      whileHover={{ scale: 1.05, y: -2 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      GET STARTED TODAY 
+    </motion.button>
+  </Link>
+  <Link href="/learn-more">
+    <motion.button
+      className="w-48 h-16 border-2 border-white text-white font-bold text-lg hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center"
+      whileHover={{ scale: 1.05, y: -2 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      LEARN MORE
+    </motion.button>
+  </Link>
+</div>
+
+
           </motion.div>
         </div>
       </motion.section>
@@ -872,26 +892,7 @@ const Firstpage = () => {
       ))}
     </div>
     
-    {/* Bottom CTA Section */}
-    <motion.div 
-      className="text-center mt-16 md:mt-24"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.6 }}
-    >
-      <motion.div
-        className="inline-flex items-center gap-4 px-6 md:px-8 py-4 md:py-5 bg-gray-900 hover:bg-gray-800 text-white rounded-full shadow-xl hover:shadow-2xl transition-all duration-500"
-        whileHover={{ scale: 1.05, y: -2 }}
-        whileTap={{ scale: 0.98 }}
-      >
-        <span className="font-bold text-base md:text-lg">Ready to Get Started?</span>
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-          className="w-5 h-5 md:w-6 md:h-6 border-2 border-white border-t-transparent rounded-full"
-        />
-      </motion.div>
-    </motion.div>
+    
   </div>
 </motion.section>
 
