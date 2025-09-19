@@ -138,7 +138,7 @@ const SenecaServicesPage = () => {
                     </p>
                   </div>
                   
-                  <p className="text-gray-300 leading-relaxed text-justify font-light text-lg">
+                  <p className="text-gray-300 leading-relaxed text-justify font-light text-xl">
                    At Quore IT, we recognize that staffing for government services comes with unique challenges—strict regulations, compliance requirements, and high expectations for reliability. Our team is equipped to navigate these complexities seamlessly, helping you build trusted IT teams quickly and efficiently. With a people-first approach and proven expertise, we deliver talent that empowers government projects to succeed.
                   </p>
                   

@@ -134,7 +134,7 @@ const SenecaServicesPage = () => {
                 >
                   
 
-                  <div className="text-lg sm:text-lg md:text-base text-gray-300 space-y-4 leading-relaxed max-w-3xl mx-auto lg:mx-0">
+                  <div className="text-xl sm:text-lg md:text-xl text-gray-300 space-y-4 leading-relaxed max-w-3xl mx-auto lg:mx-0">
                     <p className="text-justify" style={{ textJustify: 'inter-word' }}>
                   Technology moves fast, and there's no room for error. At Quore IT, we connect businesses with the right professionals across the full IT spectrum from software development and data analytics to AI and emerging technologies. Our recruiters stay ahead of industry trends to understand not just the skills you need, but the impact they drive. With the right talent in place, we help you innovate, adapt, and succeed in a constantly evolving digital landscape.
                     </p>
