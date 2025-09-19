@@ -540,78 +540,7 @@ const ContactUs = () => {
         </div>
       </section>
 
-      {/* Global Network Section */}
-      <motion.section
-        ref={countriesRef}
-        className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={containerVariants}
-      >
-        <div className="max-w-6xl mx-auto">
-          <motion.div className="text-center mb-16" variants={itemVariants}>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Global Network</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Connecting talent with opportunity across 40+ offices worldwide
-            </p>
-          </motion.div>
-
-          <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            variants={containerVariants}
-          >
-            {[
-              {
-                title: "Europe",
-                items: [
-                  { name: 'United Kingdom', count: '12 offices' },
-                  { name: 'Germany', count: '8 offices' },
-                  { name: 'Netherlands', count: '6 offices' },
-                  { name: 'Belgium', count: '4 offices' }
-                ]
-              },
-              {
-                title: "Americas",
-                items: [
-                  { name: 'United States', count: '15 offices' },
-                  { name: 'Canada', count: '5 offices' },
-                  { name: 'Mexico', count: '3 offices' },
-                  { name: 'Brazil', count: '2 offices' }
-                ]
-              },
-              {
-                title: "Asia Pacific",
-                items: [
-                  { name: 'Australia', count: '8 offices' },
-                  { name: 'Singapore', count: '4 offices' },
-                  { name: 'Japan', count: '6 offices' },
-                  { name: 'India', count: '10 offices' }
-                ]
-              }
-            ].map((region, index) => (
-              <motion.div key={index} variants={itemVariants} className="bg-white/10 rounded-lg p-6 hover:bg-white/15 transition-colors duration-300">
-                <h3 className="text-2xl font-bold mb-6 pb-3 border-b border-white/20 relative">
-                  {region.title}
-                  <div 
-                    className="absolute bottom-0 left-0 w-16 h-1 rounded-full"
-                    style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
-                  />
-                </h3>
-                
-                <div className="space-y-4">
-                  {region.items.map((item) => (
-                    <div key={item.name} className="flex justify-between items-center hover:bg-white/5 px-2 py-1 rounded transition-colors duration-200">
-                      <span className="text-white">{item.name}</span>
-                      <span className="text-gray-400 text-sm">{item.count}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </motion.section>
+     
 
       {/* Security Alert */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-orange-50">

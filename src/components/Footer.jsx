@@ -392,7 +392,7 @@ export default function Footer() {
                   <span className="hover:text-[#00d9a6] transition-colors duration-300 cursor-pointer">Partner Program</span>
                 </div>
                 <div className="text-center lg:text-right">
-                  <p>ISO 27001 Certified | GDPR Compliant | Equal Opportunity Employer</p>
+                  <p> GDPR Compliant | Equal Opportunity Employer</p>
                 </div>
               </div>
             </div>
