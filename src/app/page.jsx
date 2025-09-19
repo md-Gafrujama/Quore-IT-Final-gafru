@@ -221,7 +221,7 @@ const Firstpage = () => {
         >
         <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
   <Image
-    src="/images/hero33.jpg"
+    src="/images/hero.webp"
     alt="Candidates Hero Background"
     fill
     className="object-cover object-center"
@@ -240,21 +240,17 @@ const Firstpage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-           
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-white tracking-normal mb-4 leading-snug text-center">
+  <span className="block bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] bg-clip-text text-transparent">
+    Driving Success Through People, Passion, and Technology.
+  </span>
+</h1>
+           <p className="text-2xl md:text-3xl font-semibold text-justify text-gray-100 max-w-3xl mx-auto mb-12 leading-relaxed tracking-wide">
+  <span className="text-[#00D8A6]">From startups to enterprises,</span> we connect businesses with 
+  <span className="text-[#00D8A6] font-bold"> skilled IT professionals</span> who deliver results you can trust.
+</p>
+
             
-            {/* <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4 leading-tight">
-              Technology Recruitment,
-              <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent mb-[-5]">
-                IT Outsourcing
-              </span>
-              and Leadership Services
-            </h1> */}
-            
-            {/* <p className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Transforming businesses through innovative technology solutions and expert talent acquisition. 
-              We connect exceptional professionals with forward-thinking organizations.
-            </p>
-             */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <motion.button
                 className="px-10 py-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold text-lg hover:shadow-2xl transition-all duration-300"
