@@ -206,79 +206,82 @@ const Firstpage = () => {
   return (
     <> 
       {/* Hero Section */}
-      <motion.section 
-        className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-        style={{ marginTop: '80px' }}
-      >
-        {/* Background Image */}
-        <motion.div 
-          className="absolute inset-0 z-0"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.5 }}
-        >
-        <div className="relative w-full h-[500px] sm:h-[400px] md:h-[500px] lg:h-[400px] xl:h-[450px]">
-  <Image
-    src="/images/hero.webp"
-    alt="Candidates Hero Background"
-    fill
-    className="object-contain md:object-cover object-center rounded-2xl shadow-lg"
-    priority
-    quality={90}
-    sizes="(max-width: 768px) 100vw,
-           (max-width: 1200px) 100vw,
-           100vw"
-  />
-</div>
+   <motion.section          
+  className="relative min-h-screen flex items-center justify-center overflow-hidden"         
+  initial={{ opacity: 0 }}         
+  animate={{ opacity: 1 }}         
+  transition={{ duration: 1 }}         
+  style={{ marginTop: '80px' }}       
+>         
+  {/* Background Image with better styling */}         
+  <motion.div            
+    className="absolute inset-0 z-0"           
+    initial={{ scale: 1.1 }}           
+    animate={{ scale: 1 }}           
+    transition={{ duration: 1.5 }}         
+  >         
+    <div className="absolute inset-0 w-full h-full">   
+      <img     
+        src="/images/hero.webp"     
+        alt="Modern IT professionals working together in a bright office environment"     
+        className="w-full h-full object-cover"     
+      /> 
+    </div>             
+    <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80"></div>         
+  </motion.div>                  
 
+  {/* Animated background elements */}
+  <div className="absolute inset-0 z-5">
+    <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#00D8A6] rounded-full animate-pulse"></div>
+    <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-[#c5f82a] rounded-full animate-ping"></div>
+    <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-pulse delay-1000"></div>
+    <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-[#00D8A6] rounded-full animate-ping delay-500"></div>
+  </div>
 
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
-        </motion.div>
-        
-        {/* Content */}
-        <div className="relative z-10 text-center max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-         <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-5xl font-bold tracking-normal mb-4 leading-snug text-center">
-  <span className="bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] bg-clip-text text-transparent">
+  {/* Content */}         
+  <div className="relative z-10 text-center max-w-7xl mx-auto px-6 py-20">           
+    <motion.div             
+      initial={{ opacity: 0, y: 50 }}             
+      animate={{ opacity: 1, y: 0 }}             
+      transition={{ duration: 0.8, delay: 0.3 }}           
+    >          
+      
+      <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-normal mb-6 leading-tight text-center">
+  <span className="bg-gradient-to-r from-[#00D8A6] to-[#00d8a6] bg-clip-text text-transparent">
     Driving Success
   </span>
   <span className="text-white"> Through People, Passion, and Technology.</span>
 </h1>
 
-<p
-  className="text-xl md:text-2xl font-medium text-center text-white max-w-3xl mx-auto mb-10 leading-snug tracking-tight transition-all duration-300 hover:scale-105 hover:text-[#eaeaea]"
+     <p
+  className="text-xl md:text-2xl lg:text-3xl font-medium text-center text-gray-200 max-w-4xl mx-auto mt-10 mb-12 leading-relaxed tracking-tight"
   style={{ wordSpacing: "0.05em" }}
 >
-  <span className="text-[#00D8A6] font-semibold hover:text-[#00e7b5] transition-colors duration-300">
+  <span className="text-[#00D8A6] font-semibold">
     From startups to enterprises,
   </span>{" "}
   we connect businesses with{" "}
-  <span className="text-white font-bold hover:text-[#00D8A6] transition-colors duration-300">
+  <span className="text-white font-bold">
     skilled IT professionals
   </span>{" "}
   who deliver results you can trust.
 </p>
-       
-        <div className="flex flex-row gap-6 justify-center">
+                 
+      
+     <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-10">
   <Link href="/get-started">
     <motion.button
-      className="w-48 h-16 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
+      className="w-60 h-16 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold text-lg rounded-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
       whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.95 }}
     >
-      GET STARTED TODAY 
+      GET STARTED TODAY
     </motion.button>
   </Link>
+
   <Link href="/learn-more">
     <motion.button
-      className="w-48 h-16 border-2 border-white text-white font-bold text-lg hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center"
+      className="w-60 h-16 border-2 border-[#00D8A6] text-[#00D8A6] font-bold text-lg rounded-lg hover:bg-[#00D8A6] hover:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-sm"
       whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.95 }}
     >
@@ -286,11 +289,10 @@ const Firstpage = () => {
     </motion.button>
   </Link>
 </div>
-
-
-          </motion.div>
-        </div>
-      </motion.section>
+          
+    </motion.div>         
+  </div>       
+</motion.section>
 
       {/* The Quore Advantage Section */}
    {/* The Quore Advantage Section */}
