@@ -100,17 +100,7 @@ const SenecaServicesPage = () => {
                 transition={{ duration: 0.8, ease: "easeOut" }}
               >
                 {/* Professional Badge */}
-                <motion.div 
-                  className="inline-flex items-center px-6 py-3 bg-white/5 rounded-full border border-white/10 backdrop-blur-md shadow-lg"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                  <div className="w-2 h-2 bg-[#00d9a6] rounded-full mr-3 animate-pulse"></div>
-                  <span className="text-sm font-medium text-gray-300 uppercase tracking-wider">
-                    Expert IT Solutions & Services
-                  </span>
-                </motion.div>
+                
 
                 {/* Main Heading with Professional Typography */}
                 <motion.h1 
@@ -119,10 +109,10 @@ const SenecaServicesPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  People who{' '}
+                  Government{' '}
                   <span className="relative inline-block">
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00d9a6] via-[#c5f82a] to-[#00d9a6]">
-                      know
+                      Services
                     </span>
                     <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] rounded-full transform scale-x-0 animate-scale-x"></div>
                   </span>
@@ -143,20 +133,16 @@ const SenecaServicesPage = () => {
                   <div className="relative pl-8 border-l-4 border-gradient-to-b from-[#00d9a6] to-[#c5f82a]">
                     <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[#00d9a6] to-[#c5f82a] rounded-full"></div>
                     <p className="font-semibold text-gray-200 leading-relaxed">
-                      From small business to Fortune 100.<br />
-                      Public sector to private enterprise.
+                      Navigating compliance with ease - trusted IT.<br />
+                     staffing for government projects.
                     </p>
                   </div>
                   
-                  <p className="text-gray-300 leading-relaxed text-justify font-light">
-                    When it comes to highly skilled services and best-in-class solutions, winning teams know they can count on Seneca Resources. Our clients see results because we seek out exactly the right fit for every situation.
+                  <p className="text-gray-300 leading-relaxed text-justify font-light text-lg">
+                   At Quore IT, we recognize that staffing for government services comes with unique challenges—strict regulations, compliance requirements, and high expectations for reliability. Our team is equipped to navigate these complexities seamlessly, helping you build trusted IT teams quickly and efficiently. With a people-first approach and proven expertise, we deliver talent that empowers government projects to succeed.
                   </p>
                   
-                  <div className="bg-gradient-to-r from-white/5 to-white/10 rounded-xl p-6 border border-white/10 backdrop-blur-sm shadow-inner">
-                    <p className="text-gray-200 leading-relaxed italic font-medium">
-                      "It's precision resourcing, and it can transform your business."
-                    </p>
-                  </div>
+                
                 </motion.div>
 
                 {/* Professional CTA Button */}
@@ -253,62 +239,7 @@ const SenecaServicesPage = () => {
         <section className="py-20 lg:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Professional Header */}
-            <div className="text-center mb-20">
-              <motion.div
-                className="inline-flex items-center px-4 py-2 bg-orange-50 rounded-full border border-orange-100 mb-6"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <span className="text-sm font-medium text-orange-600 uppercase tracking-wide">Government Services</span>
-              </motion.div>
-              
-              <motion.h2 
-                className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent mb-8"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                viewport={{ once: true }}
-              >
-                Government Services
-              </motion.h2>
-              
-              <motion.p 
-                className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-12  text-center"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                Navigating compliance with ease - trusted IT staffing for government projects.
-              </motion.p>
-              
-              <motion.div 
-                className="mb-16"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-8">
-                  Proudly serving those <span className="text-emerald-500">who serve.</span>
-                </h3>
-                <p className="text-lg text-gray-600 max-w-6xl mx-auto leading-relaxed text-justify">
-                  At Quore IT, we recognize that staffing for government services comes with unique challenges—strict regulations, compliance requirements, and high expectations for reliability. Our team is equipped to navigate these complexities seamlessly, helping you build trusted IT teams quickly and efficiently. With a people-first approach and proven expertise, we deliver talent that empowers government projects to succeed.
-                </p>
-              </motion.div>
-              
-              <motion.p 
-                className="text-xl font-semibold text-gray-900 mb-16"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
-                Some key areas of our expertise include:
-              </motion.p>
-            </div>
+           
 
             {/* Defense & Intel Section - Enhanced */}
             <motion.div 

@@ -118,9 +118,9 @@ const SenecaServicesPage = () => {
                   className="space-y-4"
                 >
                   <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-extrabold leading-tight tracking-tight">
-                    People who know,{' '}
+                  Information Technology,{' '}
                     <span className="block bg-gradient-to-r from-[#00d9a6] via-cyan-400 to-blue-500 bg-clip-text text-transparent animate-pulse">
-                      Quore IT
+                   Recruiting
                     </span>
                   </h1>
                 </motion.div>
@@ -132,16 +132,11 @@ const SenecaServicesPage = () => {
                   transition={{ duration: 0.8, delay: 0.4 }}
                   className="space-y-6"
                 >
-                  <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-200 space-y-3 text-center lg:text-left">
-                    <p className="leading-relaxed">From small business to Fortune 100.</p>
-                    <p className="leading-relaxed">Public sector to private enterprise.</p>
-                  </div>
+                  
 
-                  <div className="text-base sm:text-lg md:text-xl text-gray-300 space-y-4 leading-relaxed max-w-3xl mx-auto lg:mx-0">
+                  <div className="text-lg sm:text-lg md:text-base text-gray-300 space-y-4 leading-relaxed max-w-3xl mx-auto lg:mx-0">
                     <p className="text-justify" style={{ textJustify: 'inter-word' }}>
-                      When it comes to highly skilled services and best-in-class solutions, 
-                      winning teams know they can count on Seneca Resources. Our comprehensive 
-                      approach ensures every project delivers exceptional results.
+                  Technology moves fast, and there's no room for error. At Quore IT, we connect businesses with the right professionals across the full IT spectrum from software development and data analytics to AI and emerging technologies. Our recruiters stay ahead of industry trends to understand not just the skills you need, but the impact they drive. With the right talent in place, we help you innovate, adapt, and succeed in a constantly evolving digital landscape.
                     </p>
                     
                   </div>
@@ -279,25 +274,7 @@ const SenecaServicesPage = () => {
         {/* Information Technology Recruiting Section */}
         <section className="py-16 lg:py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16 lg:mb-20">
-              <motion.h2 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent mb-6"
-              >
-                Information Technology Recruiting
-              </motion.h2>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-base md:text-lg lg:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed text-justify"
-                style={{ textJustify: 'inter-word' }}
-              >
-                Technology moves fast, and there's no room for error. At Quore IT, we connect businesses with the right professionals across the full IT spectrum from software development and data analytics to AI and emerging technologies. Our recruiters stay ahead of industry trends to understand not just the skills you need, but the impact they drive. With the right talent in place, we help you innovate, adapt, and succeed in a constantly evolving digital landscape.
-              </motion.p>
-            </div>
+          
 
             {/* DevOps Section */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16 lg:mb-24">

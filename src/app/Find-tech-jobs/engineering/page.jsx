@@ -107,7 +107,7 @@ const SenecaServicesPage = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                People who know,{' '}
+                Information Technology,{' '}
                 <span className="text-[#00d9a6] block">Quore IT.</span>
               </motion.h1>
             </motion.div>
