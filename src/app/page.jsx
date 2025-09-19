@@ -242,19 +242,19 @@ const Firstpage = () => {
           >
            
             
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4 leading-tight">
+            {/* <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4 leading-tight">
               Technology Recruitment,
               <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent mb-[-5]">
                 IT Outsourcing
               </span>
               and Leadership Services
-            </h1>
+            </h1> */}
             
-            <p className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto mb-12 leading-relaxed">
+            {/* <p className="text-lg md:text-xl text-gray-200 max-w-4xl mx-auto mb-12 leading-relaxed">
               Transforming businesses through innovative technology solutions and expert talent acquisition. 
               We connect exceptional professionals with forward-thinking organizations.
             </p>
-            
+             */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <motion.button
                 className="px-10 py-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold text-lg hover:shadow-2xl transition-all duration-300"
