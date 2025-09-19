@@ -219,14 +219,17 @@ const Firstpage = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 1.5 }}
         >
-          <Image
-            src="/images/jobs1_hero.jpg"
-            alt="Candidates Hero Background"
-            fill
-            className="object-cover object-center"
-            priority
-            quality={90}
-          />
+        <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
+  <Image
+    src="/images/hero33.jpg"
+    alt="Candidates Hero Background"
+    fill
+    className="object-cover object-center"
+    priority
+    quality={90}
+  />
+</div>
+
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/70"></div>
         </motion.div>
         
@@ -237,16 +240,11 @@ const Firstpage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <motion.span 
-              className="inline-block px-6 py-3 bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-8 uppercase tracking-wide"
-              whileHover={{ scale: 1.05 }}
-            >
-              Leading Technology Solutions Provider
-            </motion.span>
+           
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-8 leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-4 leading-tight">
               Technology Recruitment,
-              <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent mb-[-5]">
                 IT Outsourcing
               </span>
               and Leadership Services
@@ -290,7 +288,7 @@ const Firstpage = () => {
       whileInView="visible"
       viewport={{ once: true }}
     >
-      <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide">
+      <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide ">
         Why Choose Us
       </span>
       <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
