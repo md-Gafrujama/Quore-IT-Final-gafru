@@ -11,7 +11,7 @@ const services = [
   {
     title: 'Information Technology',
     description:
-      'There is no room for error in a world of constantly changing technology. Our experts stay on top of the latest developments in their specialties so they know where to focus, and why.',
+      'In today’s fast-evolving digital landscape, precision matters. At Quore IT, our recruiters specialize in the full spectrum of technology, from software development to AI staying ahead of industry trends to identify the right talent. We know where to focus and why, ensuring your teams are equipped with professionals who drive innovation and deliver results.',
     image: '/images/pics2.png',
     link: ' Find-tech-jobs/Information-technology',
     icon: <Globe className="w-6 h-6" />,
@@ -35,7 +35,7 @@ const services = [
    {
     title: 'Government Services',
     description:
-      'Understanding how to efficiently navigate regulated and compliance-driven environments allows us to move as quickly and precisely as the project demands.',
+      'We understand the complexities of regulated and compliance-driven government environments. Our expertise enables us to navigate these challenges efficiently, ensuring your staffing and recruitment needs are met quickly, reliably, and with full compliance.',
     image: '/images/pics1.png',
     link: '/services/government',
     icon: <Award className="w-6 h-6" />,
