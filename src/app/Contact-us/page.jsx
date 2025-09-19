@@ -1136,83 +1136,163 @@ const ContactUs = () => {
       </motion.section>
 
       {/* Services Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <motion.div 
-            className="text-center mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={containerVariants}
-          >
-            <motion.h2 
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
-              variants={itemVariants}
-            >
-              How Can We Help?
-            </motion.h2>
-            <motion.p 
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
-              variants={itemVariants}
-            >
-              Discover opportunities and solutions tailored to your needs across our global network
-            </motion.p>
-          </motion.div>
+   <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-gray-50 relative overflow-hidden">
+  {/* Background decorations */}
+  <div className="absolute inset-0">
+    <div className="absolute top-20 left-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
+    <div className="absolute top-40 right-10 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-1000"></div>
+    <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-emerald-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-2000"></div>
+  </div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {[
-              { 
-                icon: "💼",
-                title: "Job Opportunities", 
-                description: "Explore thousands of tech roles worldwide",
-                stats: "10,000+ Active Jobs"
-              },
-              { 
-                icon: "🤝",
-                title: "Client Solutions", 
-                description: "Partner with us for your hiring needs",
-                stats: "500+ Happy Clients"
-              },
-              { 
-                icon: "🌍",
-                title: "Global Presence", 
-                description: "40+ offices across 3 continents",
-                stats: "40+ Office Locations"
-              }
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="text-center p-8 hover:bg-white rounded-lg transition-all duration-300 cursor-pointer group"
-                whileHover={{ y: -5 }}
+  <div className="max-w-7xl mx-auto relative z-10">
+    <motion.div 
+      className="text-center mb-20"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={containerVariants}
+    >
+      <motion.div 
+        className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-6"
+        variants={itemVariants}
+      >
+        <Star className="w-4 h-4 mr-2" />
+        Our Services
+      </motion.div>
+      
+      <motion.h2 
+        className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-8"
+        variants={itemVariants}
+      >
+        How Can We
+        <span className="block text-blue-600">Transform Your Future?</span>
+      </motion.h2>
+      
+      <motion.p 
+        className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+        variants={itemVariants}
+      >
+        Discover limitless opportunities and innovative solutions tailored specifically to your unique needs across our extensive global network of industry experts
+      </motion.p>
+    </motion.div>
+
+    <motion.div 
+      className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      {[
+        { 
+          icon: Briefcase,
+          title: "Career Opportunities", 
+          description: "Access exclusive tech roles from startups to Fortune 500 companies with personalized career guidance and industry insights",
+          stats: "10,000+ Active Positions",
+          highlight: "New roles daily",
+          iconBg: "bg-gradient-to-r from-blue-500 to-indigo-600",
+          cardBg: "from-blue-50 to-indigo-100"
+        },
+        { 
+          icon: Users,
+          title: "Talent Solutions", 
+          description: "Strategic hiring partnerships connecting businesses with top-tier professionals across all technology domains and specializations",
+          stats: "500+ Satisfied Partners",
+          highlight: "98% success rate",
+          iconBg: "bg-gradient-to-r from-emerald-500 to-teal-600",
+          cardBg: "from-emerald-50 to-teal-100"
+        },
+        { 
+          icon: Globe,
+          title: "Global Network", 
+          description: "Comprehensive coverage across major tech hubs and emerging markets with deep local expertise and cultural understanding",
+          stats: "40+ Strategic Locations",
+          highlight: "3 continents covered",
+          iconBg: "bg-gradient-to-r from-orange-500 to-red-600",
+          cardBg: "from-orange-50 to-red-100"
+        }
+      ].map((service, index) => (
+        <motion.div
+          key={index}
+          variants={itemVariants}
+          className={`group relative p-8 rounded-3xl bg-gradient-to-br ${service.cardBg} backdrop-blur-sm border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer overflow-hidden`}
+          whileHover={{ 
+            y: -10,
+            scale: 1.02,
+            transition: { duration: 0.3 }
+          }}
+        >
+          {/* Card background pattern */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent"></div>
+          <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/20 to-transparent rounded-full blur-2xl"></div>
+          
+          <div className="relative z-10">
+            {/* Icon container */}
+            <div className={`inline-flex items-center justify-center w-16 h-16 ${service.iconBg} rounded-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+              <service.icon className="w-8 h-8 text-white" strokeWidth={2} />
+            </div>
+            
+            {/* Badge */}
+            <div className="inline-flex items-center px-3 py-1 bg-white/80 backdrop-blur-sm rounded-full text-xs font-semibold text-gray-700 mb-4">
+              <TrendingUp className="w-3 h-3 mr-1" />
+              {service.highlight}
+            </div>
+            
+            {/* Content */}
+            <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors">
+              {service.title}
+            </h3>
+            
+            <p className="text-gray-600 leading-relaxed mb-6 text-base">
+              {service.description}
+            </p>
+            
+            {/* Stats */}
+            <div className="flex items-center justify-between">
+              <span className={`inline-block px-4 py-2 ${service.iconBg} text-white text-sm font-semibold rounded-full shadow-md`}>
+                {service.stats}
+              </span>
+              
+              <motion.div 
+                className="flex items-center text-gray-500 group-hover:text-gray-700 transition-colors"
+                whileHover={{ x: 5 }}
               >
-                <div className="text-5xl mb-4">{service.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <span 
-                  className="inline-block px-4 py-2 text-white text-sm font-semibold rounded-full"
-                  style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
-                >
-                  {service.stats}
-                </span>
-                <motion.div 
-                  className="w-16 h-1 rounded-full mx-auto mt-4 opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  transition={{ delay: 0.2 + index * 0.1 }}
-                />
+                <span className="text-sm font-medium mr-2">Learn more</span>
+                <ArrowRight className="w-4 h-4" />
               </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+            </div>
+            
+            {/* Hover effect line */}
+            <motion.div 
+              className={`absolute bottom-0 left-0 h-1 ${service.iconBg} rounded-full`}
+              initial={{ width: 0 }}
+              whileInView={{ width: "100%" }}
+              transition={{ delay: 0.3 + index * 0.1, duration: 0.6 }}
+            />
+          </div>
+        </motion.div>
+      ))}
+    </motion.div>
+    
+    {/* Bottom CTA */}
+    <motion.div 
+      className="text-center mt-16"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.6 }}
+    >
+      <motion.button
+        className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Get Started Today
+        <ArrowRight className="w-5 h-5 ml-2" />
+      </motion.button>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Office Info Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
