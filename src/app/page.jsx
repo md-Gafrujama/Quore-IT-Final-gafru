@@ -206,94 +206,94 @@ const Firstpage = () => {
   return (
     <> 
       {/* Hero Section */}
-   <motion.section          
-  className="relative min-h-screen flex items-center justify-center overflow-hidden"         
-  initial={{ opacity: 0 }}         
-  animate={{ opacity: 1 }}         
-  transition={{ duration: 1 }}         
-  style={{ marginTop: '80px' }}       
->         
-  {/* Background Image with better styling */}         
-  <motion.div            
-    className="absolute inset-0 z-0"           
-    initial={{ scale: 1.1 }}           
-    animate={{ scale: 1 }}           
-    transition={{ duration: 1.5 }}         
-  >         
-    <div className="absolute inset-0 w-full h-full">   
-      <img     
-        src="/images/hero.webp"     
-        alt="Modern IT professionals working together in a bright office environment"     
-        className="w-full h-full object-cover"     
-      /> 
-    </div>             
-    <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80"></div>         
-  </motion.div>                  
+   <motion.section             
+  className="relative min-h-screen flex flex-col items-center justify-between overflow-hidden"            
+  initial={{ opacity: 0 }}            
+  animate={{ opacity: 1 }}            
+  transition={{ duration: 1 }}            
+  style={{ marginTop: '80px' }}        
+>            
+  {/* Background Image with better styling */}            
+  <motion.div                 
+    className="absolute inset-0 z-0"                
+    initial={{ scale: 1.1 }}                
+    animate={{ scale: 1 }}                
+    transition={{ duration: 1.5 }}            
+  >              
+    <div className="absolute inset-0 w-full h-full">          
+      <img              
+        src="/images/hero.webp"              
+        alt="Modern IT professionals working together in a bright office environment"              
+        className="w-full h-full object-cover"            
+      />      
+    </div>                  
+    <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80"></div>            
+  </motion.div>                      
+  
+  {/* Animated background elements */}   
+  <div className="absolute inset-0 z-5">     
+    <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#00D8A6] rounded-full animate-pulse"></div>     
+    <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-[#c5f82a] rounded-full animate-ping"></div>     
+    <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-pulse delay-1000"></div>     
+    <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-[#00D8A6] rounded-full animate-ping delay-500"></div>   
+  </div>    
 
-  {/* Animated background elements */}
-  <div className="absolute inset-0 z-5">
-    <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#00D8A6] rounded-full animate-pulse"></div>
-    <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-[#c5f82a] rounded-full animate-ping"></div>
-    <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-pulse delay-1000"></div>
-    <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-[#00D8A6] rounded-full animate-ping delay-500"></div>
+  {/* Content */}            
+  <div className="relative z-10 text-center max-w-7xl mx-auto px-6 py-20 flex-grow flex items-center">                
+    <motion.div                    
+      initial={{ opacity: 0, y: 50 }}                    
+      animate={{ opacity: 1, y: 0 }}                    
+      transition={{ duration: 0.8, delay: 0.3 }}                
+    >                        
+      <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-normal mb-6 leading-tight text-center">   
+        <span className="bg-gradient-to-r from-[#00D8A6] to-[#00d8a6] bg-clip-text text-transparent">     
+          Driving Success   
+        </span>   
+        <span className="text-white"> Through People, Passion, and Technology.</span> 
+      </h1>       
+      
+                
+    </motion.div>            
   </div>
 
-  {/* Content */}         
-  <div className="relative z-10 text-center max-w-7xl mx-auto px-6 py-20">           
-    <motion.div             
-      initial={{ opacity: 0, y: 50 }}             
-      animate={{ opacity: 1, y: 0 }}             
-      transition={{ duration: 0.8, delay: 0.3 }}           
-    >          
+  {/* Buttons at the bottom */}
+  <div className="relative z-10 pb-20 px-6">
+    <p   
+      className="text-xl md:text-2xl lg:text-3xl font-medium text-center text-gray-200 max-w-4xl mx-auto mb-12 leading-relaxed tracking-tight"   
+      style={{ wordSpacing: "0.05em", marginTop: '-20px' }} 
+    >   
+      <span className="text-[#00D8A6] font-semibold">     
+        From startups to enterprises,   
+      </span>{" "}   
+      we connect businesses with{" "}   
+      <span className="text-white font-bold">     
+        skilled IT professionals   
+      </span>{" "}   
+      who deliver results you can trust. 
+    </p>
+    <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">   
+      <Link href="/get-started">     
+        <motion.button       
+          className="w-60 h-16 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold text-lg rounded-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center"       
+          whileHover={{ scale: 1.05, y: -2 }}       
+          whileTap={{ scale: 0.95 }}     
+        >       
+          GET STARTED TODAY     
+        </motion.button>   
+      </Link>    
       
-      <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-normal mb-6 leading-tight text-center">
-  <span className="bg-gradient-to-r from-[#00D8A6] to-[#00d8a6] bg-clip-text text-transparent">
-    Driving Success
-  </span>
-  <span className="text-white"> Through People, Passion, and Technology.</span>
-</h1>
-
-     <p
-  className="text-xl md:text-2xl lg:text-3xl font-medium text-center text-gray-200 max-w-4xl mx-auto mt-10 mb-12 leading-relaxed tracking-tight"
-  style={{ wordSpacing: "0.05em" }}
->
-  <span className="text-[#00D8A6] font-semibold">
-    From startups to enterprises,
-  </span>{" "}
-  we connect businesses with{" "}
-  <span className="text-white font-bold">
-    skilled IT professionals
-  </span>{" "}
-  who deliver results you can trust.
-</p>
-                 
-      
-     <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-10">
-  <Link href="/get-started">
-    <motion.button
-      className="w-60 h-16 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold text-lg rounded-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
-      whileHover={{ scale: 1.05, y: -2 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      GET STARTED TODAY
-    </motion.button>
-  </Link>
-
-  <Link href="/learn-more">
-    <motion.button
-      className="w-60 h-16 border-2 border-[#00D8A6] text-[#00D8A6] font-bold text-lg rounded-lg hover:bg-[#00D8A6] hover:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-sm"
-      whileHover={{ scale: 1.05, y: -2 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      LEARN MORE
-    </motion.button>
-  </Link>
-</div>
-          
-    </motion.div>         
-  </div>       
+      <Link href="/learn-more">     
+        <motion.button       
+          className="w-60 h-16 border-2 border-[#00D8A6] text-[#00D8A6] font-bold text-lg rounded-lg hover:bg-[#00D8A6] hover:text-black transition-all duration-300 flex items-center justify-center backdrop-blur-sm"       
+          whileHover={{ scale: 1.05, y: -2 }}       
+          whileTap={{ scale: 0.95 }}     
+        >       
+          LEARN MORE     
+        </motion.button>   
+      </Link> 
+    </div>
+  </div>
 </motion.section>
-
       {/* The Quore Advantage Section */}
    {/* The Quore Advantage Section */}
 <section className="py-24 px-4 md:px-12 lg:px-24 bg-gradient-to-br from-gray-50 to-white">
