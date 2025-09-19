@@ -107,19 +107,40 @@ const ContactUs = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
         delayChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { y: 50, opacity: 0, scale: 0.9 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
         duration: 0.6,
+        ease: "easeOut"
+      }
+    },
+    hover: {
+      y: -8,
+      scale: 1.02,
+      transition: {
+        duration: 0.3,
         ease: "easeOut"
       }
     }
@@ -230,81 +251,192 @@ const ContactUs = () => {
         </div>
       </motion.section>
 
-      {/* Services Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+      {/* IMPROVED Services Section - Standalone with Better Visual Appeal */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 z-0">
           <motion.div 
-            className="text-center mb-16"
+            className="absolute top-20 right-10 w-32 h-32 rounded-full blur-2xl opacity-20"
+            style={{ background: 'linear-gradient(135deg, #00d9a6, #00b894)' }}
+            animate={{ 
+              scale: [1, 1.3, 1],
+              opacity: [0.1, 0.3, 0.1]
+            }}
+            transition={{ duration: 6, repeat: Infinity }}
+          />
+          <motion.div 
+            className="absolute bottom-20 left-10 w-40 h-40 rounded-full blur-2xl opacity-15"
+            style={{ background: 'linear-gradient(135deg, #00b894, #00d9a6)' }}
+            animate={{ 
+              scale: [1.2, 1, 1.2],
+              opacity: [0.15, 0.25, 0.15]
+            }}
+            transition={{ duration: 8, repeat: Infinity, delay: 2 }}
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <motion.div 
+            className="text-center mb-20"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             variants={containerVariants}
           >
+            <motion.div variants={itemVariants}>
+              <span 
+                className="inline-block px-6 py-2 text-sm font-semibold text-white rounded-full mb-6"
+                style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
+              >
+                Our Services
+              </span>
+            </motion.div>
+            
             <motion.h2 
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+              className="text-5xl sm:text-6xl lg:text-7xl font-black text-gray-900 mb-8"
               variants={itemVariants}
             >
               How Can We Help?
             </motion.h2>
+            
             <motion.p 
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
               variants={itemVariants}
             >
-              Discover opportunities and solutions tailored to your needs across our global network
+              Discover personalized solutions and opportunities tailored to your unique needs across our extensive global network
             </motion.p>
           </motion.div>
 
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-50px" }}
           >
             {[
               { 
-                icon: "💼",
-                title: "Job Opportunities", 
-                description: "Explore thousands of tech roles worldwide",
-                stats: "10,000+ Active Jobs"
+                icon: (
+                  <svg className="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6z" />
+                  </svg>
+                ),
+                title: "Career Opportunities", 
+                description: "Unlock thousands of premier tech positions worldwide with our expert guidance and industry connections",
+                stats: "10,000+ Active Positions",
+                features: ["Remote & On-site roles", "Competitive salaries", "Career progression"]
               },
               { 
-                icon: "🤝",
-                title: "Client Solutions", 
-                description: "Partner with us for your hiring needs",
-                stats: "500+ Happy Clients"
+                icon: (
+                  <svg className="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                ),
+                title: "Enterprise Solutions", 
+                description: "Strategic talent acquisition and workforce solutions designed to scale your business globally",
+                stats: "500+ Enterprise Clients",
+                features: ["Talent acquisition", "Workforce planning", "Global scaling"]
               },
               { 
-                icon: "🌍",
+                icon: (
+                  <svg className="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                ),
                 title: "Global Presence", 
-                description: "40+ offices across 3 continents",
-                stats: "40+ Office Locations"
+                description: "Comprehensive coverage across 40+ strategic locations spanning three continents for maximum reach",
+                stats: "40+ Office Locations",
+                features: ["Multi-timezone support", "Local expertise", "Cultural understanding"]
               }
             ].map((service, index) => (
               <motion.div
                 key={index}
-                variants={itemVariants}
-                className="text-center p-8 hover:bg-white rounded-lg transition-all duration-300 cursor-pointer group"
-                whileHover={{ y: -5 }}
+                variants={cardVariants}
+                whileHover="hover"
+                className="group relative bg-white rounded-2xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden"
               >
-                <div className="text-5xl mb-4">{service.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-4">{service.description}</p>
-                <span 
-                  className="inline-block px-4 py-2 text-white text-sm font-semibold rounded-full"
+                {/* Card Background Gradient */}
+                <div 
+                  className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
                   style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
-                >
-                  {service.stats}
-                </span>
+                />
+                
+                {/* Icon Container */}
                 <motion.div 
-                  className="w-16 h-1 rounded-full mx-auto mt-4 opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="w-24 h-24 rounded-2xl mx-auto mb-8 flex items-center justify-center relative overflow-hidden"
                   style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  transition={{ delay: 0.2 + index * 0.1 }}
+                  whileHover={{ rotate: 5, scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="absolute inset-0 bg-white/20 group-hover:bg-white/30 transition-colors duration-300" />
+                  {service.icon}
+                </motion.div>
+                
+                {/* Content */}
+                <div className="text-center">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors">
+                    {service.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+                    {service.description}
+                  </p>
+                  
+                  {/* Features List */}
+                  <ul className="space-y-2 mb-8">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center justify-center text-gray-600">
+                        <svg className="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  {/* Stats Badge */}
+                  <motion.div
+                    className="inline-block px-8 py-3 text-white text-sm font-bold rounded-full shadow-lg"
+                    style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {service.stats}
+                  </motion.div>
+                </div>
+                
+                {/* Bottom Accent Line */}
+                <motion.div 
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-1 rounded-full group-hover:w-24 transition-all duration-500"
+                  style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
                 />
               </motion.div>
             ))}
+          </motion.div>
+          
+          {/* Call to Action */}
+          <motion.div 
+            className="text-center mt-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <motion.button
+              onClick={scrollToForm}
+              className="px-10 py-4 text-white font-bold text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 15px 35px rgba(0, 217, 166, 0.4)"
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Start Your Journey Today
+              <svg className="w-5 h-5 ml-2 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </motion.button>
           </motion.div>
         </div>
       </section>
@@ -320,7 +452,7 @@ const ContactUs = () => {
               viewport={{ once: true }}
             >
               <div
-                className="w-full h-96 bg-cover bg-center rounded-lg"
+                className="w-full h-96 bg-cover bg-center rounded-lg shadow-lg"
                 style={{
                   backgroundImage: `url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop')`
                 }}
@@ -337,7 +469,15 @@ const ContactUs = () => {
               
               <div className="space-y-6 text-lg text-gray-700">
                 <div className="flex items-start">
-                  <span className="mr-4 mt-1 text-2xl" style={{ color: '#00d9a6' }}>📍</span>
+                  <div 
+                    className="mr-4 mt-1 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
+                  >
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
                   <div>
                     <p className="font-semibold text-gray-900">London Headquarters</p>
                     <p>LDN:W, 3 Noble Street<br/>London, EC2V 7EE</p>
@@ -345,7 +485,14 @@ const ContactUs = () => {
                 </div>
                 
                 <div className="flex items-center">
-                  <span className="mr-4 text-2xl" style={{ color: '#00d9a6' }}>📞</span>
+                  <div 
+                    className="mr-4 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
+                  >
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                  </div>
                   <div>
                     <p className="font-semibold text-gray-900">Phone</p>
                     <a 
@@ -359,7 +506,14 @@ const ContactUs = () => {
                 </div>
                 
                 <div className="flex items-center">
-                  <span className="mr-4 text-2xl" style={{ color: '#00d9a6' }}>✉️</span>
+                  <div 
+                    className="mr-4 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
+                  >
+                    <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
                   <div>
                     <p className="font-semibold text-gray-900">Email</p>
                     <a 
@@ -374,7 +528,7 @@ const ContactUs = () => {
               </div>
               
               <motion.button
-                className="mt-8 px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300"
+                className="mt-8 px-6 py-3 text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg"
                 style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
@@ -436,7 +590,7 @@ const ContactUs = () => {
                 ]
               }
             ].map((region, index) => (
-              <motion.div key={index} variants={itemVariants} className="bg-white/10 rounded-lg p-6">
+              <motion.div key={index} variants={itemVariants} className="bg-white/10 rounded-lg p-6 hover:bg-white/15 transition-colors duration-300">
                 <h3 className="text-2xl font-bold mb-6 pb-3 border-b border-white/20 relative">
                   {region.title}
                   <div 
@@ -447,7 +601,7 @@ const ContactUs = () => {
                 
                 <div className="space-y-4">
                   {region.items.map((item) => (
-                    <div key={item.name} className="flex justify-between items-center">
+                    <div key={item.name} className="flex justify-between items-center hover:bg-white/5 px-2 py-1 rounded transition-colors duration-200">
                       <span className="text-white">{item.name}</span>
                       <span className="text-gray-400 text-sm">{item.count}</span>
                     </div>
@@ -463,7 +617,7 @@ const ContactUs = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-orange-50">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            className="bg-white rounded-lg p-8 border-l-4"
+            className="bg-white rounded-lg p-8 border-l-4 shadow-lg"
             style={{ borderLeftColor: '#00d9a6' }}
             initial="hidden"
             whileInView="visible"
@@ -474,9 +628,13 @@ const ContactUs = () => {
               <div className="lg:w-1/4">
                 <div 
                   className="p-4 rounded-lg text-center text-white font-bold"
-                  style={{ background: `linear-gradient(135deg, #00d9a6, #00b894)` }}
+                  style={{ background: `linear-gradient(135deg, #f59e0b, #f97316)` }}
                 >
-                  <div className="text-3xl mb-2">⚠️</div>
+                  <div className="text-3xl mb-2">
+                    <svg className="w-8 h-8 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                    </svg>
+                  </div>
                   <div>Security Alert</div>
                 </div>
               </div>
