@@ -230,13 +230,7 @@ const Firstpage = () => {
     <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/80"></div>            
   </motion.div>                      
   
-  {/* Animated background elements */}   
-  <div className="absolute inset-0 z-5">     
-    <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#00D8A6] rounded-full animate-pulse"></div>     
-    <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-[#c5f82a] rounded-full animate-ping"></div>     
-    <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-pulse delay-1000"></div>     
-    <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-[#00D8A6] rounded-full animate-ping delay-500"></div>   
-  </div>    
+     
 
   {/* Content */}            
   <div className="relative z-10 text-center max-w-7xl mx-auto px-6 py-20 flex-grow flex items-center">                
@@ -245,7 +239,7 @@ const Firstpage = () => {
       animate={{ opacity: 1, y: 0 }}                    
       transition={{ duration: 0.8, delay: 0.3 }}                
     >                        
-      <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-4xl font-bold tracking-normal mb-6 leading-tight text-center">   
+      <h1 className="text-4xl sm:text-4xl md:text-6xl lg:text-5xl font-bold tracking-normal mb-6 leading-tight text-center">   
         <span className="bg-gradient-to-r from-[#00D8A6] to-[#00d8a6] bg-clip-text text-transparent">     
           Driving Success   
         </span>   
