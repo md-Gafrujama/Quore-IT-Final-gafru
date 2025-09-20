@@ -162,19 +162,9 @@ const SenecaServicesPage = () => {
                   }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
                 >
-                  <motion.div 
-                    className="inline-block px-4 py-2 bg-gradient-to-r from-[#00d9a6]/20 to-[#c5f82a]/20 rounded-full border border-[#00d9a6]/30 backdrop-blur-sm"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
-                  >
-                    <span className="text-[#00d9a6] font-semibold text-sm tracking-wide uppercase">
-                      Professional IT Solutions
-                    </span>
-                  </motion.div>
-
+                  
                   <motion.h1 
-                    className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight"
+                    className="text-4xl sm:text-5xl lg:text-5xl xl:text-5xl font-bold leading-tight tracking-tight"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
@@ -213,30 +203,65 @@ const SenecaServicesPage = () => {
                     </motion.p>
                   </div>
 
-                  {/* Feature Highlights */}
-                  <motion.div 
-                    className="grid grid-cols-2 gap-4 mt-8"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.9, duration: 0.6 }}
-                  >
-                    {[
-                      { icon: "🚀", text: "Fortune 100 Trusted" },
-                      { icon: "⚡", text: "Rapid Deployment" },
-                      { icon: "🎯", text: "Precision Resourcing" },
-                      { icon: "💡", text: "Innovation Focused" }
-                    ].map((item, index) => (
-                      <motion.div 
-                        key={index}
-                        className="flex items-center space-x-3 p-3 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm"
-                        whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <span className="text-2xl">{item.icon}</span>
-                        <span className="text-sm font-medium text-gray-200">{item.text}</span>
-                      </motion.div>
-                    ))}
-                  </motion.div>
+                 {/* Feature Highlights */}
+<motion.div 
+  className="grid grid-cols-2 gap-4 mt-8"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.9, duration: 0.6 }}
+>
+  {[
+    { 
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ), 
+      text: "Fortune 100 Trusted" 
+    },
+    { 
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      ), 
+      text: "Rapid Deployment" 
+    },
+    { 
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100-4m0 4v2m0-6V4" />
+        </svg>
+      ), 
+      text: "Precision Resourcing" 
+    },
+    { 
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      ), 
+      text: "Innovation Focused" 
+    }
+  ].map((item, index) => (
+    <motion.div 
+      key={index}
+      className="flex items-center space-x-3 p-4 rounded-xl bg-white/8 border border-white/15 backdrop-blur-sm hover:bg-white/12 transition-all duration-300"
+      whileHover={{ 
+        scale: 1.05, 
+        backgroundColor: "rgba(255,255,255,0.15)",
+        borderColor: "rgba(255,255,255,0.25)"
+      }}
+      transition={{ duration: 0.2 }}
+    >
+      <div className="text-emerald-400 flex-shrink-0">
+        {item.icon}
+      </div>
+      <span className="text-sm font-semibold text-gray-200">{item.text}</span>
+    </motion.div>
+  ))}
+</motion.div>
+
                 </motion.div>
 
                 {/* Enhanced CTA Buttons */}
@@ -266,44 +291,10 @@ const SenecaServicesPage = () => {
                     />
                   </motion.button>
 
-                  <motion.button
-                    className="group px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full text-lg hover:bg-white/10 hover:border-white/50 transition-all duration-300 backdrop-blur-sm"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span className="flex items-center justify-center">
-                      Learn More
-                      <svg className="ml-2 w-5 h-5 group-hover:rotate-12 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </span>
-                  </motion.button>
+                 
                 </motion.div>
 
-                {/* Stats Section */}
-                <motion.div 
-                  className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.3, duration: 0.6 }}
-                >
-                  {[
-                    { number: "500+", label: "Projects Delivered" },
-                    { number: "98%", label: "Client Satisfaction" },
-                    { number: "24/7", label: "Support Available" }
-                  ].map((stat, index) => (
-                    <motion.div 
-                      key={index}
-                      className="text-center"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] bg-clip-text text-transparent">
-                        {stat.number}
-                      </div>
-                      <div className="text-sm text-gray-400 mt-1">{stat.label}</div>
-                    </motion.div>
-                  ))}
-                </motion.div>
+                
               </motion.div>
 
               {/* Right Image - Enhanced */}
@@ -435,25 +426,6 @@ const SenecaServicesPage = () => {
               </motion.div>
             </div>
           </div>
-
-          {/* Scroll Indicator */}
-          <motion.div 
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.5, duration: 0.6 }}
-          >
-            <motion.div 
-              className="flex flex-col items-center space-y-2"
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <span className="text-sm font-medium tracking-wider">SCROLL</span>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </motion.div>
-          </motion.div>
         </section>
 
         {/* Consulting Services Header */}
@@ -557,134 +529,175 @@ const SenecaServicesPage = () => {
           </div>
         </section>
 
-        {/* Engineering Specialties Section */}
-        <section className="py-12 lg:py-20 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div 
-              className="text-center mb-12 lg:mb-16"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 lg:mb-8">
-                We also provide crucial support to leading companies in the following areas:
-              </h2>
-            </motion.div>
-
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              {/* Aerospace */}
-              <article className="bg-green-900/40 backdrop-blur-sm border border-green-700/30 rounded-2xl p-6 lg:p-8 hover:bg-green-800/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                <h3 className="text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">AEROSPACE</h3>
-                <ul className="space-y-3 text-white">
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Instrumentation Engineers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Controls</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Design Engineers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Fabrication Support</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Mechanical Engineers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Materials Management</span>
-                  </li>
-                </ul>
-              </article>
-
-              {/* Chemical/Petro */}
-              <article className="bg-green-900/40 backdrop-blur-sm border border-green-700/30 rounded-2xl p-6 lg:p-8 hover:bg-green-800/50 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                <h3 className="text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">CHEMICAL/PETRO</h3>
-                <ul className="space-y-3 text-white">
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Process/Manufacturing Engineers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Chemists/Lab Technician Support</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Chemical Engineer</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Environmental/Health/Safety Engineers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Nuclear Engineers</span>
-                  </li>
-                </ul>
-              </article>
-
-              {/* Logistics/Automation */}
-              <article className="bg-green-900/40 backdrop-blur-sm border border-green-700/30 rounded-2xl p-6 lg:p-8 hover:bg-green-800/50 transition-all duration-300 hover:scale-105 hover:shadow-xl md:col-span-2 lg:col-span-1">
-                <h3 className="text-xl lg:text-2xl font-bold text-white mb-4 lg:mb-6">LOGISTICS/AUTOMATION</h3>
-                <ul className="space-y-3 text-white">
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Field Service Engineers & Technicians</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Controls & Mechanical Engineers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Sales Engineers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>IT Service Managers</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Project Managers</span>
-                  </li>
-                </ul>
-              </article>
-            </motion.div>
-
-            <motion.div 
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <Link 
-                href="/services/engineering-specialties"
-                className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-green-700 to-green-800 hover:from-green-800 hover:to-green-900 text-white font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transform hover:scale-105 text-lg shadow-xl"
-                aria-label="Get started with engineering specialty services"
-              >
-                GET STARTED
-                <svg className="ml-2 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </motion.div>
-          </div>
-        </section>
+       {/* Engineering Specialties Section */}
+              <section className="py-20 lg:py-28 bg-gradient-to-br from-[#c5f82a] to-[#00d9a6]">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <motion.div 
+                    className="text-center mb-20"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="inline-flex items-center px-4 py-2 bg-white/20 rounded-full border border-white/30 backdrop-blur-sm mb-6">
+                      <span className="text-sm font-medium text-gray-800 uppercase tracking-wide">Industry Expertise</span>
+                    </div>
+                    
+                    <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight">
+                      Engineering Specialties &<br />Industry Support
+                    </h2>
+                    <p className="text-xl text-gray-800 max-w-4xl mx-auto leading-relaxed text-justify">
+                      We provide crucial support to leading companies across various industries with specialized engineering talent and technical expertise.
+                    </p>
+                  </motion.div>
+      
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                    {/* Aerospace - Enhanced */}
+                    <motion.article 
+                      className="bg-white/95 backdrop-blur-sm border border-white/50 rounded-3xl p-8 hover:bg-white hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="flex items-center mb-6">
+                        <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
+                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3l14 9-14 9V3z" />
+                          </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold text-gray-900">AEROSPACE</h3>
+                      </div>
+                      <ul className="space-y-4 text-gray-700">
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Instrumentation Engineers</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Controls Systems</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Design Engineers</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Fabrication Support</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Mechanical Engineers</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Materials Management</span>
+                        </li>
+                      </ul>
+                    </motion.article>
+      
+                    {/* Chemical/Petro - Enhanced */}
+                    <motion.article 
+                      className="bg-white/95 backdrop-blur-sm border border-white/50 rounded-3xl p-8 hover:bg-white hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.1 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="flex items-center mb-6">
+                        <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mr-4">
+                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                          </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold text-gray-900">CHEMICAL/PETRO</h3>
+                      </div>
+                      <ul className="space-y-4 text-gray-700">
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Process/Manufacturing Engineers</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Chemists/Lab Technician Support</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Chemical Engineers</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Environmental/Health/Safety Engineers</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Nuclear Engineers</span>
+                        </li>
+                      </ul>
+                    </motion.article>
+      
+                    {/* Logistics/Automation - Enhanced */}
+                    <motion.article 
+                      className="bg-white/95 backdrop-blur-sm border border-white/50 rounded-3xl p-8 hover:bg-white hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 md:col-span-2 lg:col-span-1"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      viewport={{ once: true }}
+                    >
+                      <div className="flex items-center mb-6">
+                        <div className="w-12 h-12 bg-gradient-to-r from-teal-500 to-cyan-500 rounded-xl flex items-center justify-center mr-4">
+                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                        </div>
+                        <h3 className="text-2xl font-bold text-gray-900">LOGISTICS/AUTOMATION</h3>
+                      </div>
+                      <ul className="space-y-4 text-gray-700">
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Field Service Engineers & Technicians</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Controls & Mechanical Engineers</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Sales Engineers</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>IT Service Managers</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="w-2 h-2 bg-emerald-500 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                          <span>Project Managers</span>
+                        </li>
+                      </ul>
+                    </motion.article>
+                  </div>
+      
+                  <motion.div 
+                    className="text-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    viewport={{ once: true }}
+                  >
+                    <Link 
+                      href="/services/engineering-specialties"
+                      className="inline-flex items-center px-12 py-5 bg-gray-900 text-white font-semibold rounded-xl hover:bg-gray-800 hover:shadow-2xl transition-all duration-500 focus:outline-none focus:ring-4 focus:ring-gray-300 text-lg transform hover:scale-105 hover:-translate-y-1"
+                      aria-label="Get started with engineering specialty services"
+                    >
+                      GET STARTED
+                      <svg className="ml-3 w-6 h-6 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  </motion.div>
+                </div>
+              </section>
       </main>
     </>
   );
