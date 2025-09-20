@@ -245,7 +245,7 @@ const Firstpage = () => {
       animate={{ opacity: 1, y: 0 }}                    
       transition={{ duration: 0.8, delay: 0.3 }}                
     >                        
-      <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-normal mb-6 leading-tight text-center">   
+      <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-4xl font-bold tracking-normal mb-6 leading-tight text-center">   
         <span className="bg-gradient-to-r from-[#00D8A6] to-[#00d8a6] bg-clip-text text-transparent">     
           Driving Success   
         </span>   
@@ -259,14 +259,14 @@ const Firstpage = () => {
   {/* Buttons at the bottom */}
   <div className="relative z-10 pb-20 px-6">
     <p   
-      className="text-xl md:text-2xl lg:text-3xl font-medium text-center text-gray-200 max-w-4xl mx-auto mb-12 leading-relaxed tracking-tight"   
+      className="text-xl md:text-2xl lg:text-2xl font-medium text-center text-gray-200 max-w-4xl mx-auto mb-12 leading-relaxed tracking-tight"   
       style={{ wordSpacing: "0.05em", marginTop: '-20px' }} 
     >   
-      <span className="text-[#00D8A6] font-semibold">     
+      <span className="text-white ">     
         From startups to enterprises,   
       </span>{" "}   
       we connect businesses with{" "}   
-      <span className="text-white font-bold">     
+      <span className="text-white ">     
         skilled IT professionals   
       </span>{" "}   
       who deliver results you can trust. 
