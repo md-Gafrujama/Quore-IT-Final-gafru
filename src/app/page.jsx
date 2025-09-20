@@ -7,7 +7,14 @@ import Image from 'next/image';
 import { Home, ChevronRight, ArrowRight, Star, Users, Award, Globe, Shield, Target, CheckCircle, Heart } from 'lucide-react';
 
 const services = [
- 
+ {
+    title: 'Aerospace Staffing',
+    description:
+      'In aerospace, precision and innovation are everything and the talent behind it is just as critical. Quore IT helps leading aerospace organizations recruit the specialists they need, from aerospace engineers and avionics experts to project managers, technicians, and support staff. We understand the complexities of legacy programs while staying aligned with the latest advancements in aerospace technology, ensuring our clients always have the right expertise to keep projects soaring.',
+    image: '/images/pics4.png',
+    link: '/services/consulting',
+    icon: <Users className="w-6 h-6" />,
+  },
   {
     title: 'Information Technology',
     description:
@@ -19,19 +26,12 @@ const services = [
   {
     title: 'Engineering',
     description:
-      'Deep expertise doesn not mean blinders are on. We onboard team members who have a sense of where they fit in within the larger mission.',
+      'At Quore IT, engineering  recruitment expertise goes beyond technical skills. We provide professionals who not only excel in their craft but also understand how their work contributes to the bigger mission. Our talent is equipped to deliver with precision while staying aligned to your organization’s goals and vision.',
     image: '/images/pics3.png',
     link: '/services/engineering',
     icon: <Star className="w-6 h-6" />,
   },
-  {
-    title: 'Consulting Services',
-    description:
-      'Understanding how a skill fits in to a larger mechanism is the mark of a true expert. Our specialists understand the bigger picture, and help our clients do the same.',
-    image: '/images/pics4.png',
-    link: '/services/consulting',
-    icon: <Users className="w-6 h-6" />,
-  },
+  
    {
     title: 'Government Services',
     description:

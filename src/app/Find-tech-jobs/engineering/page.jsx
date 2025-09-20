@@ -85,7 +85,7 @@ const SenecaServicesPage = () => {
                 {/* Premium Main Headline */}
                 <motion.div className="space-y-4">
                   <motion.h1 
-                    className="text-5xl sm:text-6xl lg:text-5xl xl:text-8xl font-bold leading-[0.9] tracking-tight"
+                    className="text-5xl sm:text-6xl lg:text-5xl xl:text-5xl font-bold leading-[0.9] tracking-tight"
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4, duration: 1 }}
@@ -95,14 +95,14 @@ const SenecaServicesPage = () => {
                       className="block text-white font-light mb-2"
                       style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
                     >
-                      People who
+                      Engineering
                     </motion.span>
                     <motion.span 
-                      className="block font-black"
+                      className=" font-black"
                       style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
                     >
-                      <span className="text-white">know</span>
-                      <span className="text-gray-400">,</span>
+                      <span className="text-white">Recruitment</span>
+                      <span className="">,</span>
                     </motion.span>
                     <motion.span 
                       className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-500 bg-clip-text text-transparent block font-black mt-2"
@@ -116,7 +116,7 @@ const SenecaServicesPage = () => {
                         ease: "linear"
                       }}
                     >
-                      Quore IT.
+                 Services
                     </motion.span>
                   </motion.h1>
                 </motion.div>
@@ -128,45 +128,24 @@ const SenecaServicesPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 1 }}
                 >
-                  <div className="space-y-4">
-                    <motion.p 
-                      className="text-2xl lg:text-3xl font-medium text-gray-200 leading-tight"
-                      whileHover={{ x: 10, color: "#ffffff" }}
-                      transition={{ duration: 0.3 }}
-                      style={{ fontFamily: "'Inter', sans-serif" }}
-                    >
-                      From small business to Fortune 100.
-                    </motion.p>
-                    <motion.p 
-                      className="text-2xl lg:text-3xl font-medium text-gray-200 leading-tight"
-                      whileHover={{ x: 10, color: "#ffffff" }}
-                      transition={{ duration: 0.3 }}
-                      style={{ fontFamily: "'Inter', sans-serif" }}
-                    >
-                      Public sector to private enterprise.
-                    </motion.p>
-                  </div>
+                 
                   
                   <div className="space-y-5 pt-4">
                     <motion.p 
-                      className="text-xl lg:text-2xl text-gray-300 leading-relaxed font-light"
+                      className="text-lg lg:text-lg text-gray-300 leading-relaxed font-light text-justify"
                       whileHover={{ x: 8, color: "#e5e7eb" }}
                       transition={{ duration: 0.3 }}
                       style={{ fontFamily: "'Inter', sans-serif" }}
                     >
-                      When it comes to highly skilled services and best-in-class
-                      solutions, winning teams know they can count on Seneca
-                      Resources.
+                      High-performing operations demand more than just skill, they require the right talent, at the right time. At Quore IT, we specialize in connecting organizations with engineering professionals who can make an immediate impact. From contract staffing to fully outsourced solutions, our recruitment services are designed to support the full spectrum of engineering skill sets. Whether you need specialized expertise for short-term projects or long-term strategic resources, our team delivers candidates who align with both your technical requirements and organizational goals.
                     </motion.p>
                     <motion.p 
-                      className="text-xl lg:text-2xl text-gray-300 leading-relaxed font-light"
+                      className="text-lg lg:text-lg text-gray-300 leading-relaxed font-light text-lg text-justify"
                       whileHover={{ x: 8, color: "#e5e7eb" }}
                       transition={{ duration: 0.3 }}
                       style={{ fontFamily: "'Inter', sans-serif" }}
                     >
-                      Our clients see results because we seek out exactly the right fit
-                      for every situation. It's precision resourcing, and it can
-                      transform your business.
+                      With deep industry knowledge and a people-first approach, We ensures you gain access to top engineering talent that drives efficiency, innovation, and lasting success.
                     </motion.p>
                   </div>
                 </motion.div>
@@ -322,42 +301,11 @@ const SenecaServicesPage = () => {
         </section>
 
         {/* Rest of the sections remain the same... */}
-        {/* Engineering Recruitment Services Section */}
+   
         <section className="py-16 lg:py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Premium Header Design */}
-            <motion.div 
-              className="text-center mb-16 lg:mb-20"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <motion.h1 
-                className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 lg:mb-10"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-              >
-                <span className="bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600 bg-clip-text text-transparent">
-                  Engineering Recruitment
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-purple-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
-                  Services
-                </span>
-              </motion.h1>
-              <motion.p 
-                className="text-xl lg:text-2xl text-gray-700 max-w-5xl mx-auto leading-relaxed"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                Maintaining high level performance in your operations takes a certain kind of talent - the right 
-                talent. From contract labor to outsourced solutions, Seneca Resources brings the experience to 
-                support a broad range of activities across the spectrum of engineering skill sets.
-              </motion.p>
-            </motion.div>
+     
 
             {/* Automotive Section - Enhanced Layout */}
             <motion.div 
@@ -394,14 +342,11 @@ const SenecaServicesPage = () => {
                 transition={{ delay: 0.2, duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-justify">
                   Automotive
                 </h2>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  Recruiting for automotive can be challenging - especially when it comes to rework. Luckily no one 
-                  knows the automotive space like Seneca. From process & manufacturing engineering to logistics, 
-                  skilled trades and even automation, we've got a deep bench of auto-minded professionals to keep 
-                  your project rolling.
+                <p className="text-xl text-gray-600 leading-relaxed text-justify">
+                 Finding the right talent in the automotive industry can be complex especially when precision and efficiency are critical. We understand the unique demands of this space and bring proven expertise to every engagement. From process and manufacturing engineering to logistics, skilled trades, and automation, we provide a strong network of automotive-focused professionals who keep your projects moving forward without costly setbacks.
                 </p>
                 <Link 
                   href="/services/automotive"
@@ -431,14 +376,11 @@ const SenecaServicesPage = () => {
                 transition={{ delay: 0.2, duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+                <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent text-justify">
                   Energy/Utility Staffing
                 </h2>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  Far from being a sedate line of business, almost no sector is evolving as quickly as energy and utility. 
-                  Seneca is moving with it, deploying teams of specialist electrical engineers, PMs, technicians 
-                  and more to where they're needed most. We're fluent in legacy dynamics while staying abreast of 
-                  the latest twists and turns of this dynamic space.
+                <p className="text-xl text-gray-600 leading-relaxed text-justify">
+                  The energy and utility sector is transforming faster than ever, and Quore IT is evolving right alongside it. We deliver specialized teams of electrical engineers, project managers, technicians, and more, wherever they’re needed most. With deep knowledge of established systems and a keen eye on emerging innovations, we help clients navigate both legacy challenges and the industry’s rapid changes.
                 </p>
                 <Link 
                   href="/services/energy-utility"

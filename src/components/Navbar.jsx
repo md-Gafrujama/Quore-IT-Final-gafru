@@ -61,7 +61,7 @@ const Navbar = () => {
     { name: 'INFORMATION TECHNOLOGY', href: '/Find-tech-jobs/Information-technology' },
     { name: 'ENGINEERING', href: '/Find-tech-jobs/engineering' },
     { name: 'GOVERNMENT SERVICES', href: '/Find-tech-jobs/government-services' },
-    { name: 'CONSULTING SERVICES', href: '/Find-tech-jobs/consulting-services' },
+    { name: 'AEROSPACE STAFFING', href: '/Find-tech-jobs/aerospace-staffing' },
   
   ];
 

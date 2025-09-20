@@ -17,36 +17,36 @@ const SenecaServicesPage = () => {
   const services = [
     {
       id: 'cloud-consulting',
-      title: 'Cloud Consulting',
-      description: 'Whether an organization is looking to build, move or store their data, Seneca\'s cloud engineers are well versed in the development of cloud infrastructures and data migrations.',
+      title: 'Aerospace Staffing',
+      description: 'At Quore IT, we believe aerospace success comes from the perfect balance of precision, innovation, and people. That’s why we help organizations connect with the right talent—engineers, avionics specialists, project managers, technicians, and support staff—who are ready to perform at the highest level. We understand the unique challenges of the industry, from managing legacy programs to driving forward new technologies, and we bring a people-first approach that ensures adaptability, expertise, and fresh ideas. Whether you’re building new teams or reinforcing existing ones, we provide the talent that keeps projects on track and in the air. With Quore IT by your side, your aerospace projects don’t just take flight—they soar toward lasting success.',
       image: '/images/it13.png',
       alt: 'Team of professionals collaborating on cloud computing solutions',
       reverse: false
     },
     {
       id: 'data-science',
-      title: 'Data Science Consulting',
-      description: 'Our teams are fluent in Machine Learning, Artificial Intelligence, and Deep Learning technologies to meet your most pressing analytics needs. We\'ll partner with you to interrogate your data and find crucial business insights.',
+      title: 'Aerospace Engineers',
+      description: 'At Quore IT, we specialize in recruiting top aerospace engineering talent to meet the complex demands of the industry. Our team understands the specialized skill sets required—whether it’s structural design, propulsion, avionics, systems integration, or compliance with rigorous industry standards. By combining deep industry knowledge with a people-first approach, we identify and connect you with professionals who not only excel technically but also align with your organizational mission.',
       image: '/images/it14.png',
       alt: 'Data science team analyzing information on tablets and devices',
       reverse: true
     },
     {
       id: 'app-mobile',
-      title: 'App/Mobile Development',
-      description: 'We\'re fluent in the intricacies of all major mobile OS platforms as well as the latest dev tools and APKs. This means you can leverage the unique features of any mobile device or OS to your advantage.',
+      title: 'Avionics Specialist Engineers',
+      description: 'Avionics engineers are essential to keeping aircraft safe, efficient, and mission-ready. At Quore IT, we help aerospace organizations find the right specialists to make that possible. From system integration and software development to hardware testing and compliance, our recruiters understand the technical precision this field demands. But we don’t just match skills—we focus on people, ensuring every placement fits seamlessly into your mission and team culture. Whether you need contract support for urgent projects or permanent hires for long-term success, we deliver experts who bring both innovation and reliability. With Quore IT, you gain the talent and partnership needed to keep your aerospace systems advanced and always soaring forward.',
       image: '/images/it15.png',
       alt: 'Development team working on mobile applications',
       reverse: false
     },
-    {
-      id: 'agile-training',
-      title: 'Agile Training',
-      description: 'Our engineers help organizations Design, Develop, Deploy and Operate mission critical IT systems through organizational collaboration and continuous enhancements to IT systems and applications.',
-      image: '/images/it16.png',
-      alt: 'Team members participating in agile training and collaboration',
-      reverse: true
-    }
+    // {
+    //   id: 'agile-training',
+    //   title: 'Agile Training',
+    //   description: 'Our engineers help organizations Design, Develop, Deploy and Operate mission critical IT systems through organizational collaboration and continuous enhancements to IT systems and applications.',
+    //   image: '/images/it16.png',
+    //   alt: 'Team members participating in agile training and collaboration',
+    //   reverse: true
+    // }
   ];
 
   return (
@@ -170,37 +170,40 @@ const SenecaServicesPage = () => {
                     transition={{ delay: 0.5, duration: 0.8 }}
                   >
                     <span className="block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                      People who know,
+                   Aerospace Staffing
                     </span>
-                    <span className="block bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] bg-clip-text text-transparent mt-2">
+                    {/* <span className="block bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] bg-clip-text text-transparent mt-2">
                       Choose IT Excellence.
-                    </span>
+                    </span> */}
                   </motion.h1>
                 </motion.div>
 
                 {/* Enhanced Description */}
                 <motion.div 
-                  className="space-y-6 text-lg lg:text-xl leading-relaxed"
+                  className="space-y-6 text-lg lg:text-lg leading-relaxed"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.7, duration: 0.6 }}
                 >
                   <div className="space-y-4">
                     <motion.p 
-                      className="text-gray-200 font-medium text-justify"
+                      className="text-gray-200 font-medium text-justify text-lg"
                       whileHover={{ x: 5, color: "#f8fafc" }}
                       transition={{ duration: 0.2 }}
                     >
-                      From small business to Fortune 100 companies, we deliver cutting-edge technology solutions that drive business transformation and sustainable growth.
+                      In aerospace, precision and innovation are everything and the talent behind it is just as critical. Quore IT helps leading aerospace organizations recruit the specialists they need, from aerospace engineers and avionics experts to project managers, technicians, and support staff. We understand the complexities of legacy programs while staying aligned with the latest advancements in aerospace technology, ensuring our clients always have the right expertise to keep projects soaring.
+
+
                     </motion.p>
                     
-                    <motion.p 
-                      className="text-gray-300 text-justify"
+                    {/* <motion.p 
+                      className="text-gray-300 text-justify text-lg"
                       whileHover={{ x: 5, color: "#f1f5f9" }}
                       transition={{ duration: 0.2 }}
                     >
-                      When it comes to highly skilled services and best-in-class solutions, winning teams trust Seneca Resources to deliver exceptional results through precision resourcing and innovative technology partnerships.
+                     Our recruiters understand the unique challenges of the aerospace industry, from maintaining legacy programs to integrating the latest advancements in technology. By blending industry expertise with a people-first approach, we ensure our clients always have the right mix of experience, innovation, and adaptability to keep projects on track and in the air.
                     </motion.p>
+                   */}
                   </div>
 
                  {/* Feature Highlights */}
