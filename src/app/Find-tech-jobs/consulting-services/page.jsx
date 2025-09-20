@@ -428,41 +428,7 @@ const SenecaServicesPage = () => {
           </div>
         </section>
 
-        {/* Consulting Services Header */}
-        <section className="bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] py-12 sm:py-16 lg:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <motion.h1 
-              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 sm:mb-8"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              Consulting Services
-            </motion.h1>
-            <motion.p 
-              className="text-lg sm:text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8 text-justify"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              Understanding how a skill fits into a larger mechanism is the mark of a true expert. Our 
-              recruitment specialists understand the bigger picture, and help our clients do the same. With 
-              decades of combined experience across all phases of strategic planning, Seneca Consulting 
-              Services can help you see the road ahead.
-            </motion.p>
-            <motion.h2 
-              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              Expertise in the key areas driving business today.
-            </motion.h2>
-          </div>
-        </section>
+        
 
         {/* Services Grid */}
         <section className="py-12 sm:py-16 lg:py-20">
