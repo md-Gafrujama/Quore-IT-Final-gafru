@@ -1,4 +1,3 @@
-
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 
@@ -79,57 +78,147 @@ const WhatWeDo = () => {
   };
 
   const locations = [
-    { name: 'Belgium', flag: '🇧🇪', speciality: 'FinTech' },
-    { name: 'Canada', flag: '🇨🇦', speciality: 'AI/ML' },
-    { name: 'Germany', flag: '🇩🇪', speciality: 'Engineering' },
-    { name: 'Ireland', flag: '🇮🇪', speciality: 'Cloud' },
-    { name: 'Netherlands', flag: '🇳🇱', speciality: 'DevOps' },
-    { name: 'Poland', flag: '🇵🇱', speciality: 'Software Dev' },
-    { name: 'USA', flag: '🇺🇸', speciality: 'Full Stack' },
-    { name: 'United Kingdom', flag: '🇬🇧', speciality: 'Cybersecurity' }
+    { name: 'Belgium', code: 'BE', speciality: 'FinTech Solutions' },
+    { name: 'Canada', code: 'CA', speciality: 'AI & Machine Learning' },
+    { name: 'Germany', code: 'DE', speciality: 'Engineering Excellence' },
+    { name: 'Ireland', code: 'IE', speciality: 'Cloud Computing' },
+    { name: 'Netherlands', code: 'NL', speciality: 'DevOps & Infrastructure' },
+    { name: 'Poland', code: 'PL', speciality: 'Software Development' },
+    { name: 'USA', code: 'US', speciality: 'Full Stack Development' },
+    { name: 'United Kingdom', code: 'GB', speciality: 'Cybersecurity' }
   ];
 
   const services = [
     {
       title: 'Permanent Recruitment',
-      description: 'Find the perfect full-time technology professionals for your organization.',
-      icon: '👥',
+      description: 'Connect with exceptional full-time technology professionals who will drive your organization forward with dedication and expertise.',
+      icon: 'users',
       features: ['Executive Search', 'Mid-Level Hiring', 'Graduate Programs']
     },
     {
       title: 'Contract Solutions',
-      description: 'Flexible contract professionals for project-based technology needs.',
-      icon: '⚡',
+      description: 'Access skilled contract professionals for project-based technology needs, providing flexibility without compromising on quality.',
+      icon: 'lightning',
       features: ['Project Teams', 'Interim Solutions', 'Specialist Skills']
     },
     {
       title: 'Workforce Solutions',
-      description: 'Comprehensive workforce management and strategic consulting.',
-      icon: '🎯',
+      description: 'Transform your talent strategy with comprehensive workforce management and strategic consulting tailored to your business goals.',
+      icon: 'target',
       features: ['RPO Services', 'Managed Services', 'Consulting']
     }
   ];
 
   const testimonials = [
     {
-      quote: "Quore IT transformed our hiring process. Their deep understanding of technology roles is unmatched.",
+      quote: "Quore IT didn't just fill positions – they transformed our entire hiring approach. Their understanding of our technical needs and company culture resulted in hires who truly fit our team.",
       author: "Sarah Johnson",
-      position: "CTO, TechCorp",
-      company: "Fortune 500 Company"
+      position: "Chief Technology Officer",
+      company: "TechCorp Industries"
     },
     {
-      quote: "The quality of candidates and speed of delivery exceeded our expectations significantly.",
+      quote: "Working with Quore IT felt like having an extension of our internal team. The quality of candidates and the speed of delivery consistently exceeded what we thought was possible.",
       author: "Michael Chen",
-      position: "VP Engineering",
-      company: "Scale-up Unicorn"
+      position: "VP of Engineering",
+      company: "InnovateTech Solutions"
     },
     {
-      quote: "Their workforce solutions helped us scale our team from 50 to 500 engineers seamlessly.",
+      quote: "From 50 to 500 engineers – Quore IT's workforce solutions made our rapid scaling seamless. They understood our vision and helped us build a team that could execute it.",
       author: "Emma Davis",
-      position: "Head of Talent",
-      company: "Global Enterprise"
+      position: "Head of Talent Acquisition",
+      company: "GlobalScale Enterprises"
     }
   ];
+
+  // Icon component for different icons
+  const Icon = ({ name, className = "w-6 h-6" }) => {
+    const icons = {
+      users: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+        </svg>
+      ),
+      lightning: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+      target: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      search: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      ),
+      globe: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+        </svg>
+      ),
+      scale: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16l3-1m-3 1l-3-1" />
+        </svg>
+      ),
+      rocket: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      ),
+      code: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+      brain: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+      ),
+      shield: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      ),
+      cog: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      ),
+      palette: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />
+        </svg>
+      ),
+      credit: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+        </svg>
+      ),
+      academic: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+        </svg>
+      ),
+      handshake: (
+        <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+        </svg>
+      ),
+      star: (
+        <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      )
+    };
+    
+    return icons[name] || icons.target;
+  };
 
   return (
     <>
@@ -164,9 +253,7 @@ const WhatWeDo = () => {
         }`}>
           <div className="space-y-8">
             <div className="space-y-6">
-              <div className="inline-flex items-center px-6 py-3 rounded-full bg-green-400/10 border border-green-400/30 backdrop-blur-sm">
-                <span className="text-green-400 text-sm font-semibold tracking-wide">GLOBAL TECHNOLOGY SOLUTIONS</span>
-              </div>
+             
               
               <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-tight tracking-tight">
                 What We
@@ -177,7 +264,7 @@ const WhatWeDo = () => {
             </div>
             
             <p className="text-xl sm:text-2xl lg:text-3xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">
-              Connecting exceptional technology talent with forward-thinking organizations across the globe through strategic recruitment and workforce solutions.
+              Connecting exceptional technology talent with forward-thinking organizations across the globe through strategic recruitment and innovative workforce solutions.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-12">
@@ -191,12 +278,7 @@ const WhatWeDo = () => {
                 </svg>
               </button>
               
-              <button 
-                onClick={() => smoothScrollTo('about-section')}
-                className="px-10 py-5 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 backdrop-blur-sm text-lg"
-              >
-                Learn More
-              </button>
+           
             </div>
           </div>
           
@@ -204,18 +286,12 @@ const WhatWeDo = () => {
           <div className={`absolute bottom-12 left-1/2 transform -translate-x-1/2 transition-all duration-1000 delay-700 ${
             isVisible ? 'opacity-100' : 'opacity-0'
           }`}>
-            <div className="flex flex-col items-center space-y-3">
-              <span className="text-slate-400 text-sm font-medium">Discover More</span>
-              <div className="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center p-1">
-                <div className="w-1 h-3 bg-green-400 rounded-full animate-bounce"></div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      
+    
       {/* About Section */}
       <section id="about-section" className="bg-slate-50 py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -237,34 +313,29 @@ const WhatWeDo = () => {
                 
                 <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
                   <p>
-                    We partner with organizations across <span className="font-semibold text-slate-900">more than 30 countries</span> to identify and recruit highly experienced technology professionals on both permanent and contract basis.
+                    We partner with organizations across <span className="font-semibold text-slate-900">more than 30 countries</span> to identify and recruit highly experienced technology professionals for both permanent and contract positions.
                   </p>
                   
                   <p>
-                    Our comprehensive <span className="font-semibold text-green-600">Recruitment Solutions</span> business delivers tailored services that empower companies to recruit and manage their technology workforce more effectively in an increasingly competitive market.
+                    Our comprehensive <span className="font-semibold text-green-600">Recruitment Solutions</span> business delivers tailored services that empower companies to build and manage their technology teams more effectively in today's competitive landscape.
                   </p>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8">
                   <div className="group p-6 rounded-xl border border-slate-200 hover:border-green-200 hover:shadow-lg transition-all duration-300">
                     <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
-                      <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
+                      <Icon name="globe" className="w-6 h-6 text-green-600" />
                     </div>
                     <h3 className="font-semibold text-slate-900 mb-2">Global Presence</h3>
-                    <p className="text-slate-600 text-sm">Strategic locations worldwide to serve your talent needs locally.</p>
+                    <p className="text-slate-600 text-sm">Strategic locations worldwide to serve your talent needs locally with global expertise.</p>
                   </div>
                   
                   <div className="group p-6 rounded-xl border border-slate-200 hover:border-green-200 hover:shadow-lg transition-all duration-300">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
-                      <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                      <Icon name="target" className="w-6 h-6 text-blue-600" />
                     </div>
                     <h3 className="font-semibold text-slate-900 mb-2">Proven Results</h3>
-                    <p className="text-slate-600 text-sm">Track record of successful placements and long-term partnerships.</p>
+                    <p className="text-slate-600 text-sm">Outstanding track record of successful placements and lasting partnerships with clients.</p>
                   </div>
                 </div>
               </div>
@@ -282,11 +353,15 @@ const WhatWeDo = () => {
                       {[...Array(9)].map((_, i) => (
                         <div 
                           key={i} 
-                          className={`aspect-square rounded-lg ${
+                          className={`aspect-square rounded-lg flex items-center justify-center ${
                             i === 4 ? 'bg-green-400' : i === 1 ? 'bg-blue-400' : i === 7 ? 'bg-indigo-400' : 'bg-slate-200'
                           } animate-pulse`}
                           style={{ animationDelay: `${i * 200}ms` }}
-                        ></div>
+                        >
+                          {i === 4 && <Icon name="target" className="w-6 h-6 text-white" />}
+                          {i === 1 && <Icon name="users" className="w-6 h-6 text-white" />}
+                          {i === 7 && <Icon name="globe" className="w-6 h-6 text-white" />}
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -318,7 +393,7 @@ const WhatWeDo = () => {
               Comprehensive Solutions
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              From permanent placements to flexible workforce solutions, we deliver tailored services that meet your unique technology talent needs.
+              From permanent placements to flexible workforce solutions, we deliver tailored services that meet your unique technology talent requirements.
             </p>
           </div>
 
@@ -335,9 +410,15 @@ const WhatWeDo = () => {
                 onMouseLeave={() => setHoveredService(null)}
               >
                 <div className="text-center">
-                  <div className="text-4xl mb-4">{service.icon}</div>
+                  <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center transition-all duration-300 ${
+                    hoveredService === index ? 'bg-green-200' : 'bg-green-100'
+                  }`}>
+                    <Icon name={service.icon} className={`w-8 h-8 transition-colors duration-300 ${
+                      hoveredService === index ? 'text-green-700' : 'text-green-600'
+                    }`} />
+                  </div>
                   <h3 className="text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
-                  <p className="text-slate-600 mb-6">{service.description}</p>
+                  <p className="text-slate-600 mb-6 leading-relaxed">{service.description}</p>
                   
                   <div className="space-y-3">
                     {service.features.map((feature, i) => (
@@ -378,21 +459,21 @@ const WhatWeDo = () => {
               How We Work
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Our proven methodology ensures we deliver the right talent solutions for your organization
+              Our proven methodology ensures we deliver the right talent solutions for your organization's success
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { step: "01", title: "Understand", description: "We analyze your requirements, culture, and technical needs", icon: "🔍" },
-              { step: "02", title: "Source", description: "Leverage our global network to identify top talent", icon: "🌐" },
-              { step: "03", title: "Evaluate", description: "Rigorous assessment of technical and cultural fit", icon: "⚖️" },
-              { step: "04", title: "Deliver", description: "Present qualified candidates and support integration", icon: "🚀" }
+              { step: "01", title: "Understand", description: "We analyze your requirements, company culture, and technical needs in detail", icon: "search" },
+              { step: "02", title: "Source", description: "Leverage our global network to identify and attract top-tier talent", icon: "globe" },
+              { step: "03", title: "Evaluate", description: "Conduct rigorous assessment of technical skills and cultural fit", icon: "scale" },
+              { step: "04", title: "Deliver", description: "Present qualified candidates and support seamless integration", icon: "rocket" }
             ].map((process, index) => (
               <div key={index} className="group text-center">
                 <div className="relative mb-8">
                   <div className="w-20 h-20 bg-green-400/10 border-2 border-green-400/30 rounded-full flex items-center justify-center mx-auto group-hover:bg-green-400/20 group-hover:border-green-400/50 transition-all duration-300">
-                    <span className="text-3xl">{process.icon}</span>
+                    <Icon name={process.icon} className="w-8 h-8 text-green-400" />
                   </div>
                   <div className="absolute -top-2 -right-2 w-8 h-8 bg-green-400 rounded-full flex items-center justify-center">
                     <span className="text-slate-900 font-bold text-sm">{process.step}</span>
@@ -402,7 +483,7 @@ const WhatWeDo = () => {
                   )}
                 </div>
                 <h3 className="text-xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors">{process.title}</h3>
-                <p className="text-slate-400 text-sm">{process.description}</p>
+                <p className="text-slate-400 text-sm leading-relaxed">{process.description}</p>
               </div>
             ))}
           </div>
@@ -423,7 +504,7 @@ const WhatWeDo = () => {
               Technology Sectors We Serve
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our specialized teams have deep expertise across all major technology domains
+              Our specialized teams have deep expertise across all major technology domains and emerging fields
             </p>
           </div>
 
@@ -431,24 +512,24 @@ const WhatWeDo = () => {
             {[
               { 
                 title: "Software Development", 
-                skills: ["Full-Stack Development", "Mobile Apps", "DevOps", "Cloud Architecture"], 
-                icon: "💻", 
+                skills: ["Full-Stack Development", "Mobile Applications", "DevOps Engineering", "Cloud Architecture"], 
+                icon: "code", 
                 gradient: "from-blue-400 to-blue-600",
                 bgColor: "bg-blue-50",
                 borderColor: "border-blue-200"
               },
               { 
                 title: "Data & AI", 
-                skills: ["Data Science", "Machine Learning", "AI Engineering", "Big Data"], 
-                icon: "🤖", 
+                skills: ["Data Science", "Machine Learning", "AI Engineering", "Big Data Analytics"], 
+                icon: "brain", 
                 gradient: "from-purple-400 to-purple-600",
                 bgColor: "bg-purple-50",
                 borderColor: "border-purple-200"
               },
               { 
                 title: "Cybersecurity", 
-                skills: ["Security Engineering", "Penetration Testing", "Compliance", "Risk Management"], 
-                icon: "🔐", 
+                skills: ["Security Engineering", "Penetration Testing", "Compliance Management", "Risk Assessment"], 
+                icon: "shield", 
                 gradient: "from-red-400 to-red-600",
                 bgColor: "bg-red-50",
                 borderColor: "border-red-200"
@@ -456,7 +537,7 @@ const WhatWeDo = () => {
               { 
                 title: "Infrastructure", 
                 skills: ["Cloud Engineering", "Site Reliability", "Network Architecture", "Platform Engineering"], 
-                icon: "⚙️", 
+                icon: "cog", 
                 gradient: "from-green-400 to-green-600",
                 bgColor: "bg-green-50",
                 borderColor: "border-green-200"
@@ -464,15 +545,15 @@ const WhatWeDo = () => {
               { 
                 title: "Product & Design", 
                 skills: ["Product Management", "UX/UI Design", "Product Marketing", "Design Systems"], 
-                icon: "🎨", 
+                icon: "palette", 
                 gradient: "from-indigo-400 to-indigo-600",
                 bgColor: "bg-indigo-50",
                 borderColor: "border-indigo-200"
               },
               { 
                 title: "Financial Technology", 
-                skills: ["Blockchain", "Trading Systems", "RegTech", "Payment Solutions"], 
-                icon: "💳", 
+                skills: ["Blockchain Development", "Trading Systems", "RegTech Solutions", "Payment Platforms"], 
+                icon: "credit", 
                 gradient: "from-yellow-400 to-yellow-600",
                 bgColor: "bg-yellow-50",
                 borderColor: "border-yellow-200"
@@ -480,8 +561,8 @@ const WhatWeDo = () => {
             ].map((sector, index) => (
               <div key={index} className={`group bg-white p-8 rounded-2xl border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${sector.borderColor} hover:${sector.borderColor}`}>
                 <div className="text-center mb-6">
-                  <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${sector.gradient} flex items-center justify-center text-2xl`}>
-                    {sector.icon}
+                  <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${sector.gradient} flex items-center justify-center`}>
+                    <Icon name={sector.icon} className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{sector.title}</h3>
                 </div>
@@ -524,36 +605,36 @@ const WhatWeDo = () => {
               {[
                 {
                   title: "Deep Industry Knowledge",
-                  description: "Our consultants are technology professionals who understand the nuances of each role and the evolving tech landscape.",
-                  icon: "🎓",
+                  description: "Our consultants are technology professionals who understand the nuances of each role and the rapidly evolving tech landscape.",
+                  icon: "academic",
                   stat: "15+ Years Average Experience"
                 },
                 {
                   title: "Global Network, Local Expertise",
-                  description: "With teams in 30+ countries, we combine global reach with deep local market knowledge and cultural understanding.",
-                  icon: "🌍",
+                  description: "With teams in 30+ countries, we combine worldwide reach with deep local market knowledge and cultural understanding.",
+                  icon: "globe",
                   stat: "30+ Global Offices"
                 },
                 {
                   title: "Quality Over Quantity",
-                  description: "We focus on finding the right fit, not just filling positions. Our thorough vetting process ensures long-term success.",
-                  icon: "✨",
+                  description: "We focus on finding the perfect fit, not just filling positions. Our thorough vetting process ensures long-term success for both parties.",
+                  icon: "star",
                   stat: "95% Retention Rate"
                 },
                 {
                   title: "Partnership Approach",
-                  description: "We become an extension of your team, understanding your culture, goals, and long-term vision for sustainable growth.",
-                  icon: "🤝",
+                  description: "We become an extension of your team, understanding your culture, goals, and long-term vision for sustainable growth and success.",
+                  icon: "handshake",
                   stat: "85% Repeat Clients"
                 }
               ].map((benefit, index) => (
                 <div key={index} className="flex items-start space-x-6 group">
-                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center text-2xl group-hover:from-green-200 group-hover:to-green-300 transition-all duration-300">
-                    {benefit.icon}
+                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-2xl flex items-center justify-center group-hover:from-green-200 group-hover:to-green-300 transition-all duration-300">
+                    <Icon name={benefit.icon} className="w-8 h-8 text-green-600" />
                   </div>
                   <div className="flex-grow">
                     <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-green-700 transition-colors">{benefit.title}</h3>
-                    <p className="text-slate-600 mb-3">{benefit.description}</p>
+                    <p className="text-slate-600 mb-3 leading-relaxed">{benefit.description}</p>
                     <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">
                       {benefit.stat}
                     </div>
@@ -629,7 +710,11 @@ const WhatWeDo = () => {
                     onMouseLeave={() => setHoveredLocation(null)}
                   >
                     <div className="text-center">
-                      <div className="text-2xl mb-2">{location.flag}</div>
+                      <div className="w-10 h-10 mx-auto mb-3 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-lg flex items-center justify-center">
+                        <Icon name="globe" className={`w-5 h-5 transition-colors ${
+                          hoveredLocation === location.name ? 'text-green-600' : 'text-blue-600'
+                        }`} />
+                      </div>
                       <div className="font-semibold text-slate-900 text-sm mb-1 group-hover:text-green-900 transition-colors">
                         {location.name}
                       </div>
@@ -653,7 +738,7 @@ const WhatWeDo = () => {
                   <div className="flex items-start justify-between">
                     <div>
                       <h4 className="font-bold text-slate-900 text-xl mb-2 group-hover:text-green-900">Nash Squared</h4>
-                      <p className="text-slate-600 text-sm mb-4">Specialized technology recruitment and talent acquisition solutions</p>
+                      <p className="text-slate-600 text-sm mb-4 leading-relaxed">Specialized technology recruitment and comprehensive talent acquisition solutions</p>
                       <div className="flex flex-wrap gap-2">
                         <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Executive Search</span>
                         <span className="px-2 py-1 bg-indigo-100 text-indigo-700 text-xs rounded-full">Contract</span>
@@ -669,7 +754,7 @@ const WhatWeDo = () => {
                   <div className="flex items-start justify-between">
                     <div>
                       <h4 className="font-bold text-slate-900 text-xl mb-2 group-hover:text-green-900">Workforce Solutions</h4>
-                      <p className="text-slate-600 text-sm mb-4">Comprehensive workforce management and strategic consulting services</p>
+                      <p className="text-slate-600 text-sm mb-4 leading-relaxed">Comprehensive workforce management and strategic consulting services for modern businesses</p>
                       <div className="flex flex-wrap gap-2">
                         <span className="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">RPO</span>
                         <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">Consulting</span>
@@ -741,6 +826,7 @@ const WhatWeDo = () => {
             <div className="space-y-12">
               <div className="space-y-6">
                 <div className="inline-flex items-center px-6 py-3 rounded-full bg-green-400/10 border border-green-400/20 backdrop-blur-sm">
+                  <Icon name="rocket" className="w-5 h-5 text-green-400 mr-2" />
                   <span className="text-green-400 text-sm font-semibold tracking-wide">READY TO GET STARTED?</span>
                 </div>
                 
@@ -753,7 +839,7 @@ const WhatWeDo = () => {
               </div>
               
               <p className="text-xl sm:text-2xl lg:text-3xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-                Connect with our expert consultants to discuss your technology recruitment needs and discover how we can help you scale your organization.
+                Connect with our expert consultants to discuss your technology recruitment needs and discover how we can help you scale your organization effectively.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-8 justify-center items-center pt-8">
@@ -778,7 +864,7 @@ const WhatWeDo = () => {
                     </svg>
                   </div>
                   <h4 className="font-bold text-white text-lg mb-3">Email Us</h4>
-                  <p className="text-slate-400 text-sm text-center leading-relaxed">Get detailed information about our services and how we can help</p>
+                  <p className="text-slate-400 text-sm text-center leading-relaxed">Get detailed information about our services and how we can help your organization</p>
                 </a>
                 
                 <a href="tel:+1234567890" className="group flex flex-col items-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 transform hover:-translate-y-2">
@@ -788,7 +874,7 @@ const WhatWeDo = () => {
                     </svg>
                   </div>
                   <h4 className="font-bold text-white text-lg mb-3">Call Us</h4>
-                  <p className="text-slate-400 text-sm text-center leading-relaxed">Speak directly with our recruitment experts for immediate assistance</p>
+                  <p className="text-slate-400 text-sm text-center leading-relaxed">Speak directly with our recruitment experts for immediate assistance and guidance</p>
                 </a>
                 
                 <button 
@@ -802,17 +888,13 @@ const WhatWeDo = () => {
                     </svg>
                   </div>
                   <h4 className="font-bold text-white text-lg mb-3">Find Local Office</h4>
-                  <p className="text-slate-400 text-sm text-center leading-relaxed">Connect with specialized teams in your region worldwide</p>
+                  <p className="text-slate-400 text-sm text-center leading-relaxed">Connect with specialized teams in your region for localized support worldwide</p>
                 </button>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-   
-
-     
     </>
   );
 };
