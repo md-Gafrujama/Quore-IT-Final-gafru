@@ -549,104 +549,75 @@ const Firstpage = () => {
   </div>
 </section>
 
-
-      {/* Logo Slider Section - Straight Line Scroll */}
-      <motion.section 
-        className="relative bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-white py-20 overflow-hidden"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        {/* Decorative Elements */}
-        <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
-        <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
-
-        {/* TOP SLIDER - Continuous Right Movement */}
-        <div className="overflow-hidden mb-16">
-          <motion.div 
-            className="flex gap-8 whitespace-nowrap w-max"
-            animate={{ 
-              x: [0, -2000]
-            }}
-            transition={{ 
-              duration: 25, 
-              repeat: Infinity, 
-              ease: "linear",
-              repeatType: "loop"
-            }}
+ {/* CENTER TEXT */}
+  <motion.div 
+    className="relative z-10 max-w-6xl mx-auto text-center px-4 mb-16"
+    variants={fadeInUp}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+  >
+    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+      Resourcing and staffing that's trusted
+      <br />
+      <span className="text-black/90">from Main Street to Wall Street</span>
+    </h2>
+    <p className="text-lg md:text-xl text-black/80 max-w-4xl mx-auto leading-relaxed">
+      From small businesses to the Fortune 100, organizations across the country leverage
+      Seneca Resources' workforce solutions expertise to fulfill their critical IT and Engineering projects.
+    </p>
+  </motion.div>
+    {/* Logo Slider Section - Straight Line Scroll */}
+<motion.section 
+  className="relative bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-white py-20 overflow-hidden"
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8 }}
+>
+  {/* Decorative Elements */}
+  <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+  <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+  
+  {/* TOP SLIDER - Continuous Right Movement */}
+  <div className="overflow-hidden mb-16">
+    <motion.div 
+      className="flex gap-8 whitespace-nowrap"
+      style={{ width: 'max-content' }}
+      animate={{
+        x: [0, -2000]
+      }}
+      transition={{
+        duration: 25,
+        repeat: Infinity,
+        ease: "linear",
+        repeatType: "loop"
+      }}
+    >
+      {Array.from({ length: 4 }).map((_, groupIndex) =>
+        topLogos.map((logo, idx) => (
+          <div
+            key={`top-${groupIndex}-${idx}`}
+            className="flex-shrink-0 bg-white/10 backdrop-blur-sm p-6 hover:bg-white/20 transition-colors duration-300 w-32 h-20 flex items-center justify-center"
           >
-            {Array.from({ length: 4 }).map((_, groupIndex) => 
-              topLogos.map((logo, idx) => (
-                <div
-                  key={`top-${groupIndex}-${idx}`}
-                  className="flex-shrink-0 bg-white/10 backdrop-blur-sm p-6 hover:bg-white/20 transition-colors duration-300 w-32 h-20 flex items-center justify-center"
-                >
-                  <Image
-                    src={`/images/${logo}`}
-                    alt={`Partner Logo`}
-                    width={120}
-                    height={60}
-                    className="max-h-12 w-auto object-contain filter brightness-0 invert"
-                  />
-                </div>
-              ))
-            )}
-          </motion.div>
-        </div>
-
-        {/* CENTER TEXT */}
-        <motion.div 
-          className="relative z-10 max-w-6xl mx-auto text-center px-4 mb-16"
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Resourcing and staffing that's trusted
-            <br />
-            <span className="text-black/90">from Main Street to Wall Street</span>
-          </h2>
-          <p className="text-lg md:text-xl text-black/80 max-w-4xl mx-auto leading-relaxed">
-            From small businesses to the Fortune 100, organizations across the country leverage
-            Seneca Resources' workforce solutions expertise to fulfill their critical IT and Engineering projects.
-          </p>
-        </motion.div>
-
-        {/* BOTTOM SLIDER - Continuous Left Movement */}
-        <div className="overflow-hidden">
-          <motion.div 
-            className="flex gap-8 whitespace-nowrap w-max"
-            animate={{ 
-              x: [-2000, 0]
-            }}
-            transition={{ 
-              duration: 30, 
-              repeat: Infinity, 
-              ease: "linear",
-              repeatType: "loop"
-            }}
-          >
-            {Array.from({ length: 4 }).map((_, groupIndex) => 
-              bottomLogos.map((logo, idx) => (
-                <div
-                  key={`bottom-${groupIndex}-${idx}`}
-                  className="flex-shrink-0 bg-white/10 backdrop-blur-sm p-6 hover:bg-white/20 transition-colors duration-300 w-32 h-20 flex items-center justify-center"
-                >
-                  <Image
-                    src={`/images/${logo}`}
-                    alt={`Partner Logo`}
-                    width={120}
-                    height={60}
-                    className="max-h-12 w-auto object-contain filter brightness-0 invert"
-                  />
-                </div>
-              ))
-            )}
-          </motion.div>
-        </div>
-      </motion.section>
+            <Image
+              src={`/images/${logo}`}
+              alt={`Partner Logo`}
+              width={120}
+              height={60}
+              className="max-h-12 w-auto object-contain filter brightness-0 invert"
+            />
+          </div>
+        ))
+      )}
+    </motion.div>
+  </div>
+  
+ 
+  
+  {/* BOTTOM SLIDER - Continuous Left Movement */}
+  
+</motion.section>
 
       {/* Industries Section */}
       <motion.section 
