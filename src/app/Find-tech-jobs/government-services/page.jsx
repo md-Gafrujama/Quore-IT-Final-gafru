@@ -78,14 +78,14 @@ const SenecaServicesPage = () => {
             </div>
             
             {/* Professional Geometric Shapes */}
-            <div className="absolute top-32 left-16 w-80 h-80 bg-gradient-to-r from-[#00d9a6]/5 to-[#c5f82a]/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-32 left-16 w-80 h-80 bg-gradient-to-r from-[#00d9a6]/5 to-[#00D9A6]/5 rounded-full blur-3xl"></div>
             <div className="absolute top-1/2 right-20 w-96 h-96 bg-gradient-to-l from-blue-500/3 to-purple-500/3 rounded-full blur-3xl"></div>
             <div className="absolute bottom-40 left-1/3 w-64 h-64 bg-gradient-to-tr from-emerald-400/4 to-teal-400/4 rounded-full blur-2xl"></div>
             
             {/* Elegant Lines */}
             <div className="absolute top-0 left-0 w-full h-full">
               <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#00d9a6]/20 to-transparent"></div>
-              <div className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#c5f82a]/15 to-transparent"></div>
+              <div className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#00D9A6]/15 to-transparent"></div>
             </div>
           </div>
 
@@ -104,23 +104,21 @@ const SenecaServicesPage = () => {
 
                 {/* Main Heading with Professional Typography */}
                 <motion.h1 
-                  className="text-5xl sm:text-6xl lg:text-5xl xl:text-5xl font-bold leading-[1.1] tracking-tight"
+                  className="text-5xl sm:text-6xl lg:text-4xl xl:text-4xl font-bold leading-[1.1] tracking-tight"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
                   Government{' '}
                   <span className="relative inline-block">
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00d9a6] via-[#c5f82a] to-[#00d9a6]">
+                    <span className="text-transparent bg-clip-text bg-white">
                       Services
                     </span>
-                    <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] rounded-full transform scale-x-0 animate-scale-x"></div>
+                    <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#00d9a6] to-[#00D9A6] rounded-full transform scale-x-0 animate-scale-x"></div>
                   </span>
                   <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c5f82a] via-[#00d9a6] to-[#c5f82a]">
-                    Quore IT
-                  </span>
-                  <span className="text-[#00d9a6]">.</span>
+                 
+               
                 </motion.h1>
 
                 {/* Enhanced Professional Description */}
@@ -130,8 +128,8 @@ const SenecaServicesPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                  <div className="relative pl-8 border-l-4 border-gradient-to-b from-[#00d9a6] to-[#c5f82a]">
-                    <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[#00d9a6] to-[#c5f82a] rounded-full"></div>
+                  <div className="relative pl-8 border-l-4 border-gradient-to-b from-[#00d9a6] to-[#00D9A6]">
+                    <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-[#00d9a6] to-[#00D9A6] rounded-full"></div>
                     <p className="font-semibold text-gray-200 leading-relaxed">
                       Navigating compliance with ease - trusted IT.<br />
                      staffing for government projects.
@@ -154,7 +152,7 @@ const SenecaServicesPage = () => {
                 >
                   <Link 
                     href="/contact"
-                    className="group relative inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] text-gray-900 font-semibold rounded-xl hover:shadow-2xl hover:shadow-[#00d9a6]/20 transition-all duration-500 transform hover:scale-105 hover:-translate-y-1"
+                    className="group relative inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#00d9a6] to-[#00D9A6] text-gray-900 font-semibold rounded-xl hover:shadow-2xl hover:shadow-[#00d9a6]/20 transition-all duration-500 transform hover:scale-105 hover:-translate-y-1"
                   >
                     <span className="relative z-10 text-lg">Get Started Today</span>
                     <svg className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -174,7 +172,7 @@ const SenecaServicesPage = () => {
               >
                 {/* Elegant Background Decorations */}
                 <div className="absolute -inset-8">
-                  <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-[#00d9a6]/8 to-[#c5f82a]/8 rounded-full blur-3xl"></div>
+                  <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-[#00d9a6]/8 to-[#00D9A6]/8 rounded-full blur-3xl"></div>
                   <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-blue-500/5 to-purple-500/5 rounded-full blur-2xl"></div>
                 </div>
 
@@ -187,7 +185,7 @@ const SenecaServicesPage = () => {
                   {/* Glass Morphism Container */}
                   <div className="relative bg-gradient-to-br from-white/10 to-white/5 rounded-3xl p-8 backdrop-blur-xl border border-white/20 shadow-2xl">
                     {/* Subtle Inner Glow */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#00d9a6]/5 via-transparent to-[#c5f82a]/5 rounded-3xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#00d9a6]/5 via-transparent to-[#00D9A6]/5 rounded-3xl"></div>
                     
                     {/* Main Image */}
                     <div className="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -204,7 +202,7 @@ const SenecaServicesPage = () => {
                     </div>
 
                     {/* Professional UI Elements */}
-                    <div className="absolute -top-6 -right-6 bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] rounded-2xl p-5 shadow-xl">
+                    <div className="absolute -top-6 -right-6 bg-gradient-to-r from-[#00d9a6] to-[#00D9A6] rounded-2xl p-5 shadow-xl">
                       <div className="flex items-center space-x-3">
                         <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
                         <span className="text-gray-900 font-semibold text-sm">Live Support</span>
@@ -227,8 +225,8 @@ const SenecaServicesPage = () => {
                   </div>
 
                   {/* Subtle Decorative Elements */}
-                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-[#00d9a6] to-[#c5f82a] rounded-full opacity-60 animate-pulse"></div>
-                  <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] rounded-full opacity-40"></div>
+                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-gradient-to-br from-[#00d9a6] to-[#00D9A6] rounded-full opacity-60 animate-pulse"></div>
+                  <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-gradient-to-br from-[#00D9A6] to-[#00d9a6] rounded-full opacity-40"></div>
                 </motion.div>
               </motion.div>
             </div>
@@ -270,7 +268,7 @@ const SenecaServicesPage = () => {
                 </p>
                 <Link 
                   href="/services/defense-intel"
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-gray-900 font-semibold rounded-xl hover:shadow-xl hover:shadow-green-200 transition-all duration-500 focus:outline-none focus:ring-4 focus:ring-green-200 transform hover:scale-105 hover:-translate-y-1"
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#00D9A6] to-[#00d9a6] text-gray-900 font-semibold rounded-xl hover:shadow-xl hover:shadow-green-200 transition-all duration-500 focus:outline-none focus:ring-4 focus:ring-green-200 transform hover:scale-105 hover:-translate-y-1"
                   aria-label="Get started with Defense & Intel services"
                 >
                   GET STARTED
@@ -298,7 +296,7 @@ const SenecaServicesPage = () => {
                 </p>
                 <Link 
                   href="/services/federal-civilian"
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-gray-900 font-semibold rounded-xl hover:shadow-xl hover:shadow-green-200 transition-all duration-500 focus:outline-none focus:ring-4 focus:ring-green-200 transform hover:scale-105 hover:-translate-y-1"
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#00D9A6] to-[#00d9a6] text-gray-900 font-semibold rounded-xl hover:shadow-xl hover:shadow-green-200 transition-all duration-500 focus:outline-none focus:ring-4 focus:ring-green-200 transform hover:scale-105 hover:-translate-y-1"
                   aria-label="Get started with Federal Civilian, Homeland & Justice services"
                 >
                   GET STARTED
@@ -352,7 +350,7 @@ const SenecaServicesPage = () => {
                 </p>
                 <Link 
                   href="/services/federal-health"
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-gray-900 font-semibold rounded-xl hover:shadow-xl hover:shadow-green-200 transition-all duration-500 focus:outline-none focus:ring-4 focus:ring-green-200 transform hover:scale-105 hover:-translate-y-1"
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#00D9A6] to-[#00d9a6] text-gray-900 font-semibold rounded-xl hover:shadow-xl hover:shadow-green-200 transition-all duration-500 focus:outline-none focus:ring-4 focus:ring-green-200 transform hover:scale-105 hover:-translate-y-1"
                   aria-label="Get started with Federal Health services"
                 >
                   GET STARTED
@@ -380,7 +378,7 @@ const SenecaServicesPage = () => {
                 </p>
                 <Link 
                   href="/services/state-local-education"
-                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-gray-900 font-semibold rounded-xl hover:shadow-xl hover:shadow-green-200 transition-all duration-500 focus:outline-none focus:ring-4 focus:ring-green-200 transform hover:scale-105 hover:-translate-y-1"
+                  className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-[#00D9A6] to-[#00d9a6] text-gray-900 font-semibold rounded-xl hover:shadow-xl hover:shadow-green-200 transition-all duration-500 focus:outline-none focus:ring-4 focus:ring-green-200 transform hover:scale-105 hover:-translate-y-1"
                   aria-label="Get started with State, Local & Education services"
                 >
                   GET STARTED
@@ -435,7 +433,7 @@ const SenecaServicesPage = () => {
         </section>
 
         {/* Engineering Specialties Section - Enhanced */}
-        <section className="py-20 lg:py-28 bg-gradient-to-br from-[#c5f82a] to-[#00d9a6]">
+        <section className="py-20 lg:py-28 bg-gradient-to-br from-[#00D9A6] to-[#00d9a6]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               className="text-center mb-20"

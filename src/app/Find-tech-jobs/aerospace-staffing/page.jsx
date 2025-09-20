@@ -73,7 +73,7 @@ const SenecaServicesPage = () => {
           <div className="absolute inset-0">
             {/* Gradient Orbs */}
             <motion.div 
-              className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-[#00d9a6]/20 to-[#c5f82a]/20 rounded-full blur-3xl"
+              className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-[#00d9a6]/20 to-[#00d9a6]/20 rounded-full blur-3xl"
               animate={{
                 x: [0, 100, 0],
                 y: [0, -50, 0],
@@ -113,7 +113,7 @@ const SenecaServicesPage = () => {
               }}
             />
             <motion.div 
-              className="absolute bottom-1/3 left-1/4 w-6 h-6 border-2 border-[#c5f82a] rotate-45 opacity-40"
+              className="absolute bottom-1/3 left-1/4 w-6 h-6 border-2 border-[#00d9a6] rotate-45 opacity-40"
               animate={{
                 rotate: [45, 225, 45],
                 scale: [1, 1.2, 1]
@@ -172,7 +172,7 @@ const SenecaServicesPage = () => {
                     <span className="block bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                    Aerospace Staffing
                     </span>
-                    {/* <span className="block bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] bg-clip-text text-transparent mt-2">
+                    {/* <span className="block bg-gradient-to-r from-[#00d9a6] to-[#00d9a6] bg-clip-text text-transparent mt-2">
                       Choose IT Excellence.
                     </span> */}
                   </motion.h1>
@@ -275,7 +275,7 @@ const SenecaServicesPage = () => {
                   transition={{ delay: 1.1, duration: 0.6 }}
                 >
                   <motion.button
-                    className="group relative px-8 py-4 bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] text-white font-bold rounded-full text-lg shadow-xl overflow-hidden"
+                    className="group relative px-8 py-4 bg-gradient-to-r from-[#00d9a6] to-[#00d9a6] text-white font-bold rounded-full text-lg shadow-xl overflow-hidden"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     transition={{ duration: 0.2 }}
@@ -327,7 +327,7 @@ const SenecaServicesPage = () => {
                 >
                   {/* Enhanced Background Decorations */}
                   <motion.div 
-                    className="absolute -top-8 -right-8 w-80 h-80 bg-gradient-to-br from-[#00d9a6]/30 to-[#c5f82a]/30 rounded-full opacity-30 blur-2xl"
+                    className="absolute -top-8 -right-8 w-80 h-80 bg-gradient-to-br from-[#00d9a6]/30 to-[#00d9a6]/30 rounded-full opacity-30 blur-2xl"
                     animate={{ 
                       scale: hoveredSide === 'right' ? 1.3 : 1,
                       rotate: hoveredSide === 'right' ? 180 : 0
@@ -360,7 +360,7 @@ const SenecaServicesPage = () => {
                     {/* Image Wrapper */}
                     <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-white/10 via-gray-50/5 to-gray-100/10 p-4 backdrop-blur-sm">
                       <motion.div 
-                        className="absolute inset-0 bg-gradient-to-br from-[#00d9a6]/10 via-transparent to-[#c5f82a]/10 rounded-3xl"
+                        className="absolute inset-0 bg-gradient-to-br from-[#00d9a6]/10 via-transparent to-[#00d9a6]/10 rounded-3xl"
                         animate={{
                           opacity: hoveredSide === 'right' ? 0.8 : 0.4
                         }}
@@ -394,7 +394,7 @@ const SenecaServicesPage = () => {
 
                       {/* Enhanced Corner Decorations */}
                       <motion.div 
-                        className="absolute top-2 right-2 w-6 h-6 bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] rounded-full shadow-lg"
+                        className="absolute top-2 right-2 w-6 h-6 bg-gradient-to-r from-[#00d9a6] to-[#00d9a6] rounded-full shadow-lg"
                         animate={{
                           scale: hoveredSide === 'right' ? 1.5 : 1,
                           rotate: hoveredSide === 'right' ? 360 : 0
@@ -413,7 +413,7 @@ const SenecaServicesPage = () => {
 
                     {/* Enhanced Floating Elements */}
                     <motion.div 
-                      className="absolute -top-4 left-1/4 w-8 h-8 bg-gradient-to-r from-[#00d9a6] to-[#c5f82a] rounded-full opacity-80 shadow-lg"
+                      className="absolute -top-4 left-1/4 w-8 h-8 bg-gradient-to-r from-[#00d9a6] to-[#00d9a6] rounded-full opacity-80 shadow-lg"
                       animate={{
                         y: hoveredSide === 'right' ? [-5, 5, -5] : [0],
                         scale: hoveredSide === 'right' ? 1.2 : 1
@@ -475,7 +475,7 @@ const SenecaServicesPage = () => {
                       <div className="mt-auto">
                         <Link
                           href={`/services/${service.id}`}
-                          className="inline-flex items-center bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] hover:from-[#00d9a6] hover:to-[#c5f82a] text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500/50"
+                          className="inline-flex items-center bg-gradient-to-r from-[#00d9a6] to-[#00d9a6] hover:from-[#00d9a6] hover:to-[#00d9a6] text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500/50"
                           aria-label={`Learn more about ${service.title} services`}
                         >
                           GET STARTED
@@ -499,7 +499,7 @@ const SenecaServicesPage = () => {
         </section>
 
        {/* Engineering Specialties Section */}
-              <section className="py-20 lg:py-28 bg-gradient-to-br from-[#c5f82a] to-[#00d9a6]">
+              <section className="py-20 lg:py-28 bg-gradient-to-br from-[#00d9a6] to-[#00d9a6]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <motion.div 
                     className="text-center mb-20"

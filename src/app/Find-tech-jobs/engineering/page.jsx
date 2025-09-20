@@ -84,43 +84,21 @@ const SenecaServicesPage = () => {
 
                 {/* Premium Main Headline */}
                 <motion.div className="space-y-4">
-                  <motion.h1 
-                    className="text-5xl sm:text-6xl lg:text-5xl xl:text-5xl font-bold leading-[0.9] tracking-tight"
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 1 }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <motion.span 
-                      className="block text-white font-light mb-2"
-                      style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
-                    >
-                      Engineering
-                    </motion.span>
-                    <motion.span 
-                      className=" font-black"
-                      style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
-                    >
-                      <span className="text-white">Recruitment</span>
-                      <span className="">,</span>
-                    </motion.span>
-                    <motion.span 
-                      className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-500 bg-clip-text text-transparent block font-black mt-2"
-                      style={{ fontFamily: "'Inter', 'Helvetica Neue', sans-serif" }}
-                      animate={{
-                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                      }}
-                      transition={{
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "linear"
-                      }}
-                    >
-                 Services
-                    </motion.span>
-                  </motion.h1>
+                
                 </motion.div>
-
+<motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  className="space-y-4"
+                >
+                  <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl font-extrabold leading-tight tracking-tight">
+                  Engineering Recruitment, Services{' '}
+                    {/* <span className="block bg-gradient-to-r from-[#00D8A6] via-cyan-400 to-blue-500 bg-clip-text text-transparent animate-pulse">
+                   Recruiting
+                    </span> */}
+                  </h1>
+                </motion.div>
                 {/* Professional Taglines */}
                 <motion.div 
                   className="space-y-6 max-w-2xl"
@@ -157,29 +135,13 @@ const SenecaServicesPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.2, duration: 0.8 }}
                 >
-                  <Link 
-                    href="/contact"
-                    className="group relative inline-flex items-center justify-center px-10 py-5 bg-white text-slate-900 font-bold text-lg rounded-none hover:bg-gray-100 transition-all duration-500 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-white/30 overflow-hidden"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                  >
-                    <span className="relative z-10 flex items-center">
-                      GET STARTED TODAY
-                      <motion.svg 
-                        className="ml-3 w-5 h-5" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </motion.svg>
-                    </span>
-                    <motion.div 
-                      className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-cyan-500 opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-                    />
-                  </Link>
-                  
+             <Link
+                                 href="/services"
+                                 className="group relative px-8 py-4 bg-gradient-to-r from-[#00d9a6] to-cyan-500 hover:from-[#00d9a6] hover:to-blue-600 text-white font-semibold rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 "
+                               >
+                                 <span className="relative z-10">Get Started Today</span>
+                                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
+                               </Link>
                  
                 </motion.div>
 
@@ -342,7 +304,7 @@ const SenecaServicesPage = () => {
                 transition={{ delay: 0.2, duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent text-justify">
+                <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#00d9a6] to-cyan-500 hover:from-[#00d9a6] bg-clip-text text-transparent text-justify">
                   Automotive
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed text-justify">
@@ -350,7 +312,7 @@ const SenecaServicesPage = () => {
                 </p>
                 <Link 
                   href="/services/automotive"
-                  className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500/50 text-lg"
+                  className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-[#00d9a6] to-cyan-500 hover:from-[#00d9a6] text-white font-bold rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-500/50 text-lg"
                   aria-label="Get started with Automotive engineering services"
                 >
                   GET STARTED
@@ -376,7 +338,7 @@ const SenecaServicesPage = () => {
                 transition={{ delay: 0.2, duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent text-justify">
+                <h2 className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#00d9a6] to-cyan-500 hover:from-[#00d9a6] bg-clip-text text-transparent text-justify">
                   Energy/Utility Staffing
                 </h2>
                 <p className="text-xl text-gray-600 leading-relaxed text-justify">
@@ -384,7 +346,7 @@ const SenecaServicesPage = () => {
                 </p>
                 <Link 
                   href="/services/energy-utility"
-                  className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-bold rounded-full hover:from-green-700 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-500/50 text-lg"
+                  className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-[#00d9a6] to-cyan-500 hover:from-[#00d9a6] text-white font-bold rounded-full hover:from-green-700 hover:to-emerald-700 transition-all duration-300 transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-500/50 text-lg"
                   aria-label="Get started with Energy/Utility staffing services"
                 >
                   GET STARTED
@@ -444,7 +406,7 @@ const SenecaServicesPage = () => {
         </motion.section>
         
        {/* Engineering Specialties Section */}
-              <section className="py-20 lg:py-28 bg-gradient-to-br from-[#c5f82a] to-[#00d9a6]">
+              <section className="py-20 lg:py-28 bg-gradient-to-br from-[#00D9A6] to-[#00d9a6]">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <motion.div 
                     className="text-center mb-20"

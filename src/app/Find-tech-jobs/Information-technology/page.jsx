@@ -75,7 +75,7 @@ const SenecaServicesPage = () => {
           </div>
 
           {/* Floating Particles */}
-          <div className="absolute inset-0 overflow-hidden">
+          {/* <div className="absolute inset-0 overflow-hidden">
             {[...Array(8)].map((_, i) => (
               <motion.div
                 key={i}
@@ -97,7 +97,7 @@ const SenecaServicesPage = () => {
                 }}
               />
             ))}
-          </div>
+          </div> */}
 
           {/* Main Content Container */}
           <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full py-12">
@@ -117,11 +117,11 @@ const SenecaServicesPage = () => {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className="space-y-4"
                 >
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-extrabold leading-tight tracking-tight">
-                  Information Technology,{' '}
-                    <span className="block bg-gradient-to-r from-[#00d9a6] via-cyan-400 to-blue-500 bg-clip-text text-transparent animate-pulse">
+                  <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl font-extrabold leading-tight tracking-tight">
+                  Information Technology, Recruiting{' '}
+                    {/* <span className="block bg-gradient-to-r from-[#00D8A6] via-cyan-400 to-blue-500 bg-clip-text text-transparent animate-pulse">
                    Recruiting
-                    </span>
+                    </span> */}
                   </h1>
                 </motion.div>
 
@@ -151,7 +151,7 @@ const SenecaServicesPage = () => {
                 >
                   <Link
                     href="/services"
-                    className="group relative px-8 py-4 bg-gradient-to-r from-[#00d9a6] to-cyan-500 hover:from-[#00d9a6] hover:to-blue-600 text-white font-semibold rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 hover:shadow-cyan-500/25"
+                    className="group relative px-8 py-4 bg-gradient-to-r from-[#00d9a6] to-cyan-500 hover:from-[#00d9a6] hover:to-blue-600 text-white font-semibold rounded-full shadow-2xl transform transition-all duration-300 hover:scale-105 "
                   >
                     <span className="relative z-10">Get Started Today</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
@@ -508,7 +508,7 @@ const SenecaServicesPage = () => {
         </section>
 
         {/* Engineering Specialties Section */}
-        <section className="py-20 lg:py-28 bg-gradient-to-br from-[#c5f82a] to-[#00d9a6]">
+        <section className="py-20 lg:py-28 bg-gradient-to-br from-[#00D8A6] to-[#00d9a6]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div 
               className="text-center mb-20"

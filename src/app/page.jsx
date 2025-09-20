@@ -268,7 +268,7 @@ const Firstpage = () => {
     <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">   
       <Link href="/get-started">     
         <motion.button       
-          className="w-60 h-16 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold text-lg rounded-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center"       
+          className="w-60 h-16 bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] text-black font-bold text-lg rounded-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center"       
           whileHover={{ scale: 1.05, y: -2 }}       
           whileTap={{ scale: 0.95 }}     
         >       
@@ -304,7 +304,7 @@ const Firstpage = () => {
         Why Choose Us
       </span>
       <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
-        <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
+        <span className="block bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] bg-clip-text text-transparent">
           The Quore Advantage
         </span>
       </h2>
@@ -448,7 +448,7 @@ const Firstpage = () => {
       
       <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 leading-tight">
      
-        <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
+        <span className="block bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] bg-clip-text text-transparent">
              Our Commitment
         </span>
       </h2>
@@ -532,7 +532,7 @@ const Firstpage = () => {
     {/* CTA Button */}
     <div className="text-center">
       <motion.button
-        className="inline-flex items-center gap-3 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold px-10 py-4 hover:shadow-xl transition-all duration-300 group"
+        className="inline-flex items-center gap-3 bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] text-black font-bold px-10 py-4 hover:shadow-xl transition-all duration-300 group"
         whileHover={{ scale: 1.05, y: -2 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -546,7 +546,7 @@ const Firstpage = () => {
  {/* CENTER TEXT */}
 {/* Enhanced Logo Slider Section */}
 <motion.section 
-  className="relative bg-gradient-to-br from-[#c5f82a] via-[#00d9a6] to-[#1a73e8] text-white py-24 overflow-hidden"
+  className="relative bg-gradient-to-br from-[#00D8A6] via-[#00d9a6] to-[#1a73e8] text-white py-24 overflow-hidden"
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
   viewport={{ once: true }}
@@ -724,10 +724,10 @@ const Firstpage = () => {
       >
         <div className="max-w-6xl mx-auto">
           <motion.div className="text-center mb-20" variants={bounceIn}>
-            <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide">
+            <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#00D8A6]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide">
               Our Expertise
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-transparent bg-clip-text mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] text-transparent bg-clip-text mb-8">
               Industries Served
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -794,13 +794,13 @@ const Firstpage = () => {
     {/* Premium Header */}
     <motion.div className="text-center mb-16 md:mb-24" variants={bounceIn}>
       <motion.span 
-        className="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#c5f82a]/10 to-[#00d9a6]/10 border border-gray-200/60 text-gray-700 text-sm md:text-base font-bold mb-6 md:mb-8 uppercase tracking-wider rounded-full shadow-sm backdrop-blur-sm"
+        className="inline-flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-[#00D8A6]/10 to-[#00d9a6]/10 border border-gray-200/60 text-gray-700 text-sm md:text-base font-bold mb-6 md:mb-8 uppercase tracking-wider rounded-full shadow-sm backdrop-blur-sm"
         whileHover={{ scale: 1.02, y: -2 }}
         transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
-        <div className="w-2 h-2 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full animate-pulse"></div>
+        <div className="w-2 h-2 bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] rounded-full animate-pulse"></div>
         Premium Services
-        <div className="w-2 h-2 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] rounded-full animate-pulse"></div>
+        <div className="w-2 h-2 bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] rounded-full animate-pulse"></div>
       </motion.span>
       
       <motion.h2 
@@ -809,7 +809,7 @@ const Firstpage = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#c5f82a] to-[#00d9a6]">Services</span>
+        Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D8A6] to-[#00d9a6]">Services</span>
       </motion.h2>
       
       <motion.p 
@@ -877,7 +877,7 @@ const Firstpage = () => {
             {/* Service Header */}
             <div className="flex items-start gap-4 md:gap-6 mb-6">
               <motion.div 
-                className="flex-shrink-0 p-3 md:p-4 bg-gradient-to-br from-[#c5f82a] to-[#00d9a6] rounded-xl md:rounded-2xl shadow-md"
+                className="flex-shrink-0 p-3 md:p-4 bg-gradient-to-br from-[#00D8A6] to-[#00d9a6] rounded-xl md:rounded-2xl shadow-md"
                 whileHover={{ 
                   rotate: 5,
                   scale: 1.05,
@@ -889,7 +889,7 @@ const Firstpage = () => {
               
               <div className="flex-1 min-w-0">
                 <motion.h3 
-                  className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#c5f82a] group-hover:to-[#00d9a6] transition-all duration-500 mb-2 md:mb-3 leading-tight"
+                  className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#00D8A6] group-hover:to-[#00d9a6] transition-all duration-500 mb-2 md:mb-3 leading-tight"
                   whileHover={{ x: 3 }}
                 >
                   {service.title}
@@ -915,7 +915,7 @@ const Firstpage = () => {
             {/* Trust Indicators */}
             <div className="flex items-center justify-between mb-6 md:mb-8 p-3 md:p-4 bg-gray-50 rounded-xl border border-gray-100">
               <div className="text-center flex-1">
-                <div className="text-lg md:text-xl font-bold text-[#c5f82a]">99%</div>
+                <div className="text-lg md:text-xl font-bold text-[#00D8A6]">99%</div>
                 <div className="text-xs text-gray-500">Success Rate</div>
               </div>
               <div className="w-px h-8 bg-gray-200"></div>
@@ -925,7 +925,7 @@ const Firstpage = () => {
               </div>
               <div className="w-px h-8 bg-gray-200"></div>
               <div className="text-center flex-1">
-                <div className="text-lg md:text-xl font-bold text-orange-500">Fast</div>
+                <div className="text-lg md:text-xl font-bold text-[#00D8A6]">Fast</div>
                 <div className="text-xs text-gray-500">Delivery</div>
               </div>
             </div>
@@ -933,7 +933,7 @@ const Firstpage = () => {
             {/* Premium CTA Button */}
             <Link href={service.link}>
               <motion.div
-                className="group/btn relative w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 via-orange-600 to-orange-700 hover:from-orange-600 hover:via-orange-700 hover:to-orange-800 text-white font-bold px-6 md:px-8 py-4 md:py-5 rounded-xl md:rounded-2xl overflow-hidden transition-all duration-500 shadow-lg hover:shadow-xl"
+                className="group/btn relative w-full inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#00D8A6] to-[#00d8a6] bg  text-white font-bold px-6 md:px-8 py-4 md:py-5 rounded-xl md:rounded-2xl overflow-hidden transition-all duration-500 shadow-lg hover:shadow-xl"
                 whileHover={{ 
                   scale: 1.02,
                   y: -2
@@ -988,7 +988,7 @@ const Firstpage = () => {
             
             <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight">
               How can we help
-              <span className="block bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] bg-clip-text text-transparent">
                 transform your business?
               </span>
             </h1>
@@ -1013,7 +1013,7 @@ const Firstpage = () => {
           >
             <Link href="/Contact-us">
               <motion.button 
-                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-black font-bold py-4 px-10 hover:shadow-2xl transition-all duration-300 group"
+                className="inline-flex items-center gap-3 bg-gradient-to-r from-[#00D8A6] to-[#00d9a6] text-black font-bold py-4 px-10 hover:shadow-2xl transition-all duration-300 group"
                 whileHover={{ 
                   scale: 1.05,
                   y: -2
