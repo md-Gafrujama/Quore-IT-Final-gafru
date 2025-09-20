@@ -550,74 +550,175 @@ const Firstpage = () => {
 </section>
 
  {/* CENTER TEXT */}
-  <motion.div 
-    className="relative z-10 max-w-6xl mx-auto text-center px-4 mb-16"
-    variants={fadeInUp}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-  >
-    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-      Resourcing and staffing that's trusted
-      <br />
-      <span className="text-black/90">from Main Street to Wall Street</span>
-    </h2>
-    <p className="text-lg md:text-xl text-black/80 max-w-4xl mx-auto leading-relaxed">
-      From small businesses to the Fortune 100, organizations across the country leverage
-      Seneca Resources' workforce solutions expertise to fulfill their critical IT and Engineering projects.
-    </p>
-  </motion.div>
-    {/* Logo Slider Section - Straight Line Scroll */}
+{/* Enhanced Logo Slider Section */}
 <motion.section 
-  className="relative bg-gradient-to-r from-[#c5f82a] to-[#00d9a6] text-white py-20 overflow-hidden"
+  className="relative bg-gradient-to-br from-[#c5f82a] via-[#00d9a6] to-[#1a73e8] text-white py-24 overflow-hidden"
   initial={{ opacity: 0 }}
   whileInView={{ opacity: 1 }}
   viewport={{ once: true }}
   transition={{ duration: 0.8 }}
 >
-  {/* Decorative Elements */}
-  <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
-  <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
-  
-  {/* TOP SLIDER - Continuous Right Movement */}
-  <div className="overflow-hidden mb-16">
+  {/* Modern Decorative Elements with Animation */}
+  <motion.div 
+    className="absolute top-20 left-16 w-40 h-40 bg-white/15 rounded-full blur-3xl"
+    animate={{ 
+      scale: [1, 1.2, 1],
+      opacity: [0.15, 0.25, 0.15]
+    }}
+    transition={{ 
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+  <motion.div 
+    className="absolute bottom-16 right-20 w-56 h-56 bg-white/10 rounded-full blur-3xl"
+    animate={{ 
+      scale: [1.2, 1, 1.2],
+      opacity: [0.1, 0.2, 0.1]
+    }}
+    transition={{ 
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut",
+      delay: 1
+    }}
+  />
+  <motion.div 
+    className="absolute top-1/2 left-1/3 w-32 h-32 bg-white/8 rounded-full blur-2xl"
+    animate={{ 
+      x: [0, 100, 0],
+      y: [0, -50, 0]
+    }}
+    transition={{ 
+      duration: 8,
+      repeat: Infinity,
+      ease: "easeInOut"
+    }}
+  />
+
+  {/* Enhanced Section Header */}
+  <motion.div 
+    className="relative z-20 max-w-4xl mx-auto text-center px-6 mb-16 bg-white/10 backdrop-blur-md rounded-2xl py-10 text-lg"
+    variants={fadeInUp}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+  >
+    <motion.h3 
+      className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-white to-white/90 bg-clip-text text-transparent"
+      whileInView={{ 
+        backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+      }}
+      transition={{ duration: 3, repeat: Infinity }}
+    >
+      Trusted by Industry Leaders
+    </motion.h3>
+    <p className="text-white/80 text-lg max-w-2xl mx-auto">
+      Join hundreds of companies that trust our workforce solutions
+    </p>
+  </motion.div>
+
+  {/* TOP SLIDER - Enhanced with Hover Effects */}
+  <div className="overflow-hidden mb-12 relative">
     <motion.div 
-      className="flex gap-8 whitespace-nowrap"
+      className="flex gap-6 whitespace-nowrap"
       style={{ width: 'max-content' }}
       animate={{
         x: [0, -2000]
       }}
       transition={{
-        duration: 25,
+        duration: 30,
         repeat: Infinity,
         ease: "linear",
         repeatType: "loop"
       }}
+      whileHover={{
+        animationPlayState: "paused"
+      }}
     >
-      {Array.from({ length: 4 }).map((_, groupIndex) =>
+      {Array.from({ length: 6 }).map((_, groupIndex) =>
         topLogos.map((logo, idx) => (
-          <div
+          <motion.div
             key={`top-${groupIndex}-${idx}`}
-            className="flex-shrink-0 bg-white/10 backdrop-blur-sm p-6 hover:bg-white/20 transition-colors duration-300 w-32 h-20 flex items-center justify-center"
+            className="flex-shrink-0 bg-white/15 backdrop-blur-md rounded-xl p-6 shadow-lg border border-white/20 w-36 h-24 flex items-center justify-center cursor-pointer"
+            whileHover={{ 
+              scale: 1.05,
+              y: -5,
+              backgroundColor: "rgba(255, 255, 255, 0.25)",
+              transition: { duration: 0.2 }
+            }}
+            whileTap={{ scale: 0.98 }}
+            initial={{ opacity: 0.8 }}
+            whileInView={{ opacity: 1 }}
           >
             <Image
               src={`/images/${logo}`}
               alt={`Partner Logo`}
               width={120}
               height={60}
-              className="max-h-12 w-auto object-contain filter brightness-0 invert"
+              className="max-h-14 w-auto object-contain filter brightness-0 invert transition-all duration-300"
             />
-          </div>
+          </motion.div>
         ))
       )}
     </motion.div>
   </div>
-  
- 
-  
-  {/* BOTTOM SLIDER - Continuous Left Movement */}
-  
+
+  {/* MIDDLE SLIDER - Reverse Direction with Different Speed */}
+  <div className="overflow-hidden mb-12 relative">
+    <motion.div 
+      className="flex gap-6 whitespace-nowrap"
+      style={{ width: 'max-content' }}
+      animate={{
+        x: [-2000, 0]
+      }}
+      transition={{
+        duration: 35,
+        repeat: Infinity,
+        ease: "linear",
+        repeatType: "loop"
+      }}
+      whileHover={{
+        animationPlayState: "paused"
+      }}
+    >
+    
+    </motion.div>
+  </div>
+
+  {/* BOTTOM SLIDER - Slower Speed with Enhanced Styling */}
+  <div className="overflow-hidden relative">
+    <motion.div 
+      className="flex gap-6 whitespace-nowrap"
+      style={{ width: 'max-content' }}
+      animate={{
+        x: [0, -2000]
+      }}
+      transition={{
+        duration: 40,
+        repeat: Infinity,
+        ease: "linear",
+        repeatType: "loop"
+      }}
+      whileHover={{
+        animationPlayState: "paused"
+      }}
+    >
+     
+    </motion.div>
+  </div>
+
+  {/* Interactive Progress Indicator */}
+  <motion.div 
+    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.5 }}
+  >
+  </motion.div>
 </motion.section>
+
 
       {/* Industries Section */}
       <motion.section 
