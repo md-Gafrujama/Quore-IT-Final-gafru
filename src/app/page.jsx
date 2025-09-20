@@ -300,7 +300,7 @@ const Firstpage = () => {
       whileInView="visible"
       viewport={{ once: true }}
     >
-      <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#c5f82a]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide ">
+      <span className="inline-block px-6 py-3 bg-gradient-to-r from-[#00D8A6]/20 to-[#00d9a6]/20 border border-gray-200 text-gray-700 text-sm font-semibold mb-8 uppercase tracking-wide ">
         Why Choose Us
       </span>
       <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8 leading-tight">
