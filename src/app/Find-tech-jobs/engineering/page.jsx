@@ -93,10 +93,10 @@ const SenecaServicesPage = () => {
                   className="space-y-4"
                 >
                   <h1 className="text-3xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl font-extrabold leading-tight tracking-tight">
-                  Engineering Recruitment, Services{' '}
-                    {/* <span className="block bg-gradient-to-r from-[#00D8A6] via-cyan-400 to-blue-500 bg-clip-text text-transparent animate-pulse">
-                   Recruiting
-                    </span> */}
+                  Engineering Recruitment, {' '}
+                    <span className="text-3xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl font-extrabold leading-tight tracking-tight">
+                  Services
+                    </span>
                   </h1>
                 </motion.div>
                 {/* Professional Taglines */}
